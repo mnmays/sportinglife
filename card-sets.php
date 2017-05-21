@@ -1,7 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	
+	<script>
+function showPics(str) {
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } 
+  else { // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+  if (this.readyState==4 && this.status==200) {
+      document.getElementById("txtHint").innerHTML=this.responseText;
+    }
+  }
+  xmlhttp.open("GET","getpics.php?q="+str,true);
+  xmlhttp.send();
+}
+</script>
 </head>
 
 <header>
@@ -36,17 +53,17 @@
  {
  	  $row = mysqli_fetch_array($result);
 	  ?>
-	  <button onclick"showPics()"><?php echo $row['seriesName'];?></button> <br>
-	  <?php
-	  
+		<input type="button" value="<?php echo $row['seriesName'];?>" onclick="showPics(this.value)"><br>
+
+	  <?php	  
  } ?>
- 
  
  
  	</aside>
 
 	<article>
 
+		<div id="txtHint"><b>Person info will be listed here.</b></div>
 
 	</article>
 
