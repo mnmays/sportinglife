@@ -19,7 +19,7 @@ border-color:white;
 
 #logo
 {
-	height: 50px;
+	height: 80px;
 }
 
 #title
@@ -77,5 +77,11 @@ border-color:white;
   left: 0;
   padding: 1rem;
   background-color: #efefef;
-  text-align: center;
 }
+
+#TwitLogo, #FBLogo, #pinLogo
+{
+	height:15px; 
+	width: auto; 
+}
+
