@@ -8,7 +8,10 @@ alert("Form Submitted Successfully...");
 }
 }
 //Function To Display Popup
-function div_show() {
+var itemIndex= index;
+var itemPrice = price;
+var itemSize = size;
+function div_show(index,size,price) {
 document.getElementById('abc').style.display = "block";
 /*var id= $val1;
 var size =$val2;
@@ -16,10 +19,11 @@ var price = $val3;
 document.getElementById("id1")=id;
 document.getElelementById("size1")=size;
 document.getElemebtById("price1")=price;*/
+document.getElementById("id1").value=index;
 
-document.getElementById("id1").value="<?php echo @$_POST['itemID']; ?>";
+/*document.getElementById("id1").value="<?php echo @$_POST['itemID']; ?>";
 document.getElementById("size1").value="<?php echo @$_POST['itemSize']; ?>";
-document.getElementById("price1").value="<?php echo @$_POST['itemPrice']; ?>";
+document.getElementById("price1").value="<?php echo @$_POST['itemPrice']; ?>";*/
 
 }
 //Function to Hide Popup

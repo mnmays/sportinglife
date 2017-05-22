@@ -4,7 +4,7 @@
 <title>Popup contact form</title>
 <link href="elements.css" rel="stylesheet">
 <link rel = "stylesheet" href = "products.css">
-<link rel="styleSheet" href = "mainStyles.css">
+<link rel="styleSheet" href = "styles/generalStyles.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script src = "orderValidation.js"></script>
 <script src="my_js.js"></script>
@@ -47,7 +47,7 @@ $viewStmt->execute();
 $itemList=$viewStmt->fetchAll();
 $viewStmt->closeCursor();
 foreach($itemList as $item) {
-				echo '<div class="item"><p>'. $item['itemID'] .'</p><img src="data:image/jpeg;base64, '.base64_encode($item['itemImage']) . ' "><p> '. $item['itemSize'] . "</p><p> " . $item['itemDesc'] ."</p><p> ".$item['itemPrice'].'</p><button id="popup" onclick="div_show()">Order</button></div>';
+				echo '<div class="item"><img src="data:image/jpeg;base64, '.base64_encode($item['itemImage']) . ' "><p> '. $item['itemSize'] . "</p><p> " . $item['itemDesc'] ."</p><p> ".$item['itemPrice'].'</p><button id="popup" onclick="div_show('. $item['itemID'] .')">Order</button></div>';
 			}//end foreach ?>
 <div id="abc">
 <!-- Popup Div Starts Here -->
