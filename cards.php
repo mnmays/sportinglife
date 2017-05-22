@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	//TESTING THIS BECAUSE REASONS LOL
+	//SECOND EDIT
 	<head>
 		<meta charset="UTF-8">
 		<title>Cards Page</title>
