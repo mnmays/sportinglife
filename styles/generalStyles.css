@@ -1,0 +1,22 @@
+/*
+ * this styles sheet is designed to be applied to all of the main pages of the site. 
+ * it impacts the header, nav bar, and the footer
+ */
+
+#logo
+{
+	height: 50px;
+}
+
+nav
+{
+	height: 300px; 
+	border: 0; 
+	
+}
+
+#TwitLogo, #FBLogo, #pinLogo
+{
+	height:15px; 
+	width: auto; 
+}
