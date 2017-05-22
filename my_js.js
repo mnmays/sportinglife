@@ -13,22 +13,16 @@ var itemPrice = price;
 var itemSize = size;
 function div_show(index,size,price) {
 document.getElementById('abc').style.display = "block";
-/*var id= $val1;
-var size =$val2;
-var price = $val3;
-document.getElementById("id1")=id;
-document.getElelementById("size1")=size;
-document.getElemebtById("price1")=price;*/
-document.getElementById("id1").value=index;
 
-/*document.getElementById("id1").value="<?php echo @$_POST['itemID']; ?>";
-document.getElementById("size1").value="<?php echo @$_POST['itemSize']; ?>";
-document.getElementById("price1").value="<?php echo @$_POST['itemPrice']; ?>";*/
+document.getElementById("id1").value=index;
 
 }
 //Function to Hide Popup
 function div_hide(){
+document.getElementById("myForm").reset();
 document.getElementById('abc').style.display = "none";
+window.location = "http://localhost/aptanadir/sportinglife/products.php";  //will need to be updated with live site URL!!!
+
 }
 
 function checkForm()  //client side validation
