@@ -1,0 +1,87 @@
+/*main background*/
+
+background-repeat: no-repeat; 
+background-position: right bottom;
+background-size: cover;
+
+border-style: solid;
+border-color:white; 
+
+/*header*/
+.header 
+{
+    height:50px;
+    background:#F0F0F0;
+    border:1px solid #CCC;
+    width:100%;
+    margin:0px auto;
+}
+
+#logo
+{
+	height: 80px;
+}
+
+#title
+{
+	height: 90px;
+	width: 270px;
+	font-size: 48px;
+	text-align: center;
+	margin-top: 30px;
+	margin-left: 5px;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+	color: white; 
+	font-family: "Georgia", Times, serif;
+}
+
+#slogan
+{
+	color: white; 
+	text-align: center;
+	font-style: oblique; 
+	font-size: 25px; 
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+
+.button
+{
+	background-color: #2a4f7e;
+	opacity: .8; 
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+   	color: white; 
+   	font-family: "Georgia", Times, serif;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button:hover
+{
+    border: 2px solid #2a4f7e;
+    opacity: 1; 
+
+}
+
+.footer 
+{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+}
+
+#TwitLogo, #FBLogo, #pinLogo
+{
+	height:15px; 
+	width: auto; 
+}
+
