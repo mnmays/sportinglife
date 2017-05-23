@@ -1,0 +1,39 @@
+aside
+{
+	width: 300px; 
+	padding-left: 20px; 
+}
+
+#twitTmln, #FBTmln, #FBflip, #Twitflip 
+{
+	width: 300px; 
+	padding-top: 5px; 
+	padding-bottom: 5px; 
+    text-align: center;
+    color: white; 
+    background-color: #314a73;
+    border: solid 1px #c3c3c3;
+}
+
+#twitTmln, #FBTmln 
+{
+    padding: 0px;
+    width: 300px; 
+    display: none;
+}
+
+article
+{
+	 
+}
+
+iframe
+{
+
+}
+
+#pageBody
+{
+
+}
+

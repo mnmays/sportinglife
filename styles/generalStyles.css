@@ -5,18 +5,74 @@
 
 #logo
 {
-	height: 50px;
+	height: 80px;
+}
+
+header
+{
+	height: 300px; 
 }
 
 nav
 {
-	height: 300px; 
-	border: 0; 
-	
+	background-color: white; 
+	background-size: cover;  
+	margin: 0; 
+	border: none; 
+	width: 100%; 
+	overflow: hidden; 
+}
+
+ul 
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: gray;
+    top: 0;
+    width: 100%;
+}
+
+li 
+{
+    float: left;
+}
+
+li a 
+{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.active:hover
+{
+	opacity: 0.5; 
+}
+
+body
+{
+	 margin-top: 0px;
+	 margin-right: 0px;
+	 margin-bottom: 0px;
+	 margin-left: 0px	
+}
+
+footer
+{
+	padding-top: 15px; 
+	padding-bottom: 5px; 
+	padding-left: 15px; 
+	background: gray;
+	color: white;
+	bottom: 0; 
 }
 
 #TwitLogo, #FBLogo, #pinLogo
 {
-	height:15px; 
-	width: auto; 
+	height:20px; 
+	width: auto;
 }
