@@ -14,7 +14,7 @@ header
 }
 
 nav
-{
+{ 
 	background-color: white; 
 	background-size: cover;  
 	margin: 0; 
@@ -63,12 +63,10 @@ body
 
 footer
 {
-	padding-top: 15px; 
-	padding-bottom: 5px; 
-	padding-left: 15px; 
+	padding: 1em;
+    clear: left;
 	background: gray;
 	color: white;
-	bottom: 0; 
 }
 
 #TwitLogo, #FBLogo, #pinLogo

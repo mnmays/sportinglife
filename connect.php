@@ -31,7 +31,11 @@
 		</ul>
 </nav>
 
+<div id="page">
 <aside>
+	<p id="SMtitle">
+			Follow Sporting Life on Social Media! 
+	</p>
 <p>
 <!----Twitter drop down---->
 	<div id="Twitflip">Twitter</div>
@@ -49,17 +53,17 @@
 </aside>
 
 <article>
-	<div id="pageBody">
-
-			this is the article
-
-		
-		<iframe src="http://meganmays.blogspot.com" width="40%" height="500">
+	<p id="connectPar">			
+		Catch up with all things sports on Sporting Life social media sites. See links below to see Sporting Life updates! 
+		Don't have social media? That's okay! Sporting Life creator sends out routine emails about new items and upcoming sports events! Don't miss the updates!
+	</p>
+	
+			<iframe src="http://meganmays.blogspot.com">
+  			<p>Your browser does not support iframes.</p>
 			</iframe>
-	</div>
-
+			
 </article>
-
+</div>
 <footer>
 			Connect with Sporting Life: 
 		<a href="https://twitter.com/SportingLifeArt?ref_src=twsrc%5Etfw&ref_url=http%3A%2F%2F127.0.0.1%3A8020%2Fsportsentities.home%2Fconnect.html">

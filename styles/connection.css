@@ -1,7 +1,14 @@
 aside
 {
-	width: 300px; 
-	padding-left: 20px; 
+	float: left; 
+	padding-top: 15px;
+	padding-left: 10px; 
+	width: 35%;  
+}
+
+#SMtitle
+{
+	padding-left: 20px; 	
 }
 
 #twitTmln, #FBTmln, #FBflip, #Twitflip 
@@ -24,16 +31,19 @@ aside
 
 article
 {
-	 
+	text-align: center; 
+	padding-top: 15px; 
+	padding-left: 15px; 
 }
-
 iframe
 {
-
+	width: 60%; 
+	height: 500px; 
 }
 
-#pageBody
+#connectPar
 {
-
+	padding-right: 15px; 
 }
+
 
