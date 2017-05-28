@@ -81,7 +81,7 @@ function showPics(str) {
 </body>
 
 <footer>
-			<div id="SMlinks">
+		<div id="SMlinks">
 			Connect with Sporting Life: 
 		<a href="https://twitter.com/SportingLifeArt?ref_src=twsrc%5Etfw&ref_url=http%3A%2F%2F127.0.0.1%3A8020%2Fsportsentities.home%2Fconnect.html">
 			<img src="images/twitterlogo.png" alt="twitter icon" id="TwitLogo"/>
