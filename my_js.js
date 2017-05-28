@@ -16,6 +16,22 @@ document.getElementById('abc').style.display = "block";
 
 document.getElementById("id1").value=index;
 
+
+<?php		
+require_once('database.php');
+
+$sql="SELECT itemSize,itemPrice FROM customitems WHERE itemID = index";
+$viewStmt =$db->prepare($sql);
+$viewStmt->execute();
+
+$itemList=$viewStmt->fetchAll();
+$viewStmt->closeCursor(); ?>
+
+document.getElementById("size1").value='. $item[itemSize]. ';
+document.getElementById("price1").value='. $item[itemPrice]. ';
+
+
+
 }
 //Function to Hide Popup
 function div_hide(){
