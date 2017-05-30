@@ -5,10 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="styles/connection.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript" src="JS/connpgJscript.js"></script>
-</head>		
-<body>
-<header>
-	<header style="
+<header style="
 	background-image:url(images/comerica-park-artwork.jpg); 
 	background-size: cover;
 	" >
@@ -31,11 +28,16 @@
 		</ul>
 </nav>
 
-<div id="page">
+
 <aside>
 	<p id="SMtitle">
 			Follow Sporting Life on Social Media! 
 	</p>
+
+<p>
+		<button id="popup" onclick="show()">Subscribe</button>	<!--Subscribe Button-->
+</p>
+
 <p>
 <!----Twitter drop down---->
 	<div id="Twitflip">Twitter</div>
@@ -58,12 +60,40 @@
 		Don't have social media? That's okay! Sporting Life creator sends out routine emails about new items and upcoming sports events! Don't miss the updates!
 	</p>
 	
+	
 			<iframe src="http://meganmays.blogspot.com">
   			<p>Your browser does not support iframes.</p>
 			</iframe>
+
+	<!---Pop up div ---->
+	<div id="PUwindow">
+	
+	<!-- Popup -->
+	<div id="popupContact">
+
+	<!-- pop up form -->
+	<form id="form" name="form" type="post" onsubmit="return validate()" action="submitEmail.php">
+	<h3 id="exit" onclick="hide()">X</h3>
+		<h2>Subscribe to Sporting Life Emails</h2>
+		<hr>
+		<input id="email" name="email" placeholder="Email" type="email">		<!-- Email text box-->
+		<p>
+		<input id="submit" name="submit" value="Subscribe" type="submit">		<!-- Submit Button-->
+		</p>
+	</form>
+	</div>
+
+	<!-- Popup Div Ends Here -->
+	</div>
+	
+	<!-- method to display -->
+	
+	
+	
+	<!---End Pop up Form--->
 			
 </article>
-</div>
+
 <footer>
 			Connect with Sporting Life: 
 		<a href="https://twitter.com/SportingLifeArt?ref_src=twsrc%5Etfw&ref_url=http%3A%2F%2F127.0.0.1%3A8020%2Fsportsentities.home%2Fconnect.html">
