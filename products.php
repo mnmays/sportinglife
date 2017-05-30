@@ -47,7 +47,7 @@ $viewStmt->execute();
 $itemList=$viewStmt->fetchAll();
 $viewStmt->closeCursor();
 foreach($itemList as $item) {
-				echo '<div class="item"><img src="data:image/jpeg;base64, '.base64_encode($item['itemImage']) . ' "><p> '. $item['itemSize'] . "</p><p> " . $item['itemDesc'] ."</p><p> ".$item['itemPrice'].'</p><button id="popup" onclick="div_show('. $item['itemID'] .')">Order</button></div>';
+				echo '<div class="item"><img src="data:image/jpeg;base64, '.base64_encode($item['itemImage']) . ' "><p> '. $item['itemSize'] . "</p><p> " . $item['itemDesc'] ."</p><p> ".$item['itemPrice'].'</p><button id="popup" onclick="div_show( '. $item['itemID'] .',' . $item['itemSize'].', '. $item['itemPrice'].')">Order</button></div>';
 			}//end foreach ?>
 <div id="abc">
 <!-- Popup Div Starts Here -->
