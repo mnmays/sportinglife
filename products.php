@@ -16,21 +16,23 @@
     </header>
 <!-- Body Starts Here -->
 <body id="body">
-			<nav>
-   	 <ul>
-   		 <li class="active">
-   			 <a href="sets.php" id="cardSets">Card Sets</a>
-   		 </li>
-   		 <li class="active">
-   			 <a href="products.php" id="products">Products</a>    
-   		 </li>
-   		 <li class="active">
-   			 <a href="aboutcreator.html" id="abtCreator">About the Creator</a>
-   		 </li>
-   		 <li class="active">
-   			 <a href="connect.html" id="connect">Connect with Sporting Life</a>
-   		 </li>
-   	 </ul>
+
+<nav>
+		<ul>
+			<li class="active">
+				<a href="products.php" id="products">Products</a>	
+			</li>
+			<li class="active">
+				<a href="card-sets.php" id="cardSets">Card Sets</a>
+			</li>
+			<li class="active">
+				<a href="about-sporting-life.html" id="abtCreator">About the Creator</a>
+			</li>
+			<li class="active">
+				<a href="connect.php" id="connect">Connect with Sporting Life</a>
+			</li>
+		</ul>
+</nav>
     </nav>
 
 			<div id="whiteSpace">
