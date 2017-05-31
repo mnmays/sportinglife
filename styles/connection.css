@@ -11,7 +11,73 @@ aside
 	padding-left: 20px; 	
 }
 
-#twitTmln, #FBTmln, #FBflip, #Twitflip 
+/*  Email Subscription Pop up   */
+#PUwindow {
+width:100%;
+height:100%;
+opacity:.95;
+top:0;
+left:0;
+display:none;
+position:fixed;
+background-color:#313131;
+overflow:auto; 
+}
+
+#exit {
+position: absolute;
+top: 0px;
+right: 15px;
+cursor:pointer
+}
+
+#exit:hover{
+	font-style: oblique;
+	color: #2A4F7E; 
+}
+
+#popupContact {
+position:absolute;
+padding-left: 35%;  
+top:30%;
+opacity: 100;
+}
+
+form {
+max-width:300px;
+min-width:250px;
+padding:10px 50px;
+border:2px solid gray;
+background: white;  
+border-radius:10px;
+font: 15px arial, sans-serif;
+}
+
+#email{
+height: 30px; 
+width: 70%; 
+font-size: 14px;
+}
+
+#submit{
+	background-color: #2a4f7e;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+   	color: white; 
+   	font-family: "Georgia", Times, serif;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#submit:hover{
+    border: 2px solid #2a4f7e;
+    opacity: .8; 
+}
+/*  End Email Subscription Pop up   */
+
+
+#twitTmln, #FBTmln, #FBflip, #Twitflip, #popup
 {
 	width: 300px; 
 	padding-top: 5px; 
