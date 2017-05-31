@@ -11,24 +11,15 @@ alert("Form Submitted Successfully...");
 var itemIndex= index;
 var itemPrice = price;
 var itemSize = size;
-function div_show(index,size,price) {
+function div_show(index) {
 document.getElementById('abc').style.display = "block";
 
 document.getElementById("id1").value=index;
+//document.getElementById("size1").value=itemPrice;
+//document.getElementById("price1").value=itemSize;
 
-
-<?php		
-require_once('database.php');
-
-$sql="SELECT itemSize,itemPrice FROM customitems WHERE itemID = index";
-$viewStmt =$db->prepare($sql);
-$viewStmt->execute();
-
-$itemList=$viewStmt->fetchAll();
-$viewStmt->closeCursor(); ?>
-
-document.getElementById("size1").value='. $item[itemSize]. ';
-document.getElementById("price1").value='. $item[itemPrice]. ';
+//document.getElementById("size1").value='. $item[itemSize]. ';
+//document.getElementById("price1").value='. $item[itemPrice]. ';
 
 
 
