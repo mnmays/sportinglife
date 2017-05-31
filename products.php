@@ -2,17 +2,17 @@
 <html>
 <head>
 <title>Popup contact form</title>
-<link href="elements.css" rel="stylesheet">
-<link rel = "stylesheet" href = "products.css">
+<link href="styles/elements.css" rel="stylesheet">
+<link rel = "stylesheet" href = "styles/products.css">
 <link rel="styleSheet" href = "styles/generalStyles.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<script src = "orderValidation.js"></script>
-<script src="my_js.js"></script>
+<script src = "JS/orderValidation.js"></script>
+<script src="JS/my_js.js"></script>
 </head>
 <header>
 	<img src="images/logo.png" alt="Sporting Life Logo" id="logo">
-   	 <link rel = "stylesheet" href = "products.css">
-	<link rel="styleSheet" href = "mainStyles.css">
+   	 <link rel = "stylesheet" href = "styles/products.css">
+	<link rel="styleSheet" href = "styles/generalStyles.css">
     </header>
 <!-- Body Starts Here -->
 <body id="body">
