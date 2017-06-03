@@ -72,7 +72,11 @@
 	<div id="popupContact">
 
 	<!-- pop up form -->
-	<form id="form" name="form" type="post" onsubmit="return validate()" action="submitEmail.php">
+	<!--
+		<form id="form" name="form" type="post" onsubmit="return validate()" action="submitEmail.php"> 
+		-->
+	<form id="form" name="form" type="post" onsubmit="return validate()" action="submitEmail.php ">
+
 	<h3 id="exit" onclick="hide()">X</h3>
 		<h2>Subscribe to Sporting Life Emails</h2>
 		<hr>
@@ -91,6 +95,7 @@
 	
 	
 	<!---End Pop up Form--->
+	
 			
 </article>
 

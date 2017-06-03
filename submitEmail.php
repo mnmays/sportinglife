@@ -2,7 +2,7 @@
 	
 	//declare variable
 	$email = $_GET["email"];
-	echo $email; 
+	//echo $email; 
 	
 	//connection
 	
@@ -22,7 +22,7 @@
 	{
 		if($email == $row["address"])
 		{
-			echo "this address is already subscribed to revieve updates"; 	
+			//echo "this address is already subscribed to revieve updates"; 	
 		}
 		else
 		{
@@ -31,11 +31,11 @@
 				
 			if ($conn->query($sql) === TRUE) 
 			{
-   	 			echo "New record created successfully";
+   	 			//echo "New record created successfully";
 			} 
 			else 
 			{
-    			echo "Error: " . $sql . "<br>" . $conn->error;
+    			//echo "Error: " . $sql . "<br>" . $conn->error;
 			} 
 		}
 		
