@@ -12,7 +12,10 @@ session_start();
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script src="JS/my_js.js"></script>
 </head>
-<header>
+<header style="
+	background-image:url(images/comerica-park-artwork.jpg); 
+	background-size: cover;
+	" >
 	<img src="images/logo.png" alt="Sporting Life Logo" id="logo">
    	 <link rel = "stylesheet" href = "styles/products.css">
 	<link rel="styleSheet" href = "styles/generalStyles.css">

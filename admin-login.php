@@ -11,7 +11,7 @@
 	<center>	<img src="images/logo.png" alt="Sporting Life Logo" id="logo"> </center>
 	<link rel="styleSheet" href = "mainStyles.css">
 	<div id="adminLbl">
-		Administrator Page
+		Administrator
 	</div>
     </header>
 	<body style="
