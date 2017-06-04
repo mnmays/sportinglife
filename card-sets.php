@@ -3,6 +3,7 @@
 <head>
 	<!----including main styles sheet---->
 	<link rel="stylesheet" type="text/css" href="styles/generalStyles.css">
+	<link rel="stylesheet" type="text/css" href="styles/cardSets.css">
 	
 	<script>
 function showPics(str) {
@@ -24,7 +25,10 @@ function showPics(str) {
 </script>
 </head>
 
-<header>
+<header style="
+	background-image:url(images/comerica-park-artwork.jpg); 
+	background-size: cover;
+	" >
 	<div class="header">
 		<img src="images/logo.png" id="logo" alt="sporting life logo">
 	</div>		
