@@ -24,7 +24,6 @@ function showPics(str) {
 }
 </script>
 </head>
-
 <header style="
 	background-image:url(images/comerica-park-artwork.jpg); 
 	background-size: cover;
@@ -33,7 +32,7 @@ function showPics(str) {
 		<img src="images/logo.png" id="logo" alt="sporting life logo">
 	</div>		
 </header>
-
+<body>
 <nav>
 		<ul>
 			<li class="active">
@@ -50,8 +49,6 @@ function showPics(str) {
 			</li>
 		</ul>
 </nav>
-
-<body>
 	<aside>
 		<?php
 
