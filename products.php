@@ -1,3 +1,12 @@
+<?php
+session_start();
+$id=session_id();
+
+//$cookie_name="user";
+//$cookie_value=uniqid();
+//setcookie($cookie_name,$cookie_value,0,"/");
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +15,6 @@
 <link rel = "stylesheet" href = "styles/products.css">
 <link rel="styleSheet" href = "styles/generalStyles.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<script src = "JS/orderValidation.js"></script>
 <script src="JS/my_js.js"></script>
 </head>
 <header>
@@ -16,6 +24,22 @@
     </header>
 <!-- Body Starts Here -->
 <body id="body">
+	
+	<?php
+	$_SESSION["userID"]=$id;
+	//echo "Session variable is set to: " .$_SESSION["userID"] .".<br>";
+	//if(!isset($_COOKIE[$cookie_name]))
+	//{
+	//	echo "Cookie named '" .$cookie_name ."' is not set!";
+	//}
+	//else {
+	//	{
+	//		echo "Cookie '" .$cookie_name. "' is set!<br>";
+	//		echo "Value is: " .$_COOKIE[$cookie_name];
+	//	}
+	//}
+	
+	?>
 
 <nav>
 		<ul>
@@ -30,6 +54,9 @@
 			</li>
 			<li class="active">
 				<a href="connect.php" id="connect">Connect with Sporting Life</a>
+			</li>
+			<li class="active">
+				<a href="shopping-cart.php" id="cart">Shopping Cart</a>
 			</li>
 		</ul>
 </nav>
@@ -55,39 +82,17 @@ foreach($itemList as $item) {
 <!-- Popup Div Starts Here -->
 <div id="popupContact">
 <!-- Contact Us Form -->
-<form action="#" id="myForm" method="post" name="form">
+<form action="insertCart.php" id="myForm" method="post" name="form">
 	<img id="close" src="images/close.png" onclick ="div_hide()">
-<h3>Enter your contact information and order details below</h3>
+<h3>Enter order details below</h3>
 			<table>
 			<tr>
-			<td>Item ID</td>
-			<td><input id="id1" name="id" type="text"></td>
+			<td><input id="id1" name="id" type="hidden"></td>
 			<td><div id='id'></div></td>
 			</tr>
 			<tr>
-			<td>Item Size</td>
-			<td><input id="size1" name="size" type="text"></td>
-			<td><div id='size'></div></td>
-			</tr>
-			<tr>
-			<td>Item Price</td>
-			<td><input id="price1" name="price" type="text"></td>
-			<td><div id='price'></div></td>
-			</tr>
-			<tr>
-			<td>First Name</td>
-			<td><input id ="firstName1" name="firstName" onblur="validate('firstName', this.value)" type ="text"></td>
-			<td><div id = 'firstName'></div></td>
-			</tr>
-			<tr>
-			<td>Last Name</td>
-			<td><input id ="lastName1" name="lastName" onblur="validate('lastName', this.value)" type ="text"></td>
-			<td><div id = 'lastName'></div></td>
-			</tr>
-			<tr>
-			<td>Email Address</td>
-			<td><input id ="emailAdd1" name="emailAdd" onblur="validate('emailAdd', this.value)" type ="text"></td>
-			<td><div id = 'emailAdd'></div></td>
+			<td><input id="userID1" name="userID" type="hidden" value=<?php echo $_SESSION["userID"] ?>></td>
+			<td><div id='userID'></div></td>
 			</tr>
 			<tr>
 			<td>Image Upload</td>
@@ -95,7 +100,8 @@ foreach($itemList as $item) {
 			<!--<td><input type="submit"></td>-->
 			<td><div id = 'image'></div></td>
 			</tr>
-			<td>Message</td>
+			<tr>
+			<td>Special Instructions</td>
 			<td><input id ="message1" name="message" onblur="validate('message', this.value)" type ="text"></td>
 			<td><div id = 'message'></div></td>
 			</tr>
