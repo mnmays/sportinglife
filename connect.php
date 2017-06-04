@@ -35,7 +35,7 @@
 	</p>
 
 <p>
-		<button id="popup" onclick="show()">Subscribe</button>	<!--Subscribe Button-->
+	<button id="popup" onclick="show()">Subscribe</button>	<!--Subscribe Button-->
 </p>
 
 <p>
@@ -61,7 +61,7 @@
 	</p>
 	
 	
-			<iframe src="http://meganmays.blogspot.com">
+			<iframe id="blogFrame" src="http://meganmays.blogspot.com">
   			<p>Your browser does not support iframes.</p>
 			</iframe>
 
@@ -71,27 +71,16 @@
 	<!-- Popup -->
 	<div id="popupContact">
 
-	<!-- pop up form -->
-	<form id="form" name="form" type="post" onsubmit="return validate()" action="submitEmail.php">
+	<!-- iframe email form -->
 	<h3 id="exit" onclick="hide()">X</h3>
-		<h2>Subscribe to Sporting Life Emails</h2>
-		<hr>
-		<input id="email" name="email" placeholder="Email" type="email">		<!-- Email text box-->
-		<p>
-		<input id="submit" name="submit" value="Subscribe" type="submit">		<!-- Submit Button-->
-		</p>
-	</form>
+	<iframe id="popupFrame" src="form.php" width="480" height="320" seamless=""></iframe>
+	
 	</div>
-
 	<!-- Popup Div Ends Here -->
 	</div>
 	
 	<!-- method to display -->
-	
-	
-	
-	<!---End Pop up Form--->
-			
+	<!---End Pop up Form--->		
 </article>
 
 <footer>

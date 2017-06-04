@@ -1,8 +1,13 @@
-<?php
+<html>
+	<head>
+		
+	</head>
+	<body>
+		<?php
 	
 	//declare variable
 	$email = $_GET["email"];
-	echo $email; 
+	//echo $email; 
 	
 	//connection
 	
@@ -22,7 +27,9 @@
 	{
 		if($email == $row["address"])
 		{
-			echo "this address is already subscribed to revieve updates"; 	
+			?>
+				<center><h3>This address is already in the system!</h3></center>
+			<?php	
 		}
 		else
 		{
@@ -31,47 +38,24 @@
 				
 			if ($conn->query($sql) === TRUE) 
 			{
-   	 			echo "New record created successfully";
+				?>
+				<center><h3>Success!</h3></center>
+				<p>
+					<center><img src="images/success.png-c200"></center>
+				</p>
+				<?php
 			} 
 			else 
 			{
-    			echo "Error: " . $sql . "<br>" . $conn->error;
+				?>
+				<center><h3>Unfortunatly, your email could not be added to the list.</h3></center>
+				<?php
 			} 
 		}
 		
 		break; 
 	}
  }
- 
- 
- 
-/*	
-	//check to see if email is already in database
-	$sql = "SELECT * FROM emailTable WHERE address = $email";
-	$result = $conn->query($sql);
-	
-	if($result->num_rows = 0)	//email address does not exist in the DB already
-	{
-		//insert email address
-		$sql = "INSERT INTO emailTable (address)
-				VALUES ('$email')";
-		
-		//confirmation notification
-		if ($conn->query($sql) === TRUE) //successful insert
-		{
-   			 echo "New record created successfully";
-		}
-		else 	//error occured. email address was not added
-		{
-    		echo "Error: " . $sql . "<br>" . $conn->error;
-		}
-	}
-	else 	//email address is in DB
-	{
-		//return 'error' message
-		echo "email address already in database"; 
-		
-	}	
- * 
- */
-?>
+ ?>
+	</body>
+</html>
