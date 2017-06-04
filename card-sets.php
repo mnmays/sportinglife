@@ -31,50 +31,71 @@ function showPics(str) {
 </header>
 
 <nav>
-		<ul>
-			<li class="active">
-				<a href="products.php" id="products">Products</a>	
-			</li>
-			<li class="active">
-				<a href="card-sets.php" id="cardSets">Card Sets</a>
-			</li>
-			<li class="active">
-				<a href="about-sporting-life.html" id="abtCreator">About the Creator</a>
-			</li>
-			<li class="active">
-				<a href="connect.php" id="connect">Connect with Sporting Life</a>
-			</li>
-		</ul>
+	<nav style="
+	background-image:url(images/comerica-park-artwork.jpg); 
+	background-size: cover;
+	background-attachment: fixed;
+	" >
+	<a href="products.php" class="button">Products</a>
+	<a href="card-sets.php" class="button">Card Sets</a>
+	<a href="about-sporting-life.html" class="button">About Sporting Life</a>
+	<a href="connect.php" class="button">Connect with Sporting Life</a>
 </nav>
 
 <body>
 	<aside>
 		<?php
 
- $dbhost = "localhost";
- $dbuser = "root";
- $dbpass = "M3g4nM4ys17";
- $db = "sportinglife";
+ //$dbhost = "localhost";
+ //$dbuser = "root";
+ //$dbpass = "M3g4nM4ys17";
+ //$db = "sportinglife";
+ 			//$servername = 'localhost';
+			//$username = 'root';
+			//$password = '4567db#';
+			//$dbname = 'sportinglife';
+					
+			//create connection
+			//$conn = new mysqli($servername, $username, $password, $dbname);
+		//	$conn = mysql_connect($servername, $username, $password);
+			
+			//check connection
+			//if($conn->connect_error) {
+				//die("Connection failed: " . $conn->connect_error);
+			//}
+			//if(!$conn) {
+				//echo "unable to connect to DB: " . mysql_error();
+				//exit;
+			//}
+			//if(!mysql_select_db($dbname)) {
+				//echo "unable to select db" . mysql_error();
+				//exit;
+			//}
+	include 'connection.php';
+	
  
  
- $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
+ //$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
  
 /*query*/
- $query = "SELECT * FROM series";
- $result = mysqli_query($conn, $query);
+ $sql1 = "SELECT * FROM series";
+ //$result1 = mysqli_query($conn, $sql1);
+ $result1 = mysql_query($sql1);
  
- $numRows = mysqli_num_rows($result);
+ $numRows = mysql_num_rows($result1);
   
  for($i=0; $i < $numRows; $i++)
  {
- 	  $row = mysqli_fetch_array($result);
+ 	  $row1 = mysql_fetch_array($result1);
 	  ?>
-		<input type="button" value="<?php echo $row['seriesName'];?>" onclick="showPics(this.value)"><br>
-
+	  <!-- -->
+		<input type="button" value="<?php echo $row1['seriesDesc'];?>" onclick="showPics(<?php echo $row1['seriesID'];?>)"><br>
 	  <?php	  
- } ?>
+ } 
  
- 
+ mysql_close($conn);
+ ?>
+
  	</aside>
 
 	<article>
@@ -86,7 +107,7 @@ function showPics(str) {
 </body>
 
 <footer>
-		<div id="SMlinks">
+			<div id="SMlinks">
 			Connect with Sporting Life: 
 		<a href="https://twitter.com/SportingLifeArt?ref_src=twsrc%5Etfw&ref_url=http%3A%2F%2F127.0.0.1%3A8020%2Fsportsentities.home%2Fconnect.html">
 			<img src="images/twitterlogo.png" alt="twitter icon" id="TwitLogo"/>
