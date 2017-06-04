@@ -1,3 +1,11 @@
+/*general*/
+article
+{
+	text-align: center; 
+	padding-top: 15px; 
+	padding-left: 15px; 
+}
+
 aside
 {
 	float: left; 
@@ -5,30 +13,33 @@ aside
 	padding-left: 10px; 
 	width: 35%;  
 }
+#blogFrame{
+	width: 60%; 
+	height: 500px; 
+}
 
-#SMtitle
-{
+#connectPar{
+	padding-right: 15px; 
+}
+
+#SMtitle{
 	padding-left: 20px; 	
 }
 
-/*  Email Subscription Pop up   */
-#PUwindow {
-width:100%;
-height:100%;
-opacity:.95;
-top:0;
-left:0;
-display:none;
-position:fixed;
-background-color:#313131;
-overflow:auto; 
+/*popup iframe*/
+#popupFrame
+{
+	background: white; 
+	border: none; 
+	padding-top:0; 
 }
 
-#exit {
-position: absolute;
-top: 0px;
-right: 15px;
-cursor:pointer
+#exit{
+	padding-bottom:0; 
+	position: absolute;
+	top: 0px;
+	right: 15px;
+	cursor:pointer
 }
 
 #exit:hover{
@@ -36,47 +47,61 @@ cursor:pointer
 	color: #2A4F7E; 
 }
 
+#PUwindow {
+width:100%;
+height:100%;
+top:0;
+left:0;
+display:none;
+position:fixed;
+background-color:#313131;
+overflow:auto
+}
+
 #popupContact {
+background: white; 
 position:absolute;
-padding-left: 35%;  
-top:30%;
-opacity: 100;
+left:50%;
+top:17%;
+margin-left:-202px;
+font-family:'Raleway',sans-serif
 }
 
 form {
 max-width:300px;
 min-width:250px;
-padding:10px 50px;
-border:2px solid gray;
-background: white;  
-border-radius:10px;
+padding-left: 50px; 
+padding-top: 50px; 
+background: white;
 font: 15px arial, sans-serif;
 }
 
-#email{
+#name {
+background-repeat:no-repeat;
+background-position:5px 7px
+}
+
+#email {
+background-repeat:no-repeat;
 height: 30px; 
-width: 70%; 
-font-size: 14px;
+width:100%; 
 }
 
-#submit{
-	background-color: #2a4f7e;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-   	color: white; 
-   	font-family: "Georgia", Times, serif;
-    margin: 4px 2px;
-    cursor: pointer;
+#submit {
+text-decoration:none;
+width:100%;
+text-align:center;
+display:block;
+background-color:black;
+color:#fff;
+padding:10px 0;
+font-size:20px;
+cursor:pointer;
+border-radius:5px
 }
-#submit:hover{
-    border: 2px solid #2a4f7e;
-    opacity: .8; 
-}
-/*  End Email Subscription Pop up   */
 
 
+/*footer*/
 #twitTmln, #FBTmln, #FBflip, #Twitflip, #popup
 {
 	width: 300px; 
@@ -94,22 +119,3 @@ font-size: 14px;
     width: 300px; 
     display: none;
 }
-
-article
-{
-	text-align: center; 
-	padding-top: 15px; 
-	padding-left: 15px; 
-}
-iframe
-{
-	width: 60%; 
-	height: 500px; 
-}
-
-#connectPar
-{
-	padding-right: 15px; 
-}
-
-
