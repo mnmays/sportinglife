@@ -1,7 +1,10 @@
 <?php 
- 			$servername = 'sportinglifecardscom.ipagemysql.com';
-			$username = 'rootdmc';
-			$password = 'sd4951';
+ 			//$servername = 'sportinglifecardscom.ipagemysql.com';
+			//$username = 'rootdmc';
+			//$password = 'sd4951';
+			$servername = 'localhost';
+			$username = 'root';
+			$password = '4567db#';
 			$dbname = 'sportinglife';
 
 			$conn = mysql_connect($servername, $username, $password);
