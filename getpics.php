@@ -26,19 +26,15 @@
 	</head>
 	<body>
 		<?php
-			$q = intval($_GET['q']);
-		
-			include 'connection.php';	
-			$sql="SELECT * FROM series WHERE seriesID = '".$q."'";
-		
-			$result = mysql_query($sql);
-		 	
-			$sql2 = "SELECT seriesID, cardImage, cardDesc FROM cards WHERE seriesID = '".$q."'";
-			$result2 = mysql_query($sql2);			
-			while($row2 = mysql_fetch_assoc($result2)) {
+			include 'connection.php';
+			
+			$q = intval($_GET['q']);				
+			$sql = "SELECT seriesID, cardImage, cardDesc FROM cards WHERE seriesID = '".$q."'";
+			$result = mysql_query($sql);			
+			while($row = mysql_fetch_assoc($result)) {
 				echo '<div class="gallery"> 
-						<img src="data:image/jpeg;base64, '.base64_encode($row2['cardImage']).'">
-						<div class="desc"> '.$row2["cardDesc"].' </div>
+						<img src="data:image/jpeg;base64, '.base64_encode($row['cardImage']).'">
+						<div class="desc"> '.$row["cardDesc"].' </div>
 						</div>';		
 			}//end while	
 		

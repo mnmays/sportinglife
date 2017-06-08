@@ -11,11 +11,21 @@
 			list-style-type: circle;
 			float:left;
 			width:8%;
-		
+			padding-top: 1%;
 		}
 		#column2 {
 			float:left;
-			width:92%;		
+			width:92%;
+			padding-top: 1%;		
+		}
+		#buttons {
+			width: 100%;
+			table-layout: fixed;
+			border-collapse: collapse;
+			background-color: red;
+		}
+		#buttons button{
+			width: 100%;
 		}
 	</style>
 	<!----including main styles sheet---->
@@ -67,25 +77,25 @@
 		</ul>
 	</nav>
 	<div id="container">
+		<input type="button" value="Click here for a checklist of all cards and series" onclick="window.location.href='cardChecklist.php'"><br>
 		<div id="column1">
 			<?php
 				include 'connection.php';
-				
-	 			//$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
-	
-				 $sql1 = "SELECT * FROM series";
-				 //$result1 = mysqli_query($conn, $sql1);
-				 $result1 = mysql_query($sql1);
+				$sql1 = "SELECT * FROM series";
+
+				$result1 = mysql_query($sql1);
 	 
-				 $numRows = mysql_num_rows($result1);
+				$numRows = mysql_num_rows($result1);
 	  
-				 for($i=0; $i < $numRows; $i++)
-				 {
-				 	  $row1 = mysql_fetch_assoc($result1);
-					  ?>
-					  <!-- -->
-						<input type="button" value="<?php echo $row1['seriesDesc'];?>" onclick="showPics(<?php echo $row1['seriesID'];?>)"><br>
-					  <?php	  
+				for($i=0; $i < $numRows; $i++) {
+				 	$row1 = mysql_fetch_assoc($result1);
+					?>
+				    <table class=buttons>
+				  		<tr>
+				  			<input type="button" value="<?php echo $row1['seriesName'];?>" onclick="showPics(<?php echo $row1['seriesID'];?>)"><br>
+				  		</tr>
+				  	</table>					
+				  <?php	  
 				 } 
 	 
 				 mysql_close($conn);
