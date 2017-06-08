@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION["userID"]))
+{
+	header("location:products.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -61,6 +66,7 @@ session_start();
 <?php		
 require_once('database.php');
 
+
 $sql="SELECT cartID,itemID,uploadedImg,quantity,price,totalCost FROM shoppingCart WHERE userID = '$_SESSION[userID]'"; 
 $viewStmt =$db->prepare($sql);
 $viewStmt->execute();
@@ -98,7 +104,7 @@ foreach($itemList as $item) {
 		echo '<div class="item"><tr><th><img src="data:image/jpeg;base64, '.base64_encode($item['uploadedImg']) . ' "></th><th> '. $item['cartID'] . "</th><th> " . $item['itemID'] ."</th><th> ".$item['quantity'].'</th><th> '. $item['price'] . "</th><th> ".$item['totalCost'].'</th><td><button id="popup" onclick="div_show2( '. $item['cartID'] .')">Edit Qty</button></td></tr><br></div>';
 			
 
-}//end foreach ?>
+	}//end foreach ?>
 
 
 </table>

@@ -35,7 +35,7 @@ require_once('database.php');
 	$index =0;
 	$price= $price[0];
 	//echo "Session variable is set to: " .$_SESSION["userID"] .".<br>";
-	echo $price;
+	//echo $price;
 	
 	$totalCost = $quantity * $price;
 	
