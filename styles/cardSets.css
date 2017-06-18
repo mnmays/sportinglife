@@ -1,4 +1,18 @@
 img{
-	height: 100px; 
-	width: auto; 
-}
+ -	height: 50px; 
+ -	width: auto; 
+ +div.container {
+ +	float:left;
+ +	width:100%;
+ +	padding:1%;
+  }
+ +.column1 {
+ +	list-style-type: circle;
+ +	float:left;
+ +	width:10%;
+ +
+ +}
+ +.column2 {
+ +	float:left;
+ +	width:90%;		
+ +} 
