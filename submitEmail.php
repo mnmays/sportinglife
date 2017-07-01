@@ -25,7 +25,7 @@
 echo "<br>";
 		exit();  
 	}
-
+//end connection
 
 
 $sql = "SELECT * FROM emailList WHERE address = '$email'";

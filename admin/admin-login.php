@@ -16,7 +16,7 @@
 	<body style="
 		background-image:url(images/comerica-park-artwork.jpg); 
 		background-size: cover; 
-		" >>
+		" >
 		
 		<main><center>
 			<div id="loginSquare">
@@ -37,6 +37,10 @@
 			</table>	
 			
 			<input onclick="checkForm()" type='submit' value='log in'>
+			
+			<br>
+			
+			<a href="admin-forgotpassword.php" id="forgotpswd">Forgot Password?</a>
 			</form>
 
 			</div>
