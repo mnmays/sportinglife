@@ -1,5 +1,5 @@
 <?php
-	include 'connection.php';
+	include 'connections files/connection.php';
 	
 	$cardNumber = $_POST['DeleteCardNumber'];
 	$seriesID = $_POST['DeleteSeriesID'];

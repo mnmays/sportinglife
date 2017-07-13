@@ -1,5 +1,5 @@
 <?php
-	include 'connection.php';
+	include 'connections files/connection.php';
 	
 	$seriesID = $_POST['EditSeriesID'];
 	$newSeriesID = $_POST['NewSeriesID'];
