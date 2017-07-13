@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Admin Social Media</title>
+	<head>
+	
+		<link rel="styleSheet" href = "styles/generalAdmin.css">
+		<link rel="styleSheet" href = "styles/admin-social-media.css">
+		<script type="text/javascript" src="JS/admin-social.js"></script>
+	</head>
+  
+
+<body style="background-image:url(images/comerica-park-artwork.jpg); 
+	opacity: 0.95" >
+	<header>
+		<img src="images/logo.png" alt="Sporting Life Logo" id="logo">
+		<div id="adminLbl">
+			Administrator
+		</div>
+	</header>
+	<nav>
+		<ul>
+			<li class="active">
+				<a href="admin.php" id="card-sets">Home</a>	
+			</li>
+			<li class="active">
+				<a href="" id="card-sets">Manage Card Sets</a>	
+			</li>
+			<li class="active">
+				<a href="" id="PersOrders">Manage Personalized Orders</a>
+			</li>
+			<li class="active">
+				<a href="admin-social-media.html" id="connection">Sporting Life Social Media</a>
+			</li>
+			<li class="active">
+				<a href="admin-blog.php" id="blog">Manage Blog</a>
+			</li>
+			<li class="active">
+				<a href="" id="email">Emailing List</a>
+			</li>
+			<li class="active">
+				<a href="" id="settings">Admin Settings</a>
+			</li>
+		</ul>
+	</nav>
+	
+	<article>
+		<!---Twitter-->
+		TWITTER <br>
+		<link href='https://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+
+<div class="container">
+  <h1 class="">Welcome, Type Your Tweet In The Box</h1>
+  <form target="_blank" name="tweet" action="https://twitter.com/share" method="get"> 
+  <input type="hidden" name="original_referer" value="http://www.yoururl.com"> 
+  <input type="hidden" name="source" value="tweetbutton"> 
+  <!--must provide twitter with a url string that has characters in it or else they will add the current url into the tweet-->
+  <input type="hidden" name="url" value="foobartheroobar">
+    
+   <textarea id="textar" name="text" maxlength="140"></textarea>
+
+  <input type="submit" value="Tweet This" id="button"/>    
+</form>
+  
+</div>
+		
+		<br><br>
+		<!---Facebook-->
+<iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button_count&size=small&mobile_iframe=true&appId=148878605682537&width=88&height=20" width="88" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+
+	<form action="FBfunction()">
+		<input id="FBinput" type="text" value="Share a link on facebook">
+		<input id="share" type="submit" value="Share">
+	</form>
+	
+
+	<script>
+		function FBfunction()
+		{
+			var url = document.getElementById("FBinput").value; 
+			/*var link = "https://www.facebook.com/plugins/share_button.php?href=" + url + "%2Fdocs%2Fplugins%2F&layout=button_count&size=small&mobile_iframe=true&appId=148878605682537&width=88&height=20"; 
+			*/
+			
+			var link = "https://www.google.com"; 					
+			var submit = document.getElementById("share"); 
+			
+			submit.href = link; 
+			
+			/*submit.setAttribute('href', "https://www.google.com"); */
+
+		}
+	</script>
+
+
+	</article>
+	
+</body>
+
+</html>

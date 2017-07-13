@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="UTF-8">
-<title>Admin Home</title>
+<title>Admin Blog</title>
 	<head>
-		<script src = "admin-login-validation.js"></script>
+	
 		<link rel="styleSheet" href = "styles/generalAdmin.css">
-		<link rel="styleSheet" href = "styles/admin_hompage.css">
+		<link rel="styleSheet" href = "styles/admin-social-media.css">
+		<script type="text/javascript" src="JS/admin-blog.js"></script>
+		<!--for blogger-->
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	</head>
-  
-
 <body style="background-image:url(images/comerica-park-artwork.jpg); 
 	opacity: 0.95" >
 	<header>
@@ -32,7 +33,7 @@
 				<a href="admin-social-media.html" id="connection">Sporting Life Social Media</a>
 			</li>
 			<li class="active">
-				<a href="" id="blog">Manage Blog</a>
+				<a href="admin-blog.php" id="blog">Manage Blog</a>
 			</li>
 			<li class="active">
 				<a href="" id="email">Emailing List</a>
@@ -43,11 +44,10 @@
 		</ul>
 	</nav>
 	
-	<section>
+	<article>
 		
-		
-		
-	</section>
+
+	</article>
 	
 </body>
 
