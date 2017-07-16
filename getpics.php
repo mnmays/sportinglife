@@ -30,7 +30,8 @@
 			
 			$q = intval($_GET['q']);				
 			$sql = "SELECT seriesID, cardImage, cardDesc FROM cards WHERE seriesID = '".$q."'";
-			$result = mysql_query($sql);			
+			$result = mysql_query($sql);	
+			echo '<button id="checklist">Print checklist</button>';	
 			while($row = mysql_fetch_assoc($result)) {
 				echo '<div class="gallery"> 
 						<img src="data:image/jpeg;base64, '.base64_encode($row['cardImage']).'">

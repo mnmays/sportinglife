@@ -1,13 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION["userID"]))
-{
-	header("location:products.php");
-}
-$totalCart = $_GET['varname'];
-echo $totalCart;
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,48 +19,28 @@ echo $totalCart;
    	 <link rel = "stylesheet" href = "styles/products.css">
 	<link rel="styleSheet" href = "styles/generalStyles.css">
     </header>
-<!-- Body Starts Here -->
-<body id="body">
-	<nav>
-		<ul>
-			<li class="active">
-				<a href="products.php" id="products">Products</a>	
-			</li>
-			<li class="active">
-				<a href="card-sets.php" id="cardSets">Card Sets</a>
-			</li>
-			<li class="active">
-				<a href="about-sporting-life.html" id="abtCreator">About the Creator</a>
-			</li>
-			<li class="active">
-				<a href="connect.php" id="connect">Connect with Sporting Life</a>
-			</li>
-		</ul>
-</nav>
-
 
 <form action="insertCustInfo.php" id="myForm" method="post" name="form">
-	<!--<form id="myForm" method="post" name="form">-->
 <h3>Enter Shipping Details</h3>
 			<table>
-			<tr>
+			<!--<tr>
 			<td><input id="totalCart1" name="totalCart" type="hidden" value=<?php echo $totalCart ?>></td>
 			<td><div id='totalCart'></div></td>
-			</tr>
+			</tr>-->
 			<tr>
 			<td>Full Name</td>
-			<td><input id="fullName1" name="fullName" onblur="validate2('fullName', this.value)" type="text"></td>
-			<td><div id='fullName'></div></td>
+			<td><input id="full-name1" name="full-name" onblur="validate2('full-name', this.value)" type="text"></td>
+			<td><div id='full-name'></div></td>
 			</tr>
 			<tr>
 			<td>Email Address</td>
-			<td><input id="emailAddress1" name="emailAddress" onblur="validate2('emailAddress', this.value)" type="text"></td>
-			<td><div id='emailAddress'></div></td>
+			<td><input id="emailAddress1" name="email-address" onblur="validate2('email-address', this.value)" type="text"></td>
+			<td><div id='email-address'></div></td>
 			</tr>
 			<tr>
-			<td>Street Address/Apartment/Suite/Building, etc.</td>
-			<td><input id="addressLine11" name="addressLine1" onblur="validate2('addressLine1', this.value)" type="text"></td>
-			<td><div id='addressLine1'></div></td>
+			<td>Address Line 1</td>
+			<td><input id="address-line11" name="address-line1" onblur="validate2('address-line1', this.value)" type="text"></td>
+			<td><div id='address-line1'></div></td>
 			</tr>
 			<!--<tr>
 			<td>Address Line 2</td>
@@ -83,18 +53,18 @@ echo $totalCart;
 			<td><div id='city'></div></td>
 			</tr>
 			<tr>
-			<td>State/Province/Region</td>
+			<td>State</td>
 			<td><input id="state1" name="state" onblur="validate2('state', this.value)" type="text"></td>
 			<td><div id='state'></div></td>
 			</tr>
 			<tr>
 			<td>Zip/Postal Code</td>
-			<td><input id="postalCode1" name="postalCode" onblur="validate2('postalCode', this.value)" type="text"></td>
-			<td><div id='postalCode'></div></td>
+			<td><input id="postal-code1" name="postal-code" onblur="validate2('postal-code', this.value)" type="text"></td>
+			<td><div id='postal-code'></div></td>
 			</tr>
-			<!--<tr>
+			<tr>
 			<td>Country</td>
-			<td><input id="country1" name="country" type="text"></td>
+			<!--<td><input id="country1" name="country" type="text"></td>
 			<td><div id='country'></div></td>-->
 			 <select input id="country" required id="country" name="country" class="input-xlarge">
                             <option value="" selected="selected">(please select a country)</option>
@@ -342,27 +312,5 @@ echo $totalCart;
 </table>
 
 			<!--<input onclick="return checkForm();showDiv();" type='submit' value='Continue'>-->
-			<!--<input type="submit"value="Continue" onclick="return checkForm3()" />-->
-			<input type="button" value="Continue" onclick="return checkForm3()" />
+			<input type='submit' name="answer" value="Continue" onclick="return checkForm3()" />
 </form>
-<br>
-
-<!--<div id="pay-now" style="display:none;" class="answer_list" onclick="showDiv()"></div>-->
-<div id="paypal-button-container" style="display:none;" class="answer_list"></div>
-</body>
-<footer>
-   	 <div id="SMlinks">
-   		 Connect with Sporting Life:
-   	 <a href="https://twitter.com/SportingLifeArt?ref_src=twsrc%5Etfw&ref_url=http%3A%2F%2F127.0.0.1%3A8020%2Fsportsentities.home%2Fconnect.html">
-   	 	<img src="images/twitterlogo.png" alt="twitter icon" id="TwitLogo"/>
-		 </a>
-		 <a href="https://www.facebook.com/SportingLifeCards/">
-		 	<img src="images/facebooklogo.png" alt="facebook icon" id="FBLogo"/>
-   	 </a>
-		 <a href="https://www.pinterest.com/jandrews3d/sporting-life-art-cards-collectibles/?fb_ref=528962056142023372%3Acba652a7869654e0e616">
-		 	<img src="images/pintlogo.png" alt ="pinterest icon" id="pinLogo"/>    		 
-		 </a>
-   	 </div>
-    </footer>
-<!-- Body Ends Here -->
-</html>

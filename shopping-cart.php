@@ -1,5 +1,6 @@
 <?php
 session_start();
+echo $_SESSION["userID"];
 if (!isset($_SESSION["userID"]))
 {
 	header("location:products.php");
@@ -15,6 +16,10 @@ if (!isset($_SESSION["userID"]))
 <link rel = "stylesheet" href = "styles/shoppingCart.css">
 <link rel="styleSheet" href = "styles/generalStyles.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<!--<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script src="checkout.js"></script>-->
 <script src="JS/my_js.js"></script>
 </head>
 <header style="
@@ -28,18 +33,6 @@ if (!isset($_SESSION["userID"]))
 <!-- Body Starts Here -->
 <body id="body">
 	<?php
-	/*echo "Session variable is set to: " .$_SESSION["userID"] .".<br>";*/
-	/*if(!isset($_COOKIE[$cookie_name]))
-	{
-		echo "Cookie named '" .$cookie_name ."' is not set!";
-	}
-	else {
-		{
-			echo "Cookie '" .$cookie_name. "' is set!<br>";
-			echo "Value is: " .$_COOKIE[$cookie_name];
-		}
-	}*/
-	
 	
 	?>
 	
@@ -83,33 +76,31 @@ $viewStmt->closeCursor(); ?>
 		<th>Total Cost</th>
 	</tr>
 <?php
+$totalCart=0;
+$totalQty=0;
 foreach($itemList as $item) {
-		/*$cart_id=$item["cartID"];
-		$item_id=$item["itemID"];
-		$item_qty=$item["quantity"];
-		$item_price=$item['price'];
-		$item_total=$item['totalCost'];
 		
-		echo '<div class="item"><tr><th><img src="data:image/jpeg;base64, '.base64_encode($item['uploadedImg']).'></th>';
-		echo '<td>'.$cart_id.'</td>';
-		echo '<td>'.$item_id.'</td>';
-		echo '<td>Qty <input type="text" size="2" maxlength="2" name="quantity" value="'.$item_price.'" /></td>';
-		echo '<td>'.$item_price.'</td>';
-		echo '<td>'.$item_qty.'</td>';
-		echo '<td>'.$item_total.'</td>';*/
-		
-		
-		
-	
 		echo '<div class="item"><tr><th><img src="data:image/jpeg;base64, '.base64_encode($item['uploadedImg']) . ' "></th><th> '. $item['cartID'] . "</th><th> " . $item['itemID'] ."</th><th> ".$item['quantity'].'</th><th> '. $item['price'] . "</th><th> ".$item['totalCost'].'</th><td><button id="popup" onclick="div_show2( '. $item['cartID'] .')">Edit Qty</button></td></tr><br></div>';
-			
+		$totalCart = $totalCart + $item['totalCost'];
+		$totalQty = $totalQty + $item['quantity'];
+		
 
-	}//end foreach ?>
+	}//end foreach 
+	echo $totalCart;
+	echo '<br>';
+	echo $totalQty;
+	?>
 
 
 </table>
-<input onclick="clearCart()" type='submit' value='Clear Cart'>
-<input onclick="()" type='submit' value='Checkout'>
+<!--<input onclick="clearCart()" type='submit' value='Clear Cart'>-->
+<button id="popup" onclick="clearCart()">Clear Cart</button>
+<button id="checkout" onclick="window.location='order-checkout.php';">Checkout</button>
+<a href="order-checkout.php?varname=<?php echo $totalCart ?>">Checkout</a>
+
+
+
+
 <div id="abc">
 <!-- Popup Div Starts Here -->
 <div id="popupContact">
@@ -142,6 +133,8 @@ foreach($itemList as $item) {
 </div>
 <!-- Popup Div Ends Here -->
 </div>
+
+
 </body>
 <footer>
    	 <div id="SMlinks">

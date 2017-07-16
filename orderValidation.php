@@ -54,6 +54,11 @@
 			{
 				echo "<span>Valid</span>";
 			}
+			else if($value==0)
+			{
+				
+			}
+			
 			else {
 				{
 					echo "Invalid quantity.";

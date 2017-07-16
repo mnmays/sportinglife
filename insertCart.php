@@ -12,7 +12,6 @@ require_once('database.php');
 	$userID= filter_input(INPUT_POST,'userID');
 	$userID = htmlspecialchars($userID);
 	
-	
 	$image = filter_input(INPUT_POST,'image');
 	$image = htmlspecialchars($image);
 	
@@ -31,14 +30,26 @@ require_once('database.php');
 	print_r($price);
 	$index =0;
 	$price= $price[0];
-	//echo "Session variable is set to: " .$_SESSION["userID"] .".<br>";
+	// "Session variable is set to: " .$_SESSION["userID"] .".<br>";
 	//echo $price;
 	
 	$totalCost = $quantity * $price;
 	
+	$sql2="SELECT itemDesc FROM customitems WHERE itemID = :id1"; 
+	 $execStatement2=$db->prepare($sql2);
+	 $execStatement2->bindValue(':id1', $itemId);
+	 $execStatement2->execute();
+	 
+	 $desc = $execStatement2->fetch();
+	 print_r($desc);
+	 //echo $desc;
+	 $index2=0;
+	 $desc=$desc[0];
+	 //echo $desc;
+	 
 	
-	
-	$insertQuery="INSERT INTO shoppingCart (userID,itemID,uploadedImg,specInstr,quantity,price,totalCost) VALUES ('$_SESSION[userID]',:id1,:image1,:message1,:quantity1,'$price','$totalCost')";
+	//$insertQuery="INSERT INTO shoppingCart (userID,itemID,uploadedImg,specInstr,quantity,price,totalCost,itemDesc) VALUES ('$_SESSION[userID]',:id1,:image1,:message1,:quantity1,'$price','$totalCost','$desc')";
+		$insertQuery="INSERT INTO shoppingCart (userID,itemID,uploadedImg,specInstr,quantity,price,totalCost) VALUES ('$_SESSION[userID]',:id1,:image1,:message1,:quantity1,'$price','$totalCost')";
 		$insertStatement = $db-> prepare($insertQuery);
 		//$insertStatement->bindValue(':userID1', $userID);
 		$insertStatement->bindValue(':id1', $itemId);

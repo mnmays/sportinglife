@@ -1,6 +1,7 @@
 <?php
 session_start();
 $id=session_id();
+//echo $_SESSION["userID"];
 
 //$cookie_name="user";
 //$cookie_value=uniqid();

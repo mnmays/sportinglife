@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <?php
 session_start();
 
@@ -17,7 +19,11 @@ $deleteQuery="DELETE FROM shoppingCart WHERE userID= '$_SESSION[userID]'";
 		$deleteStatement->execute();
 		
 		
-		echo "Item removed!";
+		//echo "Item removed!";
 		//header("location:shopping-cart.php");
+		 //echo '<meta http-equiv="refresh" content="1" />';
+		
 
 ?>
+
+<script location.reload(); </script>
