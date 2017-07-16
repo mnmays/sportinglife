@@ -25,7 +25,9 @@
 echo "<br>";
 		exit();  
 	}
-//end connection
+
+
+
 
 
 $sql = "SELECT * FROM emailList WHERE address = '$email'";
@@ -35,16 +37,16 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
 
 if(! $row)	//nothing found
 {
-	$sql = "INSERT INTO emailList (address) VALUES ('$email')";
-	$insertquery = $db-> prepare($sql);
-	$insertquery->execute();	
-
-	print "<center><h3>Success!</h3></center>"; 
+	print "<center><h3>This email address is not subscribed to Sporting Life Emails</h3></center>"; 
 }
 else
 {
-	print "<center><h3>This address is already in the system!</h3></center>"; 	
-}
+	$sql = "DELETE FROM emailList WHERE address = ('$email')";
+	$insertquery = $db-> prepare($sql);
+	$insertquery->execute();
+	
+	print "<center><h3>Your email has been removed from the mailing list</h3></center>";  	
+} 
 
  ?>
 	</body>

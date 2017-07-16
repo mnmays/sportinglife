@@ -35,6 +35,7 @@
 	</p>
 
 <p>
+	<!----email subscribe---->
 	<button id="popup" onclick="show()">Subscribe</button>	<!--Subscribe Button-->
 </p>
 
