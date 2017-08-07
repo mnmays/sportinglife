@@ -11,21 +11,21 @@
 			<?php
 				include 'connection.php';	
 
-				$sql1="SELECT seriesID, seriesName FROM series";		
+				$sql1="SELECT seriesID FROM series";		
 				$result1 = mysql_query($sql1);
 			 	
 				$seriesRows = mysql_num_rows($result1);
 		  
 				for($i=0; $i < $seriesRows; $i++) {
 					$row1 = mysql_fetch_assoc($result1);
-					echo "<h3>" . $row1['seriesName'] . "</h3>";
+					echo "<h3>Series " . $row1['seriesID'] . "</h3>";
 					$currSeries = $row1['seriesID'];
 					
-					$sql2 = "SELECT cardNumber, seriesID FROM cards WHERE seriesID='".$currSeries."'";
+					$sql2 = "SELECT cardNumber, seriesID, cardName FROM cards WHERE seriesID='".$currSeries."'";
 					$result2 = mysql_query($sql2);
 					
 					while($row2 = mysql_fetch_assoc($result2)) {
-						echo '<p><input type="checkbox"> Card ' . $row2['cardNumber'] . '</p>';
+						echo '<p><input type="checkbox"> Card #' . $row2['cardNumber'] . ' - ' .$row2['cardName']. '</p>';
 					}//end while
 				}//end for
 				mysql_close($conn);
