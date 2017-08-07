@@ -36,8 +36,8 @@
 		
 		<h2><u>EDIT CARD</u></h2>
 		<form method="post" id="cardEditForm" name="cardEdit" action="editCard.php" onsubmit="return editCardForm()" enctype="multipart/form-data">
-			Enter the <u>series number</u> of the card you would like to edit: <input type="text" name="EditSeriesID" required/> </br></br>
-			Enter the <u>card number</u> you would like to edit: <input type="text" name="EditCardNumber" required/></br></br>
+			Enter the <u>series number</u> of the card you would like to edit: <input type="text" name="EditSeriesID" /> </br></br>
+			Enter the <u>card number</u> you would like to edit: <input type="text" name="EditCardNumber" /></br></br>
 			Enter the cards new <u>series number</u>: <input type="text" name="NewSeriesID"	/></br></br>
 			Enter the cards new <u>card number</u>: <input type="text" name="NewCardNumber" /></br></br>			
 			Enter the cards new <u>player name</u>: <input type="text" name="EditCardName" /><br></br>		

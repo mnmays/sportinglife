@@ -69,16 +69,33 @@
 	}
 	
 	//Checks to see if the series they want to change the card too exists
+	//Additionally checks if the card for the new series already exists
 	if($newSeriesID) {
 		$checkSeries = "SELECT seriesID FROM series WHERE seriesID='$newSeriesID'";
 		$checkSeriesResult = mysql_query($checkSeries);
 		if(mysql_num_rows($checkSeriesResult) == 0) {
 			echo "Series " .$newSeriesID. " does not exist.";
 			exit;
-		}		
+		}	
+		
+		$checkSeriesCard = "SELECT * FROM cards WHERE seriesID='$newSeriesID' AND cardNumber='$cardNumber'";
+		$checkSeriesCardResult = mysql_query($checkSeriesCard);
+		if(mysql_num_rows($checkSeriesCardResult) > 0) {
+			echo "The card you are changing the series of already has a card for that particular series and therefore cannot be edited.";
+			exit;
+		}
+			
 	}
 	
-	//check to make sure that when updating 
+	//Checks for when only the cardNumber is being updated if the current series already contains that card
+	if($newCardNumber) {
+		$checkCard = "SELECT  * FROM cards WHERE seriesID='$seriesID' AND cardNumber='$newCardNumber'";
+		$checkCardResult = mysql_query($checkCard);
+		if(mysql_num_rows($checkCardResult) > 0) {
+			echo "That card already exists for that particular series and therefore cannot be edited.";
+			exit;
+		}
+	}
 
 
 	//Checks if the card for a certain series already exists
