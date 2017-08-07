@@ -1,0 +1,55 @@
+div.item
+{
+	display: inline-block;
+    margin: 2px;
+}
+
+p
+{
+	text-align: center;
+}
+#mainform
+{
+/*width:300px;
+margin:20px auto;
+padding-top:50px;	
+display: inline-block;
+text-align:center;
+margin-left:200px;
+display:none;*/
+width:100%;
+height:100%;
+top:0;
+left:0;
+display:none;
+position:fixed;
+overflow: auto;
+}
+
+.innerdiv
+{
+width:65%;
+/*float:left;*/
+display: inline-block;
+
+}
+
+span
+{
+color:green;
+}
+
+#myForm div
+{
+color:red;
+font-size:14px
+}
+
+#whiteSpace
+{
+	background: white;
+}
+.auction-nudge
+{
+	color: white;
+}

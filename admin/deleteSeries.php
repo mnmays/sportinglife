@@ -1,7 +1,14 @@
 <?php
-	include 'connections files/connection.php';
+	include 'connectionFile/connection.php';
 	
 	$seriesID = $_POST['DeleteSeriesID'];
+	
+	$sql0 = "SELECT * FROM series WHERE seriesID='$seriesID'";
+	$result0 = mysql_query($sql0);
+	if(mysql_num_rows($result0) == 0) {
+		echo "Series " .$seriesID. " does not exist, therefore it was not deleted.";
+		exit;
+	}
 			
 	$sql1 = "DELETE FROM series WHERE seriesID='$seriesID'";
 	if(mysql_query($sql1)) {

@@ -1,0 +1,34 @@
+#container {
+	float: left;
+	width: 100%;
+	padding: 1%;
+}
+
+#column1 {
+	list-style-type: circle;
+	float: left;
+	width: 8%;
+	padding-top: 1%;
+}
+
+#column2 {
+	float: left;
+	width: 92%;
+	padding-top: 1%;		
+}
+
+#buttons {
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	background-color: red;
+}
+
+#buttons button{
+	width: 100%;
+}
+
+#myDiv {
+    display: none;
+    text-align: center;
+}

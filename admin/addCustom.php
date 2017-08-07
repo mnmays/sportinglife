@@ -1,5 +1,5 @@
 <?php 
-	include 'connections files/connection.php';
+	include 'connectionFile/connection.php';
 	
 	$customItemName = $_POST['AddCustomItemName'];
 	$customItemSize = $_POST['AddCustomItemSize'];
