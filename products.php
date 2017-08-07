@@ -70,23 +70,48 @@ $id=session_id();
 			<script type="text/javascript" src="//www.auctionnudge.com/feed/item/js/theme/carousel/blank/1/carousel_scroll/4/carousel_auto/0/carousel_width/370/SellerID/sport_king1/siteid/0/MaxEntries/6"></script>
 			<div id="auction-nudge-items" class="auction-nudge" align="center"></div>
 		<div align="center">
+			
+	<div id="details">
+		<p>Choose from four previously designed Sporting Life card formats displayed below. <br>
+			Upload a clear photo of your subject person (4"x5" jpeg @ 300 dpi) and a card write up/biography<br>
+			if needed. Six classic cards come in an order. Please allow 4-6 weeks<br>
+			for delivery. 
+		</p>
+	</div>		
 			<?php		
 require_once('database.php');
 
-$sql="SELECT itemID,itemImage,itemSize,itemDesc,itemPrice FROM customitems";
+
+/*$sql="SELECT itemID,itemImage,itemSize,itemDesc,itemPrice FROM customitems";
 $viewStmt =$db->prepare($sql);
 $viewStmt->execute();
 
 $itemList=$viewStmt->fetchAll();
 $viewStmt->closeCursor();
 foreach($itemList as $item) {
-				echo '<div class="item"><img src="data:image/jpeg;base64, '.base64_encode($item['itemImage']) . ' "><p> '. $item['itemSize'] . "</p><p> " . $item['itemDesc'] ."</p><p> ".$item['itemPrice'].'</p><button id="popup" onclick="div_show( '. $item['itemID'] .')">Order</button></div>';
-			}//end foreach ?>
+				echo '<div class="item"><img style="width: 30%;" src="data:image/jpeg;base64, '.base64_encode($item['itemImage']) . ' "><p> '. $item['itemSize'] . "</p><p> " . $item['itemDesc'] ."</p><p> ".$item['itemPrice'].'</p><button id="popup" onclick="div_show( '. $item['itemID'] .')">Order</button></div>';
+			}//end foreach ?>*/
+			
+			
+			
+$sql="SELECT itemID,itemImage,itemDesc,itemPrice FROM customitems";
+$viewStmt =$db->prepare($sql);
+$viewStmt->execute();
+
+$itemList=$viewStmt->fetchAll();
+$viewStmt->closeCursor();
+foreach($itemList as $item) {
+				echo '<div class="item"><img style="width: 30%;" src="data:image/jpeg;base64, '.base64_encode($item['itemImage']) . ' "><p> ' . $item['itemDesc'] ."</p><p> ".$item['itemPrice'].'</p><button id="popup" onclick="div_show( '. $item['itemID'] .')">Order</button></div>';
+			}//end foreach ?>			
+
+
 <div id="abc">
 <!-- Popup Div Starts Here -->
 <div id="popupContact">
 <!-- Contact Us Form -->
-<form action="insertCart.php" id="myForm" method="post" name="form">
+
+<form action="insertCart.php" id="myForm" method="post"  name="form">
+<!--<form method="post" id="userImageForm" name="cardInsert" action="insertCart.php" enctype="multipart/form-data">-->
 	<img id="close" src="images/close.png" onclick ="div_hide()">
 <h3>Enter order details below</h3>
 			<table>
@@ -99,18 +124,17 @@ foreach($itemList as $item) {
 			<td><div id='userID'></div></td>
 			</tr>
 			<tr>
-			<td>Image Upload</td>
-			<td><input id ="image1" name="image" onblur="validate('image', this.value)" type ="file" accept="image/*"></td>
-			<!--<td><input type="submit"></td>-->
+			<td>Image Upload of subject (4"x5" jpeg @ 300 dpi)</td>
+			<td><input id ="image1" name="image" onblur="validateImg('image', this.value)" type ="file" accept="image/*"></td>
 			<td><div id = 'image'></div></td>
 			</tr>
 			<tr>
-			<td>Special Instructions</td>
+			<td>Card Back Write Up/Biography</td>
 			<td><input id ="message1" name="message" onblur="validate('message', this.value)" type ="text"></td>
 			<td><div id = 'message'></div></td>
 			</tr>
 			<tr>
-			<td>Quantity</td>
+			<td>Number of sets (a set contains 6 cards)</td>
 			<td><input id ="quantity1" name="quantity" onblur="validate('quantity', this.value)" type ="text"></td>
 			<td><div id = 'quantity'></div></td>
 			</tr>

@@ -60,7 +60,8 @@ if (!isset($_SESSION["userID"]))
 require_once('database.php');
 
 
-$sql="SELECT cartID,itemID,uploadedImg,quantity,price,totalCost FROM shoppingCart WHERE userID = '$_SESSION[userID]'"; 
+
+$sql="SELECT cartID,itemID,itemDesc,uploadedImg,quantity,price,totalCost FROM shoppingCart WHERE userID = '$_SESSION[userID]'"; 
 $viewStmt =$db->prepare($sql);
 $viewStmt->execute();
 
@@ -69,8 +70,7 @@ $viewStmt->closeCursor(); ?>
 <table>
 	<tr>
 		<th>Uploaded Image</th>
-		<th>Cart ID</th>
-		<th>Item Number</th>
+		<th>Item Name</th>
 		<th>Quantity</th>
 		<th>Price</th>
 		<th>Total Cost</th>
@@ -78,25 +78,55 @@ $viewStmt->closeCursor(); ?>
 <?php
 $totalCart=0;
 $totalQty=0;
+$totalShip=0;
 foreach($itemList as $item) {
-		
-		echo '<div class="item"><tr><th><img src="data:image/jpeg;base64, '.base64_encode($item['uploadedImg']) . ' "></th><th> '. $item['cartID'] . "</th><th> " . $item['itemID'] ."</th><th> ".$item['quantity'].'</th><th> '. $item['price'] . "</th><th> ".$item['totalCost'].'</th><td><button id="popup" onclick="div_show2( '. $item['cartID'] .')">Edit Qty</button></td></tr><br></div>';
+			
+		$cartID=$item['cartID'];
+		echo '<div class="item"><tr><th><img src="data:image/jpeg;base64, '.base64_encode($item['uploadedImg']) . ' "></th><th> ' . $item['itemDesc'] ."</th><th> ".$item['quantity'].'</th><th> '. $item['price'] . "</th><th> ".$item['totalCost'].'</th><td><button id="popup" onclick="div_show2( '. $item['cartID'] .')">Edit Qty</button></td>';
 		$totalCart = $totalCart + $item['totalCost'];
 		$totalQty = $totalQty + $item['quantity'];
+		$cartID=$item['cartID'];?>
+		<td></td><a href="removeItem.php?varnam=<?php echo $cartID?>">Remove item</a></td></tr><br></div>
 		
-
+  <?php
+  
 	}//end foreach 
-	echo $totalCart;
-	echo '<br>';
-	echo $totalQty;
+	//echo $totalCart;
+	//echo '<br>';
+	//echo $totalQty;
+	if($totalQty==1)
+	{
+		$totalShip=3.50;
+	}
+	else if($totalQty==0)
+	{
+		$totalShip=0.00;
+	}
+	else 
+	{
+		$totalShip=3.50+(($totalQty-1)*.5);
+	}
+	//echo '<br>';
+	//echo $totalShip;
+	$totalCart=$totalCart+$totalShip;
+	//echo '<br>';
+	//echo $totalCart;
+	
 	?>
 
 
 </table>
+<div id="totals">
+	<p> Total Shipping: $<?php echo $totalShip ?> <br>
+		Total Cost: $<?php echo $totalCart ?>
+		</p>
+</div>
 <!--<input onclick="clearCart()" type='submit' value='Clear Cart'>-->
-<button id="popup" onclick="clearCart()">Clear Cart</button>
-<button id="checkout" onclick="window.location='order-checkout.php';">Checkout</button>
+<!--<button id="popup" onclick="clearCart()">Clear Cart</button>-->
+<a href="clearCart.php">Clear Cart</a>
+<!--<button id="checkout" onclick="window.location='order-checkout.php';">Checkout</button>-->
 <a href="order-checkout.php?varname=<?php echo $totalCart ?>">Checkout</a>
+
 
 
 

@@ -3,7 +3,6 @@ session_start();
 
 require_once('database.php');	
 	
-
 		
 	$itemId = filter_input(INPUT_POST,'id');
 	$itemId = htmlspecialchars($itemId);
@@ -45,11 +44,11 @@ require_once('database.php');
 	 //echo $desc;
 	 $index2=0;
 	 $desc=$desc[0];
-	 //echo $desc;
+	 echo $desc;
 	 
 	
 	//$insertQuery="INSERT INTO shoppingCart (userID,itemID,uploadedImg,specInstr,quantity,price,totalCost,itemDesc) VALUES ('$_SESSION[userID]',:id1,:image1,:message1,:quantity1,'$price','$totalCost','$desc')";
-		$insertQuery="INSERT INTO shoppingCart (userID,itemID,uploadedImg,specInstr,quantity,price,totalCost) VALUES ('$_SESSION[userID]',:id1,:image1,:message1,:quantity1,'$price','$totalCost')";
+		$insertQuery="INSERT INTO shoppingCart (userID,itemID,itemDesc,uploadedImg,specInstr,quantity,price,totalCost) VALUES ('$_SESSION[userID]',:id1,'$desc',:image1,:message1,:quantity1,'$price','$totalCost')";
 		$insertStatement = $db-> prepare($insertQuery);
 		//$insertStatement->bindValue(':userID1', $userID);
 		$insertStatement->bindValue(':id1', $itemId);
@@ -63,6 +62,10 @@ require_once('database.php');
 		
 		//echo "Item Added!";
 		header("location:shopping-cart.php");
+		
+		
+		
+		
 		
 		
 ?>

@@ -10,10 +10,14 @@ session_start();
 	xmlhttp.send();
 };</script>
 
+
 <?php
 require_once('database.php');	
 	
-$fullName = filter_input(INPUT_POST,'fullName');
+    $totalCart=filter_input(INPUT_POST, 'totalCost');
+	$totalCart=htmlspecialchars($totalCart);
+    
+    $fullName = filter_input(INPUT_POST,'fullName');
 	$fullName = htmlspecialchars($fullName);
 	
 	
@@ -59,8 +63,45 @@ $fullName = filter_input(INPUT_POST,'fullName');
 	echo $country;*/
 	
 	
-	echo "<script> insertOrder(); </script>";
+	
+	//echo "<script> insertOrder(); </script>";
+	
 	//header("location:order-checkout.php");
+
+	//header("location:shopping-cart.php");
+	$sql2="INSERT INTO orders (cartID,userID,itemID,uploadedImg,specInstr,quantity,price,totalCost) SELECT cartID,userID,itemID,uploadedImg,specInstr,quantity,price,totalCost FROM shoppingcart WHERE userID = '$_SESSION[userID]'";
+	$execStatement=$db->prepare($sql2);
+	$execStatement->execute();
+	
+	//$sql2="INSERT INTO orders (fullName,emailAdd,addLine1,city,state,SELECT custID FROM customerInfo WHERE userID = '$_SESSION[userID]'"; 
+	 //$execStatement2= $db->prepare($sql2);
+	 //$execStatement2->execute();
+	
+	
+	
+	$updateQuery="UPDATE orders AS o INNER JOIN customerinfo as c ON o.userID=c.userID SET o.fullName=c.fullName,o.emailAdd=c.emailAddress,o.addLine1=c.addLine1,o.city=c.city,o.state=c.state,o.postalCode=c.zip,o.country=c.country WHERE o.userID='$_SESSION[userID]'";
+	//$updateQuery="INSERT INTO customerinfo (userID,fullName,emailAddress,addLine1,city,state,zip,country) VALUES ('$_SESSION[userID]',:fullName1,:emailAddress1,:addressLine11,:city1,:state1,:postalCode1,:country)";
+	//$sql4="INSERT INTO customerinfo (userID,fullName) VALUES ('$_SESSION[userID]',:full-name1)";
+	$updateStatement=$db->prepare($updateQuery);
+	
+	
+	$updateStatement->execute();
+	
+	$deleteQuery="DELETE FROM shoppingCart WHERE userID= '$_SESSION[userID]'";
+		$deleteStatement = $db-> prepare($deleteQuery);
+		//$insertStatement->bindValue(':userID1', $userID);
+		//$insertStatement->bindValue(':id1', $itemId);
+		//$insertStatement->bindValue(':image1', $image);
+		//$insertStatement->bindValue(':message1', $message);
+		//$insertStatement->bindValue(':quantity1', $quantity);
+		//$insertStatement->bindValue(':price', $price);
+		//$insertStatement->bindValue(':totalCost', $totalCost);
+		$deleteStatement->execute();
+		
+		//$msg = 'You have a new order.'; 
+		//mail("ckeyser@umich.edu","New Order",$msg);
+		
+	header("location:products.php");
 	
 		
 ?>

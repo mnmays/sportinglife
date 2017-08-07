@@ -1,6 +1,13 @@
 <?php
 		//$value = $_GET["query"];
 		//$formField = $_GET["field"];
+		
+		//$userImage = addslashes(file_get_contents($_FILES['AddUserImage']['tmp_name']));
+		//$userImage = $_FILES['image']['name'];
+		//$imageRes = getimagesize($_FILES['AddUserImage']['tmp_name']);
+		
+		
+		
 	if (isset($_GET["query"]) && isset($_GET["field"]))
 	{
 		$value = $_GET["query"];
@@ -28,6 +35,18 @@
 				echo "Last name must be alpha characters only.";	
 			}
 		}
+		/*if($formField == "image")
+		{
+			if($_FILES["AddUserImage"]["type"] != "image/jpeg"||$_FILES["AddUserImage"]["size"] >= 200000000||$imageRes[0] < 1200 || $imageRes[1] < 1500)
+			{
+				echo "Invalid file type. Image not uploaded";
+			}
+			else 
+			{
+				echo "<span>Valid</span>";
+			}
+		}*/
+		
 		if($formField =="emailAdd")
 		{
 			if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $value))
@@ -40,10 +59,10 @@
 			}
 		}
 		
-		if($formField == "message")
-		{
-			echo "<span>Valid</span>";
-		}
+		//if($formField == "message")
+		//{
+		//	echo "<span>Valid</span>";
+		//}
 		//if($formField == "image") need to validate image uploaded
 		//{
 		//	if()
@@ -54,11 +73,6 @@
 			{
 				echo "<span>Valid</span>";
 			}
-			else if($value==0)
-			{
-				
-			}
-			
 			else {
 				{
 					echo "Invalid quantity.";
