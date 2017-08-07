@@ -98,8 +98,22 @@ require_once('database.php');
 		//$insertStatement->bindValue(':totalCost', $totalCost);
 		$deleteStatement->execute();
 		
-		//$msg = 'You have a new order.'; 
-		//mail("ckeyser@umich.edu","New Order",$msg);
+		/*$to = "ckeyser@umich.edu"; 
+		$subject = "New Order";
+		$txt = "
+		<html> 
+		<body>
+		You have a new order!
+		</body>
+		</html>
+
+		";
+		$headers = "MIME-Version: 1.0" . "\r\n";
+		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+		$headers .= "From: webmaster@example.com"; 
+
+
+		mail($to,$subject,$txt,$headers);*/
 		
 	header("location:products.php");
 	
