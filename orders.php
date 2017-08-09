@@ -53,6 +53,7 @@ session_start();
 require_once('database.php');
 
 
+
 $sql="SELECT userID,cartID,itemID,uploadedImg,specInstr,quantity,price,totalCost FROM orders"; 
 $viewStmt =$db->prepare($sql);
 $viewStmt->execute();

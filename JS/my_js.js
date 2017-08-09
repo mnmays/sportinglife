@@ -7,10 +7,7 @@ document.getElementById('form').submit();
 alert("Form Submitted Successfully...");
 }
 }
-//Function To Display Popup
-//var itemIndex= index;
-//var itemPrice = price;
-//var itemSize = size;
+
 function div_show(index) {
 document.getElementById('abc').style.display = "block";
 
@@ -31,6 +28,12 @@ document.getElementById('abc2').style.display = "block";
 function div_show4() {
 document.getElementById('paypal-button-container').style.display = "block";
 
+}
+
+function submit()
+{
+	var form=document.getElementById('userImageForm'),field=form.elements.AddUserImage;
+	field.onblur=this.form.submit();
 }
 
 
@@ -90,6 +93,11 @@ function showDiv() {
 };
 //Function to Hide Popup
 function div_hide(){
+var div = document.getElementById('quantity');
+while(div.firstChild){
+    div.removeChild(div.firstChild);
+}
+
 document.getElementById("myForm").reset();
 document.getElementById('abc').style.display = "none";
 //window.location = "http://localhost/aptanadir/sportinglife/products.php";  //will need to be updated with live site URL!!!
@@ -102,35 +110,37 @@ document.getElementById('abc2').style.display = "none";
 //window.location = "http://localhost/aptanadir/sportinglife/products.php";  //will need to be updated with live site URL!!!
 
 }
+function div_hide3(){
+document.getElementById("myForm").reset();
+document.getElementById('123').style.display = "none";
+//window.location = "http://localhost/aptanadir/sportinglife/products.php";  //will need to be updated with live site URL!!!
+
+}
+
 
 function checkForm()  //client side validation
 {
 	
 	var message = document.getElementById("message1").value;
 	var quantity= document.getElementById("quantity1").value;
+	var image=document.getElementById("image1").value;
 	
-	if(message==''||quantity=='')
+	if(quantity==''||image=='')
 	{
-		alert("Please fill in all fields.");
+		alert("Please fill in missing fields.");
 		return false;
 	}
 	else
 	{
 		var message1 = document.getElementById("message");
 		var quantity1= document.getElementById("quantity");
-		if(message1.innerHTML=='Invalid message'||quantity1.innerHTML=='Invalid quantity.')
+		var image1= document.getElementById("image");
+		if(message1.innerHTML=='Invalid message'||quantity1.innerHTML=='Invalid quantity.'||image1.innerHTML=='Invalid image.')
 		{
 			alert("Correct invalid information.");
 			return false;
 		}
-		/*else
-		{
-			var xmlhttp;
-			xmlhttp = new XMLHttpRequest();
-			xmlhttp.open("GET", "contactValidation.php",true);
-			xmlhttp.send();
-			
-		}*/
+		
 		else
 		{
 		alert("Success!");
@@ -166,14 +176,7 @@ function checkForm2()  //client side validation
 			alert("Correct invalid information.");
 			return false;
 		}
-		/*else
-		{
-			var xmlhttp;
-			xmlhttp = new XMLHttpRequest();
-			xmlhttp.open("GET", "contactValidation.php",true);
-			xmlhttp.send();
-			
-		}*/
+		
 		else
 		{
 		alert("Success!");
@@ -207,36 +210,30 @@ function checkForm3()  //client side validation
 	}
 	else
 	{
-		//var message1 = document.getElementById("message");
-		/*var quantity1= document.getElementById("quantity");
-		if(quantity1.innerHTML=='Invalid quantity.')
+		var name1=document.getElementById("fullName");
+		var email1=document.getElementById("emailAddress");
+		var add1=document.getElementById("addressLine1");
+		var city1=document.getElementById("city");
+		var state1=document.getElementById("state");
+		var zip1=document.getElementById("postalCode");
+		
+		if(name1.innerHTML=='Name must be alpha characters only.'||email1.innerHTML=='Invalid email address.'||add1.innerHTML=='Invalid address.'||
+		city1.innerHTML=='City must be alpha characters only.'|| state1.innerHTML=='State must be alpha characters only.'||zip1.innerHTML=='Postal code must be numeric characters only.')
 		{
 			alert("Correct invalid information.");
 			return false;
 		}
-		/*else
+		else
 		{
-			var xmlhttp;
-			xmlhttp = new XMLHttpRequest();
-			xmlhttp.open("GET", "contactValidation.php",true);
-			xmlhttp.send();
-			
-		}*/
-		//else
-		//{
-		alert("Success!");
-		success=1;
-		//showDiv();
-			//var xmlhttp;
-			//xmlhttp = new XMLHttpRequest();
-			//xmlhttp.open("GET", "shopping-cart.php?cookie="+cookie,true);
-			//xmlhttp.send();
-		//}
+			alert("Success!");
+			success=1;
+		}
 	}
 	
 	if (success==1)
 	{
 		
+		document.getElementById("continue").disabled=true;
 		showDiv();
 		//showPay();
 	}
@@ -254,6 +251,14 @@ function clearCart()
 	xmlhttp.send();
 };
 
+function delItem()
+{
+	var xmlhttp;
+	xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", "removeItem.php",true);
+	xmlhttp.send();
+};
+
 function insertOrder()
 {
 	var xmlhttp;
@@ -267,6 +272,177 @@ function submitForm()
 	document.getElementById("myForm").submit();
 };
 
+function getFileExt(filename)
+	{
+		return filename.split('.').pop();
+	};
+
+
+
+function validateImg3(field,query)
+{
+	var fup=document.getElementById('image1');
+	var fileName=fup.value;
+	var ext=fileName.substring(fileName.lastIndexOf(".")+1);
+	if(ext=="jpeg"||ext=="jpg")
+	{
+		
+		if(fup.files[0].size>4000000000)
+		{
+			alert("File too large.");
+			fup.value="";
+			return false;
+		}
+		else
+		{
+			 image = new Image();
+			 var reader = new FileReader();
+         //Read the contents of Image File.
+    	reader.readAsDataURL(fup.files[0]);
+    	reader.onload = function (e) 
+    		{
+       		 //Initiate the JavaScript Image object.
+        		var image = new Image();
+        	//Set the Base64 string return from FileReader as source.
+        		image.src = e.target.result;
+        		image.onload = function () 
+       				 {
+            			//Determine the Height and Width.
+            			var height = this.height;
+            			var width = this.width;
+            			if (height < 1500 || width < 1200) //a 4"x5" photo @ 300 dpi=1200x1500 pixels, so it should be at least this.
+           			 		{
+                				alert("Height must be at least 1500px/5 inches and Width must be at least 1200px/4 inches.");
+                				fup.value="";
+                				return false;
+            				}
+            			else
+           				   {
+            				   alert("Uploaded image has valid Height and Width.");
+              				   return true;
+          				   }
+        			};
+   			};
+	   }
+	}
+	else
+	{
+		alert("Upload jpg images only.");
+		fup.focus();
+		fup.value="";
+		return false;
+	}
+};
+
+
+function validateImg(field,query)
+{
+	var myFile = document.getElementById('image1');
+	
+
+myFile.addEventListener('change', function() 
+{
+  image = new Image();
+
+  if(this.files[0].size > 4000000000) //4gb max size for long blob in DB
+  //if(this.files[0].size > 1000) //4gb max size for long blob in DB
+  {
+        alert("File size too big. Please upload a smaller image");
+        myFile.value="";
+        return false;
+  }
+  else if(!this.files[0].name.match(/.(jpg|jpeg)$/i))
+  {
+  		alert("Incorrect file type. Please upload a .jpg or .jpeg image.");
+  	 	myFile.value="";
+        return false;
+  }
+  else
+  {
+    var reader = new FileReader();
+         //Read the contents of Image File.
+    reader.readAsDataURL(this.files[0]);
+    reader.onload = function (e) 
+    {
+        //Initiate the JavaScript Image object.
+        var image = new Image();
+        //Set the Base64 string return from FileReader as source.
+        image.src = e.target.result;
+        image.onload = function () 
+        {
+            //Determine the Height and Width.
+            var height = this.height;
+            var width = this.width;
+            if (height < 1500 || width < 1200) //a 4"x5" photo @ 300 dpi=1200x1500 pixels, so it should be at least this.
+            {
+                alert("Height must be at least 1500px/5 inches and Width must be at least 1200px/4 inches.");
+                myFile.value="";
+                return false;
+            }
+            else
+            {
+               alert("Uploaded image has valid Height and Width.");
+               return true;
+            }
+        };
+    };
+  }
+
+
+});
+};
+
+function validateImg2(field,query)
+{
+	var myFile = document.getElementById('image1');
+	
+
+  image = new Image();
+
+  if(this.files[0].size > 4000000000) //4gb max size for long blob in DB
+  {
+        alert("File size too big. Please upload a smaller image");
+        myFile.value="";
+        return false;
+  }
+  else if(!this.files[0].name.match(/.(jpg|jpeg)$/i))
+  {
+  		alert("Incorrect file type. Please upload a .jpg or .jpeg image.");
+  	 	myFile.value="";
+        return false;
+  }
+  else
+  {
+    var reader = new FileReader();
+         //Read the contents of Image File.
+    reader.readAsDataURL(this.files[0]);
+    reader.onload = function (e) 
+    {
+        //Initiate the JavaScript Image object.
+        var image = new Image();
+        //Set the Base64 string return from FileReader as source.
+        image.src = e.target.result;
+        image.onload = function () 
+        {
+            //Determine the Height and Width.
+            var height = this.height;
+            var width = this.width;
+            if (height < 1500 || width < 1200) //a 4"x5" photo @ 300 dpi=1200x1500 pixels, so it should be at least this.
+            {
+                alert("Height must be at least 1500px/5 inches and Width must be at least 1200px/4 inches.");
+                myFile.value="";
+                return false;
+            }
+            else
+            {
+               alert("Uploaded image has valid Height and Width.");
+               return true;
+            }
+        };
+    };
+  }
+
+};
 
 function validate(field,query)  //server side validation
 {

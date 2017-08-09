@@ -1,20 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="UTF-8">
 <title>Admin Login</title>
 	<head>
-		<script src = "admin-login-validation.js"></script>
-		<link rel="stylesheet" type="text/css" href="styles/adminLogIn.css">
+		<link rel="stylesheet" type="text/css" href="../styles/adminLogIn.css">
 	</head>
 	<header>
-		<center>	<img src="images/logo.png" alt="Sporting Life Logo" id="logo"> </center>
+		<center>	<img src="../images/logo.png" alt="Sporting Life Logo" id="logo"> </center>
 		<link rel="styleSheet" href = "mainStyles.css">
 		<div id="adminLbl">
 			Administrator
 		</div>
 	</header>
 <body style="
-		background-image:url(images/comerica-park-artwork.jpg); 
+		background-image:url(../images/comerica-park-artwork.jpg); 
 		background-size: cover; 
 		" >
 		

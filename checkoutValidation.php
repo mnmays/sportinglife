@@ -1,6 +1,6 @@
 <?php
-		//$value = $_GET["query"];
-		//$formField = $_GET["field"];
+//this page validates the user shipping information entered from the checkout page
+		
 	if (isset($_GET["query"]) && isset($_GET["field"]))
 	{
 		$value = $_GET["query"];
@@ -8,15 +8,12 @@
 		
 		if($formField == "fullName")
 		{
-			//if(ctype_alpha($value))
 			if (!preg_match("/^[a-z\040\.\-]+$/i", $value))
 			{	
 				echo "Name must be alpha characters only.";		
-				//echo "<span>Valid</span>";
 			}
 			else 
 			{
-				//echo "Name must be alpha characters only.";
 				echo "<span>Valid</span>";	
 			}
 		}

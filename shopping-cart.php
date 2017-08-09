@@ -1,6 +1,9 @@
+<!--This page displayed the shopping cart, allows user to edit the quantity of items, 
+	remove specific line items, clear the entire cart and proceed to checkout.  -->
+
 <?php
 session_start();
-echo $_SESSION["userID"];
+//echo $_SESSION["userID"];
 if (!isset($_SESSION["userID"]))
 {
 	header("location:products.php");
@@ -18,8 +21,6 @@ if (!isset($_SESSION["userID"]))
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
-<!--<script src="https://www.paypalobjects.com/api/checkout.js"></script>
-<script src="checkout.js"></script>-->
 <script src="JS/my_js.js"></script>
 </head>
 <header style="
@@ -56,11 +57,14 @@ if (!isset($_SESSION["userID"]))
 
 <script src="JS/my_js.js"></script>
 
-<?php		
+<?php	
+
+//this section grabs all cart items for a user's session ID and displays them	
 require_once('database.php');
 
 
-$sql="SELECT cartID,itemID,uploadedImg,quantity,price,totalCost FROM shoppingCart WHERE userID = '$_SESSION[userID]'"; 
+
+$sql="SELECT cartID,itemID,itemDesc,uploadedImg,quantity,price,totalCost FROM shoppingCart WHERE userID = '$_SESSION[userID]'"; 
 $viewStmt =$db->prepare($sql);
 $viewStmt->execute();
 
@@ -69,8 +73,7 @@ $viewStmt->closeCursor(); ?>
 <table>
 	<tr>
 		<th>Uploaded Image</th>
-		<th>Cart ID</th>
-		<th>Item Number</th>
+		<th>Item Name</th>
 		<th>Quantity</th>
 		<th>Price</th>
 		<th>Total Cost</th>
@@ -78,25 +81,49 @@ $viewStmt->closeCursor(); ?>
 <?php
 $totalCart=0;
 $totalQty=0;
+$totalShip=0;
 foreach($itemList as $item) {
-		
-		echo '<div class="item"><tr><th><img src="data:image/jpeg;base64, '.base64_encode($item['uploadedImg']) . ' "></th><th> '. $item['cartID'] . "</th><th> " . $item['itemID'] ."</th><th> ".$item['quantity'].'</th><th> '. $item['price'] . "</th><th> ".$item['totalCost'].'</th><td><button id="popup" onclick="div_show2( '. $item['cartID'] .')">Edit Qty</button></td></tr><br></div>';
+			
+		$cartID=$item['cartID'];
+		echo '<div class="item"><tr><th><img src="data:image/jpeg;base64, '.base64_encode($item['uploadedImg']) . ' "></th><th> ' . $item['itemDesc'] ."</th><th> ".$item['quantity'].'</th><th> '. $item['price'] . "</th><th> ".$item['totalCost'].'</th><td><button id="popup" onclick="div_show2( '. $item['cartID'] .')">Edit Qty</button></td>';
 		$totalCart = $totalCart + $item['totalCost'];
 		$totalQty = $totalQty + $item['quantity'];
+		$cartID=$item['cartID'];?>
+		<td></td><a href="removeItem.php?varnam=<?php echo $cartID?>">Remove item</a></td></tr><br></div>
 		
-
+  <?php
+  
 	}//end foreach 
-	echo $totalCart;
-	echo '<br>';
-	echo $totalQty;
+	
+	if($totalQty==1)   //calculate shipping based on number of items in the order
+	{
+		$totalShip=3.50;
+	}
+	else if($totalQty==0)
+	{
+		$totalShip=0.00;
+	}
+	else 
+	{
+		$totalShip=3.50+(($totalQty-1)*.5);
+	}
+	
+	$totalCart=$totalCart+$totalShip;
+	
+	
 	?>
 
 
 </table>
-<!--<input onclick="clearCart()" type='submit' value='Clear Cart'>-->
-<button id="popup" onclick="clearCart()">Clear Cart</button>
-<button id="checkout" onclick="window.location='order-checkout.php';">Checkout</button>
-<a href="order-checkout.php?varname=<?php echo $totalCart ?>">Checkout</a>
+<div id="totals">
+	<p> Total Shipping: $<?php echo $totalShip ?> <br>
+		Total Cost: $<?php echo $totalCart ?>
+		</p>
+</div>
+
+<a href="clearCart.php">Clear Cart</a>    <!--calls the clearCart.php file to delete the cart items from the DB -->
+<a href="order-checkout.php?varname=<?php echo $totalCart ?>">Checkout</a>   <!--calls the orderCheckout.php file to direct user to checkout-->
+
 
 
 
@@ -104,8 +131,8 @@ foreach($itemList as $item) {
 <div id="abc">
 <!-- Popup Div Starts Here -->
 <div id="popupContact">
-<!-- Contact Us Form -->
-<form action="updateCart.php" id="myForm" method="post" name="form">
+<!-- Edit quantity Form -->
+<form action="updateCart.php" id="myForm" method="post" name="form">   <!--calls updateCart.php file to update with new qty-->
 	<img id="close" src="images/close.png" onclick ="div_hide()">
 <h3>Enter order details below</h3>
 			<table>
@@ -128,7 +155,7 @@ foreach($itemList as $item) {
 			</tr>
 			</table>
 
-			<input onclick="return checkForm2()" type='submit' value='Save'>
+			<input onclick="return checkForm2()" type='submit' value='Save'>  <!--validate the update qty form-->
 </form>
 </div>
 <!-- Popup Div Ends Here -->

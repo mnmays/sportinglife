@@ -1,6 +1,7 @@
 <?php
-		//$value = $_GET["query"];
-		//$formField = $_GET["field"];
+//This page validates the fields a customer fills out when placing an order from the products page
+		
+		
 	if (isset($_GET["query"]) && isset($_GET["field"]))
 	{
 		$value = $_GET["query"];
@@ -28,6 +29,7 @@
 				echo "Last name must be alpha characters only.";	
 			}
 		}
+		
 		if($formField =="emailAdd")
 		{
 			if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $value))
@@ -39,26 +41,12 @@
 				echo "<span>Valid</span>";
 			}
 		}
-		
-		if($formField == "message")
-		{
-			echo "<span>Valid</span>";
-		}
-		//if($formField == "image") need to validate image uploaded
-		//{
-		//	if()
-		//}
 		if($formField=="quantity")
 		{
 			if(is_numeric($value) && $value > 0 && $value == round($value,0))
 			{
 				echo "<span>Valid</span>";
 			}
-			else if($value==0)
-			{
-				
-			}
-			
 			else {
 				{
 					echo "Invalid quantity.";
