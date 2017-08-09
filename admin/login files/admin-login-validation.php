@@ -6,19 +6,16 @@
 		$value = $_GET["query"];
 		$formField = $_GET["field"];
 		
-		if($formField == "username")
+	if($formField == "username")
 		{
-			if(ctype_alpha($value))
+			if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $value))
 			{
-				echo "<span>Valid</span>";
+				echo "Invalid email address.";
 			}
 			else 
 			{
-				echo "Username must be alpha characters only.";	
+				echo "<span>Valid</span>";
 			}
 		}
-		
 	}
-
-   
 ?>

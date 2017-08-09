@@ -1,21 +1,14 @@
-<?php
-session_start(); 
-if (!isset($id))
-{
-	header("location:../admin-login.php");
-}
-?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <!--
-	this is the admin homepage
+	admins can send emails to sporting life followers from here
 -->
 <meta charset="UTF-8">
-<title>Admin Home</title>
+<title>Sporting Life Emails</title>
 	<head>
-		<script src = "admin-login-validation.js"></script>
 		<link rel="styleSheet" href = "styles/generalAdmin.css">
-		<link rel="styleSheet" href = "styles/admin_hompage.css">
 	</head>
   
 
@@ -58,8 +51,19 @@ if (!isset($id))
 	
 	<section>
 		
+		<h2>Send an Email to all of your MailChimp Subscribers!</h2>
+
+		<br>
 		
-		
+		<form action="admin-emails/emailpreview.php" method="post" enctype="multipart/form-data">
+			email subject: 
+			<input id="subject" name="subject" type="text" value="Subject">	<br>
+			header: 
+			<input id="header" name="header"  type = "text" value = "header">	<br>
+			email body: <input id="body" name="body" type="text"> <br>
+			<input type='submit' value = "submit"> <br>
+		</form>
+			
 	</section>
 	
 </body>

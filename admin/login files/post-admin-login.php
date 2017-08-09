@@ -9,6 +9,10 @@
 	<body>
 
 <?php
+//session
+session_start(); 
+$id = session_id(); 
+
 //require_once('database.php');
 
 //connection
@@ -56,7 +60,6 @@ echo "<br>";
 	 {
 		echo "Successful login";
 		?>
-		
 			
 	</body>
 </html>

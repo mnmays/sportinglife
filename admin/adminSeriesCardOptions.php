@@ -1,8 +1,23 @@
+<?php
+session_start(); 
+if (!isset($id))
+{
+	header("location:../admin-login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
+<!--
+	this is the admin series and cards 
+-->
+<meta charset="UTF-8">
+<title>Admin Home</title>
 	<head>
-		<style></style>
-		<script>
+		<script src = "admin-login-validation.js"></script>
+		<link rel="styleSheet" href = "styles/generalAdmin.css">
+		<link rel="styleSheet" href = "styles/admin_hompage.css">
+		
+				<script>
 			function addSeriesForm() {
 				var x=document.forms["seriesAddForm"]["AddSeriesID"].value;
 				
@@ -128,6 +143,41 @@
 			}
 		</script>
 	</head>
+  
+
+<body>
+	<header>
+		<img src="images/logo.png" alt="Sporting Life Logo" id="logo">
+		<div id="adminLbl">
+			Administrator
+		</div>
+	</header>
+	<nav>
+		<ul>
+			<li class="active">
+				<a href="admin.php" id="card-sets">Home</a>	
+			</li>
+			<li class="active">
+				<a href="" id="card-sets">Manage Card Sets</a>	
+			</li>
+			<li class="active">
+				<a href="" id="PersOrders">Manage Personalized Orders</a>
+			</li>
+			<li class="active">
+				<a href="admin-social-media.html" id="connection">Sporting Life Social Media</a>
+			</li>
+			<li class="active">
+				<a href="" id="blog">Manage Blog</a>
+			</li>
+			<li class="active">
+				<a href="" id="email">Emailing List</a>
+			</li>
+			<li class="active">
+				<a href="" id="settings">Admin Settings</a>
+			</li>
+		</ul>
+	</nav>
+
 	<body>
 		<h1><u>SERIES ADMIN OPTIONS</u></h1>
 		<h2><u>ADD SERIES</u></h2>
