@@ -12,8 +12,8 @@
 			
 	$sql1 = "DELETE FROM series WHERE seriesID='$seriesID'";
 	if(mysql_query($sql1)) {
-		echo "Series Number " .$seriesID. " was deleted";
+		echo "Series " .$seriesID. " was deleted";
 	}else {
-		echo "Series failed to delete due to it not being in the database";
+		echo "Series failed to delete due to it not being in the database" . mysql_error();
 	}
 ?>

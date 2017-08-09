@@ -1,7 +1,7 @@
 <html>
 	<!--- this file allows the administrator to add, delete, and update the cards and series that are visible on the website --->
 	<head>
-		<script type="text/javascript" src="JS/admin-cards-series_JS.js"></script>
+		<script type="text/javascript" src="admin-cards-series_JS.js"></script>
 	</head>
 	<body>
 		<h1><u>SERIES ADMIN OPTIONS</u></h1>
@@ -13,8 +13,8 @@
 		
 		<h2><u>EDIT SERIES</u></h2>
 		<form method="post" id="seriesEditForm" name="seriesEdit" action="editSeries.php" onsubmit="return editSeriesForm()">
-			Enter the <u>series number</u> you would like to edit: <input type="text" name="EditSeriesID" required/></br></br>
-			Enter what you would like to change the <u>series number</u> too. NOTE: this will change all cards of the series to the new series: <input type="text" name="NewSeriesID" required/></br></br>
+			Enter the <u>series</u> you would like to edit: <input type="text" name="EditSeriesID" required/></br></br>
+			Enter what you would like to change the name of the <u>series</u> too. NOTE: this will change all cards of the series to the new series: <input type="text" name="NewSeriesID" required/></br></br>
 			<input type="submit" value="Submit">	
 		</form>
 		

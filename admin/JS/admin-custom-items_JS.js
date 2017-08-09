@@ -8,12 +8,22 @@ function addCustomForm() {
   	}
 };
 
-function deleteCustomForm() {
-  	if(confirm("Are you sure you want to DELETE this custom item?") == true) {
-  		//alert("You deleted the series");
+function editCustomForm() {
+	 if(confirm("Are you sure you want to EDIT this custom item?") == true) {
+  		//alert("You eidted the item");
   	}
   	else {
-  		//alert("Canceled! Series not deleted!");
+  		//alert("Canceled! Item not edited!");
+  		return false;
+  	}
+};
+
+function deleteCustomForm() {
+  	if(confirm("Are you sure you want to DELETE this custom item?") == true) {
+  		//alert("You deleted the item");
+  	}
+  	else {
+  		//alert("Canceled! Item not deleted!");
   		return false;
   	}
 };
