@@ -7,7 +7,7 @@
 	
 	//UPLOADING FILE INTO FILE SYSTEM
 	//User target_dir for database column
-	$target_dir = "cardImage/";
+	$target_dir = "../../cardImage/";
 	
 	$target_cardName = $_FILES["fileToUpload"]["name"];
 	
