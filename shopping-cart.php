@@ -1,6 +1,9 @@
+<!--This page displayed the shopping cart, allows user to edit the quantity of items, 
+	remove specific line items, clear the entire cart and proceed to checkout.  -->
+
 <?php
 session_start();
-echo $_SESSION["userID"];
+//echo $_SESSION["userID"];
 if (!isset($_SESSION["userID"]))
 {
 	header("location:products.php");
@@ -18,8 +21,6 @@ if (!isset($_SESSION["userID"]))
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
-<!--<script src="https://www.paypalobjects.com/api/checkout.js"></script>
-<script src="checkout.js"></script>-->
 <script src="JS/my_js.js"></script>
 </head>
 <header style="
@@ -56,7 +57,9 @@ if (!isset($_SESSION["userID"]))
 
 <script src="JS/my_js.js"></script>
 
-<?php		
+<?php	
+
+//this section grabs all cart items for a user's session ID and displays them	
 require_once('database.php');
 
 
@@ -91,10 +94,8 @@ foreach($itemList as $item) {
   <?php
   
 	}//end foreach 
-	//echo $totalCart;
-	//echo '<br>';
-	//echo $totalQty;
-	if($totalQty==1)
+	
+	if($totalQty==1)   //calculate shipping based on number of items in the order
 	{
 		$totalShip=3.50;
 	}
@@ -106,11 +107,9 @@ foreach($itemList as $item) {
 	{
 		$totalShip=3.50+(($totalQty-1)*.5);
 	}
-	//echo '<br>';
-	//echo $totalShip;
+	
 	$totalCart=$totalCart+$totalShip;
-	//echo '<br>';
-	//echo $totalCart;
+	
 	
 	?>
 
@@ -121,11 +120,9 @@ foreach($itemList as $item) {
 		Total Cost: $<?php echo $totalCart ?>
 		</p>
 </div>
-<!--<input onclick="clearCart()" type='submit' value='Clear Cart'>-->
-<!--<button id="popup" onclick="clearCart()">Clear Cart</button>-->
-<a href="clearCart.php">Clear Cart</a>
-<!--<button id="checkout" onclick="window.location='order-checkout.php';">Checkout</button>-->
-<a href="order-checkout.php?varname=<?php echo $totalCart ?>">Checkout</a>
+
+<a href="clearCart.php">Clear Cart</a>    <!--calls the clearCart.php file to delete the cart items from the DB -->
+<a href="order-checkout.php?varname=<?php echo $totalCart ?>">Checkout</a>   <!--calls the orderCheckout.php file to direct user to checkout-->
 
 
 
@@ -134,8 +131,8 @@ foreach($itemList as $item) {
 <div id="abc">
 <!-- Popup Div Starts Here -->
 <div id="popupContact">
-<!-- Contact Us Form -->
-<form action="updateCart.php" id="myForm" method="post" name="form">
+<!-- Edit quantity Form -->
+<form action="updateCart.php" id="myForm" method="post" name="form">   <!--calls updateCart.php file to update with new qty-->
 	<img id="close" src="images/close.png" onclick ="div_hide()">
 <h3>Enter order details below</h3>
 			<table>
@@ -158,7 +155,7 @@ foreach($itemList as $item) {
 			</tr>
 			</table>
 
-			<input onclick="return checkForm2()" type='submit' value='Save'>
+			<input onclick="return checkForm2()" type='submit' value='Save'>  <!--validate the update qty form-->
 </form>
 </div>
 <!-- Popup Div Ends Here -->

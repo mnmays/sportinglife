@@ -1,3 +1,5 @@
+<!--This page is where a customer fills out their shipping information and is prompted to pay with PayPal.-->
+
 <script type="text/javascript">function noItems()
 {
 	alert("No items in your shopping cart to purchase.");
@@ -8,7 +10,7 @@
 session_start();
 if (!isset($_SESSION["userID"]))
 {
-	header("location:products.php");
+	header("location:products.php");  //if user doesn't have a session ID yet, redirect them to the products page
 }
 require_once('database.php');
 
@@ -21,11 +23,11 @@ $cartRowCount = $viewStmt->rowCount();
 
 if($cartRowCount==0)
 {
-	echo "<script> noItems(); </script>";
+	echo "<script> noItems(); </script>";  //if user has no items in cart yet, display this message
 }
 
 $totalCart = $_GET['varname'];
-echo $totalCart;
+
 ?>
 
 <!DOCTYPE html>
@@ -74,7 +76,6 @@ echo $totalCart;
 
 
 <form action="insertCustInfo.php" id="myForm" method="post" name="form">
-	<!--<form id="myForm" method="post" name="form">-->
 <h3>Step 1: Enter Shipping Details</h3>
 <p>Note: Orders can only be shipped inside the United States.</p>
 			<table>
@@ -97,11 +98,6 @@ echo $totalCart;
 			<td><input id="addressLine11" name="addressLine1" onblur="validate2('addressLine1', this.value)" type="text"></td>
 			<td><div id='addressLine1'></div></td>
 			</tr>
-			<!--<tr>
-			<td>Address Line 2</td>
-			<td><input id="address-line21" name="address-line2" onblur="validate2('address-line2', this.value)" type="text"></td>
-			<td><div id='address-line21'></div></td>
-			</tr>-->
 			<tr>
 			<td>City</td>
 			<td><input id="city1" name="city" onblur="validate2('city', this.value)" type="text"></td>
@@ -124,13 +120,10 @@ echo $totalCart;
 			</tr>		
 </table>
 
-			<!--<input onclick="return checkForm();showDiv();" type='submit' value='Continue'>-->
-			<!--<input type="submit"value="Continue" onclick="return checkForm3()" />-->
 			<input type="button" id="continue" value="Continue" onclick="return checkForm3()" />
 </form>
 <br>
 
-<!--<div id="pay-now" style="display:none;" class="answer_list" onclick="showDiv()"></div>-->
 <div id="paypal-button-container" style="display:none;" class="answer_list">
 	<h3>Step 2: Payment</h3>
 </div>

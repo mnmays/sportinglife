@@ -1,11 +1,9 @@
+<!--This page displays the custom items available for purchase and allows the user to fill out
+	an order form to add these items to their cart.-->
+
 <?php
 session_start();
 $id=session_id();
-//echo $_SESSION["userID"];
-
-//$cookie_name="user";
-//$cookie_value=uniqid();
-//setcookie($cookie_name,$cookie_value,0,"/");
 ?>
 
 <!DOCTYPE html>
@@ -31,18 +29,6 @@ $id=session_id();
 	
 	<?php
 	$_SESSION["userID"]=$id;
-	//echo "Session variable is set to: " .$_SESSION["userID"] .".<br>";
-	//if(!isset($_COOKIE[$cookie_name]))
-	//{
-	//	echo "Cookie named '" .$cookie_name ."' is not set!";
-	//}
-	//else {
-	//	{
-	//		echo "Cookie '" .$cookie_name. "' is set!<br>";
-	//		echo "Value is: " .$_COOKIE[$cookie_name];
-	//	}
-	//}
-	
 	?>
 
 <nav>
@@ -80,21 +66,9 @@ $id=session_id();
 	</div>		
 			<?php		
 require_once('database.php');
-
-
-/*$sql="SELECT itemID,itemImage,itemSize,itemDesc,itemPrice FROM customitems";
-$viewStmt =$db->prepare($sql);
-$viewStmt->execute();
-
-$itemList=$viewStmt->fetchAll();
-$viewStmt->closeCursor();
-foreach($itemList as $item) {
-				echo '<div class="item"><img style="width: 30%;" src="data:image/jpeg;base64, '.base64_encode($item['itemImage']) . ' "><p> '. $item['itemSize'] . "</p><p> " . $item['itemDesc'] ."</p><p> ".$item['itemPrice'].'</p><button id="popup" onclick="div_show( '. $item['itemID'] .')">Order</button></div>';
-			}//end foreach ?>*/
 			
 			
-			
-$sql="SELECT itemID,itemImage,itemDesc,itemPrice FROM customitems";
+$sql="SELECT itemID,itemImage,itemDesc,itemPrice FROM customitems";  //select the available products from the DB
 $viewStmt =$db->prepare($sql);
 $viewStmt->execute();
 
@@ -110,8 +84,7 @@ foreach($itemList as $item) {
 <div id="popupContact">
 <!-- Contact Us Form -->
 
-<form action="insertCart.php" id="myForm" method="post"  name="form">
-<!--<form method="post" id="userImageForm" name="cardInsert" action="insertCart.php" enctype="multipart/form-data">-->
+<form action="insertCart.php" id="myForm" method="post"  name="form">   <!--upon submitting the form, insert the order details into the cart table in DB-->
 	<img id="close" src="images/close.png" onclick ="div_hide()">
 <h3>Enter order details below</h3>
 			<table>
@@ -125,7 +98,7 @@ foreach($itemList as $item) {
 			</tr>
 			<tr>
 			<td>Image Upload of subject (4"x5" jpeg @ 300 dpi)</td>
-			<td><input id ="image1" name="image" onblur="validateImg('image', this.value)" type ="file" accept="image/*"></td>
+			<td><input id ="image1" name="image" onchange="validateImg3('image', this.value)" type ="file" accept="image/*"></td>
 			<td><div id = 'image'></div></td>
 			</tr>
 			<tr>
@@ -145,9 +118,7 @@ foreach($itemList as $item) {
 </div>
 <!-- Popup Div Ends Here -->
 </div>
-<!-- Display Popup Button
-
-<div align="center"><button id="popup" onclick="div_show()">Order</button></div>-->
+<!-- Display Popup Button-->
 
 
 <footer>
