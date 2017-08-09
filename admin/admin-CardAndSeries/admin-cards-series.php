@@ -1,60 +1,10 @@
-<?php
-session_start(); 
-if (!isset($id))
-{
-	header("location:../admin-login.php");
-}
-?>
-<!DOCTYPE html>
-<html lang="en">
+<html>
 	<!--- this file allows the administrator to add, delete, and update the cards and series that are visible on the website --->
-<meta charset="UTF-8">
-<title>Manage Cards and Series</title>
 	<head>
-		<script src = "admin-login-validation.js"></script>
-		<link rel="styleSheet" href = "styles/generalAdmin.css">
 		<script type="text/javascript" src="admin-cards-series_JS.js"></script>
 	</head>
-  
-
-<body style="background-image:url(images/comerica-park-artwork.jpg); 
-	opacity: 0.95" >
-	<header>
-		<img src="images/logo.png" alt="Sporting Life Logo" id="logo">
-		<div id="adminLbl">
-			Administrator
-		</div>
-	</header>
-	<nav>
-		<ul>
-			<li class="active">
-				<a href="admin.php" id="card-sets">Home</a>	
-			</li>
-			<li class="active">
-				<a href="admin-cards-series.php" id="card-sets">Manage Card Sets and Series</a>	
-			</li>
-			<li class="active">
-				<a href="admin-custom-items.php" id="PersOrders">Manage Available Items</a>
-			</li>
-			<li class="active">
-				<a href="customerOrders.php" id="email">Manage Custom Orders</a>
-			</li>
-			<li class="active">
-				<a href="admin-email.php" id="email">Manage Emails</a>
-			</li>
-			<li class="active">
-				<a href="mysite.php" id="settings">View My Site</a>
-			</li>
-			<li class="active">
-				<a href="admin-settings.php" id="settings">Admin Settings</a>
-			</li>
-			<li class="active">
-				<a href="adminFAQ.html" id="settings">Admin FAQs</a>
-			</li>
-		</ul>
-	</nav>
-	<section>
-		h1><u>SERIES ADMIN OPTIONS</u></h1>
+	<body>
+		<h1><u>SERIES ADMIN OPTIONS</u></h1>
 		<h2><u>ADD SERIES</u></h2>
 		<form method="post" id="seriesAddForm" name="seriesInsert" action="addSeries.php" onsubmit="return addSeriesForm()">
 			Enter the <u>series number</u> you would like to add: <input type="text" name="AddSeriesID" required/></br></br>	
@@ -101,5 +51,5 @@ if (!isset($id))
 			Enter the <u>card number</u> you would like to delete: <input type="text" name="DeleteCardNumber" required/></br></br>			
 			<input type="submit" value="Submit">
 		</form>
-	</section>
+	</body>
 </html>
