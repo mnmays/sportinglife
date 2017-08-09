@@ -1,19 +1,21 @@
 <?php
 	include 'connectionFile/connection.php';
 	
-	$customItemName = $_POST['DeleteCustomItemName'];
+	$customItemDesc = $_POST['DeleteCustomItemDesc'];
 	
 	//Checks to see if the customItem to be deleted exists	
-	$sql0 = "SELECT itemDesc FROM customitems WHERE itemDesc='$customItemName'";
-	$result0 = mysql_query($sql0);
-	if(mysql_num_rows($result0) == 0) {
+	$sql0 = "SELECT itemDesc FROM customitems WHERE itemDesc='$customItemDesc'";
+	$result0 = $conn->prepare($sql0);
+	$result0->execute();
+	if($result0->rowCount() == 0) {
 		echo "That item does not exist and cannot be deleted.";
 		exit;
 	}
 			
-	$sql1 = "DELETE FROM customitems WHERE itemName='$customItemName'";
-	if(mysql_query($sql1)) {
-		echo "Custom item " .$customItemName. " was deleted";
+	$sql1 = "DELETE FROM customitems WHERE itemDesc='$customItemDesc'";
+	$result1 = $conn->prepare($sql1);
+	if($result1->execute()) {
+		echo "Custom item " .$customItemDesc. " was deleted";
 	}else {
 		echo "Custom item failed to delete due to it not being in the database";
 	}

@@ -9,9 +9,9 @@
 				<h1>Customer Orders</h1>
 			</header>
 			<?php
-				include 'connectionFile/connection.php';	
+				include 'connectionFile/connectionNonPDO.php';	
 
-				$sql1="SELECT * FROM products ORDER BY orderPlaced DESC";		
+				$sql1="SELECT * FROM orders ORDER BY orderPlaced DESC";		
 				$result1 = mysql_query($sql1);		 	
 				$numRows = mysql_numrows($result1);
 			?>
@@ -43,7 +43,6 @@
 						$f0=mysql_result($result1,$i,"cartID");
 						$f1=mysql_result($result1,$i,"userID");
 						$f2=mysql_result($result1,$i,"itemID");
-						//$f3=mysql_result($result1,$i,"uploadedImg"); Just need to have a button for the image to open in new page
 						$f4=mysql_result($result1,$i,"specInstr");
 						$f6=mysql_result($result1,$i,"quantity");
 						$f7=mysql_result($result1,$i,"price");
@@ -96,11 +95,11 @@
 					//Sets the status to either approved or denied
 					if(isset($_POST['approved'])) {
 						$f0_submitted = (int) $_POST['f0'];
-						$query_update = "UPDATE products SET status='APPROVED' WHERE cartID='$f0_submitted'";
+						$query_update = "UPDATE orders SET status='APPROVED' WHERE cartID='$f0_submitted'";
 						$result_update = mysql_query($query_update);
 					}else if(isset($_POST['sent'])) {
 						$f0_submitted = (int) $_POST['f0'];
-						$query_update = "UPDATE products SET status='SENT' WHERE cartID='$f0_submitted'";
+						$query_update = "UPDATE orders SET status='SENT' WHERE cartID='$f0_submitted'";
 						$result_update = mysql_query($query_update);	
 					}
 						$i++;
