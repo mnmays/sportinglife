@@ -18,22 +18,35 @@
 	<body>
 		<?php
 			include 'connectionFile/connection.php';
+
+			$q = $_GET['q'];
 			
-			$q = intval($_GET['q']);
+			$select_path="SELECT cardImageFolder, cardImageName FROM cards WHERE seriesID = '".$q."' ORDER BY cardNumber ASC";
+			$result = $conn->prepare($select_path);
+			$result->execute();
 			
-			$select_path="SELECT cardImageFolder, cardImageName FROM cards WHERE seriesID = '".$q."'";
-			$var=mysql_query($select_path);
-			
-			while($row=mysql_fetch_array($var)) {
+			while($row=$result->fetch(PDO::FETCH_ASSOC)) {
 				$image_folder=$row["cardImageFolder"];
 				$image_name=$row["cardImageName"];
 				
 				echo '<div class="gallery">
-					  	<img src="'.$image_folder.''.$image_name.'">
-					  </div>';		
+					 	<img src="'.$image_folder.''.$image_name.'">
+					  </div>';
 			}
 			
-			mysql_close($conn);
+			//$select_path="SELECT cardImageFolder, cardImageName FROM cards WHERE seriesID = '".$q."' ORDER BY cardNumber ASC";
+			//$var=mysql_query($select_path);
+			
+			//while($row=mysql_fetch_array($var)) {
+				//$image_folder=$row["cardImageFolder"];
+				//$image_name=$row["cardImageName"];
+				
+				//echo '<div class="gallery">
+					 // 	<img src="'.$image_folder.''.$image_name.'">
+					 // </div>';		
+			//}
+			
+			//mysql_close($conn);
 		?>
 	</body>
 </html>

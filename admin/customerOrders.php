@@ -11,7 +11,7 @@
 			<?php
 				include 'connectionFile/connection.php';	
 
-				$sql1="SELECT * FROM products";		
+				$sql1="SELECT * FROM products ORDER BY orderPlaced DESC";		
 				$result1 = mysql_query($sql1);		 	
 				$numRows = mysql_numrows($result1);
 			?>

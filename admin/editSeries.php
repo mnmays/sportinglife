@@ -13,7 +13,7 @@
 		
 	$sql1 = "UPDATE series SET seriesID='$newSeriesID' WHERE seriesID='$seriesID'";
 	if(mysql_query($sql1)) {
-		echo "Series Number " .$seriesID. " was changed to series number " .$newSeriesID."";
+		echo "Series " .$seriesID. " was changed to series " .$newSeriesID."";
 	}else {
 		echo "Series " .$newSeriesID. " already exists. Therefore series " .$seriesID. " was not changed.";
 	}	

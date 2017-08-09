@@ -4,7 +4,42 @@
 	<!----including main styles sheet---->
 	<link rel="stylesheet" type="text/css" href="styles/generalStyles.css">
 	<link rel="stylesheet" type="text/css" href="styles/cardSets.css">
-	
+	<style>
+		#container {
+			float: left;
+			width: 100%;
+			padding: 1%;
+		}
+		
+		#column1 {
+			list-style-type: circle;
+			float: left;
+			width: 8%;
+			padding-top: 1%;
+		}
+		
+		#column2 {
+			float: left;
+			width: 92%;
+			padding-top: 1%;		
+		}
+		
+		#buttons {
+			width: 100%;
+			table-layout: fixed;
+			border-collapse: collapse;
+			background-color: red;
+		}
+		
+		#buttons button{
+			width: 100%;
+		}
+		
+		#myDiv {
+		    display: none;
+		    text-align: center;
+		}
+	</style>
 	<script>
 		function showPics(str) {
 			  if (window.XMLHttpRequest) {
@@ -56,28 +91,39 @@
 		<div id="column1">
 			<?php
 				include 'connectionFile/connection.php';
+
 				$sql1 = "SELECT * FROM series";
 
-				$result1 = mysql_query($sql1);
+				//$result1 = mysql_query($sql1);
+				$result1 = $conn->prepare($sql1);
+				$result1->execute();
+				
 	 
-				$numRows = mysql_num_rows($result1);
+				//$numRows = mysql_num_rows($result1);
+				$sqlCount = "SELECT count(*) FROM series";
+				$resultCount = $conn->prepare($sqlCount);
+				$resultCount->execute();
+				$numRows = $resultCount->fetchColumn();
 	  
 				for($i=0; $i < $numRows; $i++) {
-				 	$row1 = mysql_fetch_assoc($result1);
+				 	//$row1 = mysql_fetch_assoc($result1);
+				 	$row1 = $result1->fetch(PDO::FETCH_ASSOC);
 					?>
 				    <table class=buttons>
 				  		<tr>
-				  			<input type="button" value="<?php echo 'Series '.$row1['seriesID'].'' ?>" onclick="showPics(<?php echo $row1['seriesID'];?>)"><br>
+				  			<input type="button" value="<?php echo ''.$row1['seriesID'].'' ?>" onclick="showPics(<?php echo "'".$row1['seriesID']."'"; ?>)"><br>
 				  		</tr>
 				  	</table>					
 				  <?php	  
 				 } 
 	 
-				 mysql_close($conn);
+
+				 //$conn->close();
+				 //mysql_close($conn);
 			?>
 		</div>
 		<div id="column2">	
-			<div id="txtHint"><b>Please select a series from the left</b></div>							
+			<div id="txtHint"><b>              Please select a series from the left</b></div>							
 		</div>
 	</div>
 	<footer>
