@@ -93,6 +93,11 @@ function showDiv() {
 };
 //Function to Hide Popup
 function div_hide(){
+var div = document.getElementById('quantity');
+while(div.firstChild){
+    div.removeChild(div.firstChild);
+}
+
 document.getElementById("myForm").reset();
 document.getElementById('abc').style.display = "none";
 //window.location = "http://localhost/aptanadir/sportinglife/products.php";  //will need to be updated with live site URL!!!
