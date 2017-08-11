@@ -24,7 +24,6 @@ require_once('database.php');
 	 $execStatement->execute();
 	
 	$price = $execStatement->fetch();
-	print_r($price);
 	$index =0;
 	$price= $price[0];
 	

@@ -1,15 +1,6 @@
 <?php
 session_start();
 ?>
-<script type="text/javascript">function insertOrder()
-{
-	var xmlhttp;
-	xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("GET", "insertOrder.php",true);
-	xmlhttp.send();
-};</script>
-
-
 <?php
 require_once('database.php');	
 	
@@ -52,7 +43,7 @@ require_once('database.php');
 	$execStatement->execute();
 	
 	//enter the order details from the shopping cart into the orders table
-	$sql2="INSERT INTO orders (cartID,userID,itemID,uploadedImg,specInstr,quantity,price,totalCost) SELECT cartID,userID,itemID,uploadedImg,specInstr,quantity,price,totalCost FROM shoppingcart WHERE userID = '$_SESSION[userID]'";
+	$sql2="INSERT INTO orders (cartID,userID,itemID,uploadedImg,specInstr,quantity,price,totalCost) SELECT cartID,userID,itemID,uploadedImg,specInstr,quantity,price,totalCost FROM shoppingCart WHERE userID = '$_SESSION[userID]'";
 	$execStatement=$db->prepare($sql2);
 	$execStatement->execute();
 	
@@ -68,7 +59,8 @@ require_once('database.php');
 		$deleteStatement = $db-> prepare($deleteQuery);
 		$deleteStatement->execute();
 		
-		/*$to = "ckeyser@umich.edu";    //after successful order, send email notification to client to let him know he has a new order
+
+$to = "ckeyser@umich.edu";    //after successful order, send email notification to client to let him know he has a new order
 		$subject = "New Order";
 		$txt = "
 		<html> 
@@ -83,9 +75,13 @@ require_once('database.php');
 		$headers .= "From: webmaster@example.com"; 
 
 
-		mail($to,$subject,$txt,$headers);*/
+		mail($to,$subject,$txt,$headers);
+
+
 		
-	header("location:products.php");  //after successful order, redirect customer to products page
+	header("Location:products.php");  //after successful order, redirect customer to products page
+        //header("Location: http://sportinglifecards.com/qa-2/products.php");
+         //window.location.href = "products.php";
 	
 		
 ?>

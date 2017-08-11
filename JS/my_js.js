@@ -125,7 +125,7 @@ function checkForm()  //client side validation
 	var quantity= document.getElementById("quantity1").value;
 	var image=document.getElementById("image1").value;
 	
-	if(quantity==''||image=='')
+	if(quantity=='')
 	{
 		alert("Please fill in missing fields.");
 		return false;
@@ -135,7 +135,7 @@ function checkForm()  //client side validation
 		var message1 = document.getElementById("message");
 		var quantity1= document.getElementById("quantity");
 		var image1= document.getElementById("image");
-		if(message1.innerHTML=='Invalid message'||quantity1.innerHTML=='Invalid quantity.'||image1.innerHTML=='Invalid image.')
+		if(quantity1.innerHTML=='Invalid quantity.')
 		{
 			alert("Correct invalid information.");
 			return false;
@@ -251,7 +251,7 @@ function clearCart()
 	xmlhttp.send();
 };
 
-function delItem()
+function delItem(cartID)
 {
 	var xmlhttp;
 	xmlhttp = new XMLHttpRequest();

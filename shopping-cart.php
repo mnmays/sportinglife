@@ -22,6 +22,23 @@ if (!isset($_SESSION["userID"]))
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script src="JS/my_js.js"></script>
+<style>
+.button 
+{
+  background-color: #314a73;
+  color: white;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+}
+
+#buttons
+{
+padding-bottom: 20px; 
+}
+</style>
 </head>
 <header style="
 	background-image:url(images/comerica-park-artwork.jpg); 
@@ -43,13 +60,16 @@ if (!isset($_SESSION["userID"]))
 				<a href="products.php" id="products">Products</a>	
 			</li>
 			<li class="active">
-				<a href="card-sets.php" id="cardSets">Card Sets</a>
+				<a href="cardSets/cardFiles/card-sets.php" id="cardSets">Card Sets</a>
 			</li>
 			<li class="active">
 				<a href="about-sporting-life.html" id="abtCreator">About the Creator</a>
 			</li>
 			<li class="active">
 				<a href="connect.php" id="connect">Connect with Sporting Life</a>
+			</li>
+			<li class="active">
+				<a href="shopping-cart.php" id="cart">Shopping Cart</a>
 			</li>
 		</ul>
 </nav>
@@ -72,7 +92,6 @@ $itemList=$viewStmt->fetchAll();
 $viewStmt->closeCursor(); ?>
 <table>
 	<tr>
-		<th>Uploaded Image</th>
 		<th>Item Name</th>
 		<th>Quantity</th>
 		<th>Price</th>
@@ -85,11 +104,13 @@ $totalShip=0;
 foreach($itemList as $item) {
 			
 		$cartID=$item['cartID'];
-		echo '<div class="item"><tr><th><img src="data:image/jpeg;base64, '.base64_encode($item['uploadedImg']) . ' "></th><th> ' . $item['itemDesc'] ."</th><th> ".$item['quantity'].'</th><th> '. $item['price'] . "</th><th> ".$item['totalCost'].'</th><td><button id="popup" onclick="div_show2( '. $item['cartID'] .')">Edit Qty</button></td>';
+		echo '<div class="item"><tr><th> ' . $item['itemDesc'] ."</th><th> ".$item['quantity'].'</th><th> '. $item['price'] . "</th><th> ".$item['totalCost'].'</th><td><button class="button" onclick="div_show2( '. $item['cartID'] .')">Edit Qty</button></td><td><a class="button" href=removeItem.php?varnam='. $item['cartID'] .'>Remove Item</a></td>'; 
+		
 		$totalCart = $totalCart + $item['totalCost'];
 		$totalQty = $totalQty + $item['quantity'];
 		$cartID=$item['cartID'];?>
-		<td></td><a href="removeItem.php?varnam=<?php echo $cartID?>">Remove item</a></td></tr><br></div>
+		
+		<td></td></td></tr><br></div>
 		
   <?php
   
@@ -121,9 +142,10 @@ foreach($itemList as $item) {
 		</p>
 </div>
 
-<a href="clearCart.php">Clear Cart</a>    <!--calls the clearCart.php file to delete the cart items from the DB -->
-<a href="order-checkout.php?varname=<?php echo $totalCart ?>">Checkout</a>   <!--calls the orderCheckout.php file to direct user to checkout-->
-
+<div id="buttons">
+<a href="clearCart.php" class="button">Clear Cart</a>    <!--calls the clearCart.php file to delete the cart items from the DB -->
+<a href="order-checkout.php?varname=<?php echo $totalCart ?>" class="button">Checkout</a>   <!--calls the orderCheckout.php file to direct user to checkout-->
+</div> <!--- end buttons div --->
 
 
 

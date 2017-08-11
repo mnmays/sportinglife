@@ -27,7 +27,7 @@ require_once('database.php');
 	 $execStatement->execute();
 	
 	$price = $execStatement->fetch();
-	print_r($price);
+	//print_r($price);
 	$index =0;
 	$price= $price[0];
 	
@@ -40,10 +40,10 @@ require_once('database.php');
 	 $execStatement2->execute();
 	 
 	 $desc = $execStatement2->fetch();
-	 print_r($desc);
+	 //print_r($desc);
 	 $index2=0;
 	 $desc=$desc[0];
-	 echo $desc;
+	 //echo $desc;
 	 
 	
 		$insertQuery="INSERT INTO shoppingCart (userID,itemID,itemDesc,uploadedImg,specInstr,quantity,price,totalCost) VALUES ('$_SESSION[userID]',:id1,'$desc',:image1,:message1,:quantity1,'$price','$totalCost')";

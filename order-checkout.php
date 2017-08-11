@@ -59,7 +59,7 @@ $totalCart = $_GET['varname'];
 				<a href="products.php" id="products">Products</a>	
 			</li>
 			<li class="active">
-				<a href="card-sets.php" id="cardSets">Card Sets</a>
+				<a href="cardSets/cardFiles/card-sets.php" id="cardSets">Card Sets</a>
 			</li>
 			<li class="active">
 				<a href="about-sporting-life.html" id="abtCreator">About the Creator</a>

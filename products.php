@@ -11,8 +11,48 @@ $id=session_id();
 <head>
 <title>Popup contact form</title>
 <link href="styles/elements.css" rel="stylesheet">
-<link rel = "stylesheet" href = "styles/products.css">
+<link rel = "stylesheet" href = "products.css">
 <link rel="stylesheet" href = "styles/generalStyles.css">
+<style>
+body
+{
+font-family: Arial, Helvetica, sans-serif; 
+}
+article
+{
+	text-align: center; 
+	width: 45%; 
+	float: right; 
+	padding-right: 20px; 
+        padding-top: 10px; 
+}
+
+aside
+{
+	text-align: center; 
+	float: left; 
+	width: 45%;  
+        padding-left: 20px; 
+        padding-right: 20px; 
+        padding-top: 10px; 
+        padding-bottom: 20px; 
+        color: black; 
+}
+#auction-nudge-items li.an-page-prev, #auction-nudge-items li.an-page-next, th, td
+{
+color: black; 
+}
+#title
+{
+padding-left: 40px; 
+padding-right: 60px; 
+padding-bottom: 15px; 
+}
+button
+{
+background-color: #314a73;
+}
+</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script src="JS/my_js.js"></script>
 </head>
@@ -37,7 +77,7 @@ $id=session_id();
 				<a href="products.php" id="products">Products</a>	
 			</li>
 			<li class="active">
-				<a href="card-sets.php" id="cardSets">Card Sets</a>
+				<a href="cardSets/cardFiles/card-sets.php" id="cardSets">Card Sets</a>
 			</li>
 			<li class="active">
 				<a href="about-sporting-life.html" id="abtCreator">About the Creator</a>
@@ -50,20 +90,25 @@ $id=session_id();
 			</li>
 		</ul>
 </nav>
-    </nav>
+<aside>
+			<p id="auctionLbl"><b>Products from Auction:</b></p>
+				Sporting Life auctions occur on eBay weekly. <br>
+				Check out this weeks items now!
 
-			<div id="whiteSpace">
-			<script type="text/javascript" src="//www.auctionnudge.com/feed/item/js/theme/carousel/blank/1/carousel_scroll/4/carousel_auto/0/carousel_width/370/SellerID/sport_king1/siteid/0/MaxEntries/6"></script>
-			<div id="auction-nudge-items" class="auction-nudge" align="center"></div>
-		<div align="center">
-			
-	<div id="details">
-		<p>Choose from four previously designed Sporting Life card formats displayed below. <br>
-			Upload a clear photo of your subject person (4"x5" jpeg @ 300 dpi) and a card write up/biography<br>
-			if needed. Six classic cards come in an order. Please allow 4-6 weeks<br>
-			for delivery. 
-		</p>
-	</div>		
+		<!-- new ebay listings -->
+<script type="text/javascript" src="//www.auctionnudge.com/feed/item/js/theme/columns/page/init/img_size/200/blank/1/SellerID/sport_king1/siteid/0/MaxEntries/5"></script>
+<div id="auction-nudge-items" class="auction-nudge"></div>
+
+</aside>
+
+<article>
+			<p id="auctionLbl"><b>Custom Products:</b></p>
+	<div id="title">
+					Choose from four previously designed Sporting Life card formats displayed below.
+			Upload a clear photo of your subject person (4"x5" jpeg @ 300 dpi) and a card write up/biography
+			if needed. Six classic cards come in an order. Please allow 4-6 weeks for delivery. <br>
+	</div>
+
 			<?php		
 require_once('database.php');
 			
@@ -74,10 +119,17 @@ $viewStmt->execute();
 
 $itemList=$viewStmt->fetchAll();
 $viewStmt->closeCursor();
-foreach($itemList as $item) {
-				echo '<div class="item"><img style="width: 30%;" src="data:image/jpeg;base64, '.base64_encode($item['itemImage']) . ' "><p> ' . $item['itemDesc'] ."</p><p> ".$item['itemPrice'].'</p><button id="popup" onclick="div_show( '. $item['itemID'] .')">Order</button></div>';
-			}//end foreach ?>			
+foreach($itemList as $item) 
+{
+echo '<div class="item">
+<img style="width: 30%;" src="data:image/jpeg;base64, '.base64_encode($item['itemImage']) . ' "><br>
+ ' . $item['itemDesc'] ."<br> ".$item['itemPrice'].'<br><button id="popup" onclick="div_show( '. $item['itemID'] .')">Order</button>
+<br><br><br>
+</div>';
+}//end foreach ?>
 
+
+</article>
 
 <div id="abc">
 <!-- Popup Div Starts Here -->
@@ -121,6 +173,7 @@ foreach($itemList as $item) {
 <!-- Display Popup Button-->
 
 
+</body>
 <footer>
 			Connect with Sporting Life: 
 		<a href="https://twitter.com/SportingLifeArt?ref_src=twsrc%5Etfw&ref_url=http%3A%2F%2F127.0.0.1%3A8020%2Fsportsentities.home%2Fconnect.html">

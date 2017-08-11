@@ -36,7 +36,7 @@
 			</tr>
 			</table>	
 			
-			<input onclick="checkForm()" type='submit' value='log in'>
+			<input onclick=" return checkForm()" type='submit' value='log in'>
 			
 			<br>
 			
