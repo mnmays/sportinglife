@@ -1,20 +1,20 @@
 function checkForm()  //client side validation
 {
 	
-	var username = document.getElementById("username1").value;
+	var username = document.getElementById("email1").value;
 	var password = document.getElementById("password1").value;
 	
 	
-	if(username==''||password=='')
+	if(email==''||password=='')
 	{
 		alert("Please fill in all fields.");
 	}
 	else
 	{
-		var username1 = document.getElementById("username");
+		var email1 = document.getElementById("email");
 		var password1 = document.getElementById("password");
 		
-		if(firstName1.innerHTML == 'Username must be alpha characters only.')
+		if(email1.innerHTML == 'Invalid email address.')
 		{
 			alert("Correct invalid information.");
 		}

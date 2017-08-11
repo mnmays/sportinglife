@@ -1,28 +1,19 @@
-<?php
-session_start(); 
-if (!isset($id))
-{
-	header("location:../admin-login.php");
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <!--
-	this is the admin homepage
+	this page displays a preview of what the email being sent to the users will look like. 
 -->
 <meta charset="UTF-8">
-<title>Admin Home</title>
+<title>Email Preview</title>
 	<head>
-		<script src = "admin-login-validation.js"></script>
-		<link rel="styleSheet" href = "styles/generalAdmin.css">
-		<link rel="styleSheet" href = "styles/admin_hompage.css">
+		<link rel="styleSheet" href = "../styles/generalAdmin.css">
 	</head>
-  
-
-<body style="background-image:url(images/comerica-park-artwork.jpg); 
+	
+<body style="background-image:url(../images/comerica-park-artwork.jpg); 
 	opacity: 0.95" >
 	<header>
-		<img src="images/logo.png" alt="Sporting Life Logo" id="logo">
+		<img src="../images/logo.png" alt="Sporting Life Logo" id="logo">
 		<div id="adminLbl">
 			Administrator
 		</div>
@@ -57,9 +48,7 @@ if (!isset($id))
 	</nav>
 	
 	<section>
-		
-		
-		
+		Email Sent Successfully. 
 	</section>
 	
 </body>

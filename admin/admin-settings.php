@@ -8,14 +8,12 @@ if (!isset($id))
 <!DOCTYPE html>
 <html lang="en">
 <!--
-	this is the admin homepage
+	this is where the administrator can manage their settings (i.e. change their password)
 -->
 <meta charset="UTF-8">
 <title>Admin Home</title>
 	<head>
-		<script src = "admin-login-validation.js"></script>
 		<link rel="styleSheet" href = "styles/generalAdmin.css">
-		<link rel="styleSheet" href = "styles/admin_hompage.css">
 	</head>
   
 

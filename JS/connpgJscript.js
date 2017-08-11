@@ -50,3 +50,12 @@ function hide()
 	    });
 	});
 	
+	//email drop down
+	$(document).ready(function()
+	{
+	    $("#emailflip").click(function()
+	    {
+	        $("#subForm").slideToggle("slow");
+	    });
+	});
+	

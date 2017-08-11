@@ -3,12 +3,12 @@
 <meta charset="UTF-8">
 <title>Admin Login</title>
 	<head>
-		<script src = "admin-login-validation.js"></script>
+		<script src = "JS/admin-login-validation.js"></script>
 		<link rel="stylesheet" type="text/css" href="styles/adminLogIn.css">
 	</head>
 	<header>
 		<center>	<img src="images/logo.png" alt="Sporting Life Logo" id="logo"> </center>
-		<link rel="styleSheet" href = "mainStyles.css">
+		<!--<link rel="styleSheet" href = "mainStyles.css"> -->
 		<div id="adminLbl">
 			Administrator
 		</div>
@@ -21,13 +21,13 @@
 		<main><center>
 			<div id="loginSquare">
 			<div id="mainform">
-			<form action="post-admin-login.php" id="myForm" method ="post" name="myForm">
+			<form action="login files/post-admin-login.php" id="myForm" method ="post" name="myForm">
 			<h3><b>LOGIN</b></h3>
 			<table>
 			<tr>
 			<td>Username</td>
-			<td><input id ="username1" name="username" onblur="validate('username', this.value)" type ="text"></td>
-			<td><div id = 'username'></div></td>
+			<td><input id ="email1" name="email" onblur="validate('email', this.value)" type ="text"></td>
+			<td><div id = 'email'></div></td>
 			</tr>
 			<tr>
 			<td>Password</td>
@@ -40,7 +40,7 @@
 			
 			<br>
 			
-			<a href="admin-forgotpassword.php" id="forgotpswd">Forgot Password?</a>
+			<a href="login files/admin-forgotpassword.php" id="forgotpswd">Forgot Password?</a>
 			</form>
 
 			</div>
