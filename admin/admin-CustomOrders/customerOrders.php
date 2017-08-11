@@ -1,26 +1,29 @@
 <?php
 session_start(); 
-if (!isset($id))
+if (!isset($_SESSION["userid"]))
 {
-	header("location:../admin-login.php");
+	header("location:admin-login.php");
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <!--
-	shows the personalized orders.  
+	this is the admin homepage
 -->
 <meta charset="UTF-8">
 <title>Admin Home</title>
 	<head>
-		<link rel="styleSheet" href = "styles/generalAdmin.css">
+		<script src = "admin-login-validation.js"></script>
+		<link rel="styleSheet" href = "../styles/generalAdmin.css">
+		<link rel="styleSheet" href = "../styles/admin_hompage.css">
 	</head>
   
 
-<body style="background-image:url(images/comerica-park-artwork.jpg); 
+<body style="background-image:url(../../images/comerica-park-artwork.jpg); 
 	opacity: 0.95" >
 	<header>
-		<img src="images/logo.png" alt="Sporting Life Logo" id="logo">
+		<img src="../../images/logo.png" alt="Sporting Life Logo" id="logo">
 		<div id="adminLbl">
 			Administrator
 		</div>
@@ -31,13 +34,13 @@ if (!isset($id))
 				<a href="admin.php" id="card-sets">Home</a>	
 			</li>
 			<li class="active">
-				<a href="admin-cards-series.php" id="card-sets">Manage Card Sets and Series</a>	
+				<a href="admin-CardAndSeries/admin-cards-series.php" id="card-sets">Manage Card Sets and Series</a>	
 			</li>
 			<li class="active">
-				<a href="admin-custom-items.php" id="PersOrders">Manage Available Items</a>
+				<a href="admin-CustomItems/admin-custom-items.php" id="PersOrders">Manage Available Items</a>
 			</li>
 			<li class="active">
-				<a href="customerOrders.php" id="email">Manage Custom Orders</a>
+				<a href="admin-CustomOrders/customerOrders.php" id="email">Manage Custom Orders</a>
 			</li>
 			<li class="active">
 				<a href="admin-email.php" id="email">Manage Emails</a>
@@ -53,8 +56,12 @@ if (!isset($id))
 			</li>
 		</ul>
 	</nav>
-	<section>
-			<h1>Customer Orders</h1>
+	
+	<article style= "background-color: white;">
+		<div id="article" style="overflow-y:scroll;">
+		<header>
+				<h1>Customer Orders</h1>
+			</header>
 			<?php
 				include 'connectionFile/connectionNonPDO.php';	
 
@@ -110,7 +117,7 @@ if (!isset($id))
 					<td align="center"><?php echo $f1; ?></td>
 					<td align="center"><?php echo $f2; ?></td>
 					<td align="center">
-						<form id="products_image" action="productImage.php" method="post">
+						<form id="products_image" action="ordersImage.php" method="post">
 							<input type="hidden" name="cartID" value="<?php echo $f0; ?>">
 							<input type="submit" value="Get picture">
 						</form>
@@ -155,6 +162,12 @@ if (!isset($id))
 					mysql_close();
 				?>
 			</table>
-			<h1>PLEASE REFRESH TO SEE CHANGES</h1>
-	</section>
+			<h1>WILL NEED TO REFRESH TO SEE CHANGES</h1>
+		</article>
+		
+		</div> <! -- end of article div -->
+	</article>
+	
+</body>
+
 </html>

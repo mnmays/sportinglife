@@ -20,7 +20,7 @@
 	$sql1 = "SELECT itemDesc FROM customitems WHERE itemDesc='$newCustomItemDesc'";
 	$result1 = $conn->prepare($sql1);
 	$result1->execute();
-	if($result1->rowCount() == 0) {
+	if($result1->rowCount() > 0) {
 		echo "That custom item already exists. ";
 		exit;
 	}
@@ -61,7 +61,7 @@
 	//Updates the custom item desc
 	//THIS MUST HAPPEN LAST
 	if($customItemDesc) {
-		$sql3 = "UPDATE customitems SET itemDesc='$customItemDesc' WHERE itemDesc='$customItemDesc'";
+		$sql3 = "UPDATE customitems SET itemDesc='$newCustomItemDesc' WHERE itemDesc='$customItemDesc'";
 		$result3 = $conn->prepare($sql3);
 		if($result3->execute()) {
 			echo "Custom Item Name was edited</br>";

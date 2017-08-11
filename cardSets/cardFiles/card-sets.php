@@ -4,42 +4,44 @@
 	<!----including main styles sheet---->
 	<link rel="stylesheet" type="text/css" href="styles/generalStyles.css">
 	<link rel="stylesheet" type="text/css" href="styles/cardSets.css">
-	<style>
-		#container {
-			float: left;
-			width: 100%;
-			padding: 1%;
-		}
-		
-		#column1 {
-			list-style-type: circle;
-			float: left;
-			width: 8%;
-			padding-top: 1%;
-		}
-		
-		#column2 {
-			float: left;
-			width: 92%;
-			padding-top: 1%;		
-		}
-		
-		#buttons {
-			width: 100%;
-			table-layout: fixed;
-			border-collapse: collapse;
-			background-color: red;
-		}
-		
-		#buttons button{
-			width: 100%;
-		}
-		
-		#myDiv {
-		    display: none;
-		    text-align: center;
-		}
-	</style>
+
+  <style> 
+#container {
+	float: left;
+	width: 100%;
+	padding: 1%;
+}
+
+#column1 {
+	list-style-type: circle;
+	float: left;
+	width: 10%;
+	padding-top: 1%;
+}
+
+#column2 {
+	float: left;
+	width: 90%;
+	padding-top: 1%;		
+}
+
+#buttons {
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	background-color: red;
+}
+
+#buttons button{
+	width: 100%;
+}
+
+#myDiv {
+    display: none;
+    text-align: center;
+}
+</style>
+
 	<script>
 		function showPics(str) {
 			  if (window.XMLHttpRequest) {
@@ -62,27 +64,27 @@
 	</script>
 </head>
 <header style="
-	background-image:url(images/comerica-park-artwork.jpg); 
+	background-image:url(../../images/comerica-park-artwork.jpg); 
 	background-size: cover;
 	" >
 	<div class="header">
-		<img src="images/logo.png" id="logo" alt="sporting life logo">
+		<img src="../../images/logo.png" id="logo" alt="sporting life logo">
 	</div>		
 </header>
 <body>	
 	<nav>
 		<ul>
 			<li class="active">
-				<a href="products.php" id="products">Products</a>	
+				<a href="../../products.php" id="products">Products</a>	
 			</li>
 			<li class="active">
 				<a href="card-sets.php" id="cardSets">Card Sets</a>
 			</li>
 			<li class="active">
-				<a href="about-sporting-life.html" id="abtCreator">About the Creator</a>
+				<a href="../../about-sporting-life.html" id="abtCreator">About the Creator</a>
 			</li>
 			<li class="active">
-				<a href="connect.php" id="connect">Connect with Sporting Life</a>
+				<a href="../../connect.php" id="connect">Connect with Sporting Life</a>
 			</li>
 		</ul>
 	</nav>
@@ -94,19 +96,15 @@
 
 				$sql1 = "SELECT * FROM series";
 
-				//$result1 = mysql_query($sql1);
 				$result1 = $conn->prepare($sql1);
 				$result1->execute();
 				
-	 
-				//$numRows = mysql_num_rows($result1);
 				$sqlCount = "SELECT count(*) FROM series";
 				$resultCount = $conn->prepare($sqlCount);
 				$resultCount->execute();
 				$numRows = $resultCount->fetchColumn();
 	  
 				for($i=0; $i < $numRows; $i++) {
-				 	//$row1 = mysql_fetch_assoc($result1);
 				 	$row1 = $result1->fetch(PDO::FETCH_ASSOC);
 					?>
 				    <table class=buttons>
@@ -116,10 +114,6 @@
 				  	</table>					
 				  <?php	  
 				 } 
-	 
-
-				 //$conn->close();
-				 //mysql_close($conn);
 			?>
 		</div>
 		<div id="column2">	
@@ -129,10 +123,10 @@
 	<footer>
 		Connect with Sporting Life: 
 		<a href="https://twitter.com/SportingLifeArt?ref_src=twsrc%5Etfw&ref_url=http%3A%2F%2F127.0.0.1%3A8020%2Fsportsentities.home%2Fconnect.html">
-			<img src="images/twitterlogo.png" alt="twitter icon" id="TwitLogo"/></a>
-			<a href="https://www.facebook.com/SportingLifeCards/"><img src="images/facebooklogo.png" alt="facebook icon" id="FBLogo"/></a>
+			<img src="../../images/twitterlogo.png" alt="twitter icon" id="TwitLogo"/></a>
+			<a href="https://www.facebook.com/SportingLifeCards/"><img src="../../images/facebooklogo.png" alt="facebook icon" id="FBLogo"/></a>
 			<a href="https://www.pinterest.com/jandrews3d/sporting-life-art-cards-collectibles/?fb_ref=528962056142023372%3Acba652a7869654e0e616">
-			<img src="images/pintlogo.png" alt ="pinterest icon" id="pinLogo"/>
+			<img src="../../images/pintlogo.png" alt ="pinterest icon" id="pinLogo"/>
 		</a>
 	</footer>
 </body>

@@ -11,7 +11,11 @@
 	
 	$target_cardName = $_FILES["fileToUpload"]["name"];
 	
-	$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+	//Removes any unwanted special characters
+	$target_cardName = preg_replace("/[^a-zA-Z0-9.]/", "", $target_cardName);
+	
+	//$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+	$target_file = $target_dir . $target_cardName;
 	$uploadOk = 1;
 	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 	
@@ -34,7 +38,7 @@
 	}
 	
 	// Check file size
-	if ($_FILES["fileToUpload"]["size"] > 5000000) {
+	if ($_FILES["fileToUpload"]["size"] > 50000000) {
 	    echo "Sorry, your file is too large. ";
 	    $uploadOk = 0;
 	}

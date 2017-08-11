@@ -6,12 +6,13 @@
 				margin: 5px;
 				border: 1px solid #ccc;
 				float: left;
-				width: 480px;
+                                width: 480px;
+                              
 			}
 			
 			div.gallery img {
 				width: 100%;
-				height: auto;
+				height: 50vh;
 			}
 		</style>
 	</head>
@@ -21,7 +22,7 @@
 
 			$q = $_GET['q'];
 			
-			$select_path="SELECT cardImageFolder, cardImageName FROM cards WHERE seriesID = '".$q."' ORDER BY cardNumber ASC";
+			$select_path="SELECT cardImageFolder, cardImageName FROM cards WHERE seriesID = '".$q."' ORDER BY length(cardNumber), cardNumber ASC";
 			$result = $conn->prepare($select_path);
 			$result->execute();
 			
@@ -32,21 +33,7 @@
 				echo '<div class="gallery">
 					 	<img src="'.$image_folder.''.$image_name.'">
 					  </div>';
-			}
-			
-			//$select_path="SELECT cardImageFolder, cardImageName FROM cards WHERE seriesID = '".$q."' ORDER BY cardNumber ASC";
-			//$var=mysql_query($select_path);
-			
-			//while($row=mysql_fetch_array($var)) {
-				//$image_folder=$row["cardImageFolder"];
-				//$image_name=$row["cardImageName"];
-				
-				//echo '<div class="gallery">
-					 // 	<img src="'.$image_folder.''.$image_name.'">
-					 // </div>';		
-			//}
-			
-			//mysql_close($conn);
+			}		
 		?>
 	</body>
 </html>

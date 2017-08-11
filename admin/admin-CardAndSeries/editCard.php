@@ -6,10 +6,16 @@
 	$newSeriesID = $_POST['NewSeriesID'];
 	$newCardNumber = $_POST['NewCardNumber'];
 	$cardName = $_POST['EditCardName'];
-		
+	
+	$target_cardName = $_FILES["fileToUpload"]["name"];
+	//Removes any unwanted special characters
+	$target_cardName = preg_replace("/[^a-zA-Z0-9.]/", "", $target_cardName);
+	
 	//UPLOADING FILE INTO FILE SYSTEM
 	$target_dir = "../../cardImage/";
-	$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+	
+	$target_file = $target_dir . $target_cardName;
+	
 	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);		
 	$uploadOk = 1;	
 	$fileUploaded = 1;
@@ -34,7 +40,8 @@
 	//Gets just the cardImageName path for the file system
 	if(!$fileUploaded == 0) {
 		$target_cardName = $_FILES["fileToUpload"]["name"];
-		//echo "target_cardName was set to ".$target_cardName."";
+		//Removes any unwanted special characters
+		$target_cardName = preg_replace("/[^a-zA-Z0-9.]/", "", $target_cardName);
 	}
 	
 	// Check if file already exists
@@ -164,26 +171,26 @@
 		$updateSeriesAndCardNumResult = $conn->prepare($updateSeriesAndCardNum);
 		
 		if($updateSeriesAndCardNumResult->execute()) {
-			echo "Card Number " .$cardNumber. " of series " .$seriesID. " was set to card number " .$newCardNumber. ", series number was set to " .$newSeriesID. "";
+			echo "Card Number " .$cardNumber. " of series " .$seriesID. " was set to card number " .$newCardNumber. ", series number was set to " .$newSeriesID. ". ";
 		}else {
-			echo "Card seriesID and cardNumber failed to update";
+			echo "Card seriesID and cardNumber failed to update. ";
 		}
 	}else if($newCardNumber) {
 		$updateCardNumber = "UPDATE cards SET cardNumber='$newCardNumber' WHERE seriesID='$seriesID' AND cardNumber='$cardNumber'";
 		$updateCardNumberResult = $conn->prepare($updateCardNumber);
 		
 		if($updateCardNumberResult->execute()) {
-			echo "Card number updated";
+			echo "Card number updated. ";
 		}else {
-			echo "Card number failed to update";
+			echo "Card number failed to update. ";
 		}
 	}else if($newSeriesID) {
 		$updateSeriesID = "UPDATE cards SET seriesID='$newSeriesID' WHERE seriesID='$seriesID' AND cardNumber='$cardNumber'";
 		$updateSeriesIDResult = $conn->prepare($updateSeriesID);
 		if($updateSeriesIDResult->execute()) {
-			echo "Series name updated";
+			echo "Series name updated. ";
 		}else {
-			echo "Series name failed to update";
+			echo "Series name failed to update. ";
 		}
 	}
 ?>
