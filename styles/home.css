@@ -1,72 +1,32 @@
 /*main background*/
-
-background-repeat: no-repeat; 
-background-position: right bottom;
-background-size: cover;
-
-border-style: solid;
-border-color:white; 
-
-/*header*/
-.header 
-{
-    height:50px;
-    background:#F0F0F0;
-    border:1px solid #CCC;
-    width:100%;
-    margin:0px auto;
+html 
+{ 
+  background: no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
-
-#logo
-{
-	height: 80px;
-}
-
-#title
-{
-	height: 90px;
-	width: 270px;
-	font-size: 48px;
-	text-align: center;
-	margin-top: 30px;
-	margin-left: 5px;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-
-	color: white; 
-	font-family: "Georgia", Times, serif;
-}
-
-#slogan
-{
-	padding-top: 40px; 
-	padding-bottom: 20px; 
-	color: white; 
-	text-align: center;
-	font-style: oblique; 
-	font-size: 45px; 
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-
 
 .button
 {
 	background-color: #2a4f7e;
-	opacity: .8; 
+	opacity: .9; 
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 21px;
    	color: white; 
    	font-family: "Georgia", Times, serif;
-    margin: 4px 2px;
     cursor: pointer;
+    margin-top: 44%; 
 }
 
 .button:hover
 {
-    border: 2px solid #2a4f7e;
+    border: 4px solid #2a4f7e;
     opacity: 1; 
 
 }

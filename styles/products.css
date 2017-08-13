@@ -1,19 +1,47 @@
+/* headers */
+#auctionLbl
+{
+	color: #2a4e7e; 
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; 
+	font-size: 200%; 
+	margin-left: 40px; 
+}
 
+#auction-nudge-items
+{
+	width: 95%;
+	margin-left: 20px;  
+	font-family: "Trebuchet MS", Helvetica, sans-serif; 
+}
 
-div.item
+/* The title link */
+div#auction-nudge-items .an-title a {
+  color: #2a4e7e;
+  font-size: 90%; 
+}
+/* Time left label */
+div#auction-nudge-items .an-ends .an-label {
+	color: #26314f; 
+	font-size: 80%; 
+}
+/* Time left */
+div#auction-nudge-items .an-ends .an-time {
+	color: #26314f; 
+	font-size: 80%; 
+}
+/* View item link */
+div#auction-nudge-items .an-view a {
+  color: #546f9f;
+  font-size: 95%; 
+}
+
+.item, #item
 {
 	display: inline-block;
-    margin: 2px;
-   
 }
 
-p
-{
-	text-align: center;
-}
 #mainform
 {
-
 width:100%;
 height:100%;
 top:0;
@@ -30,6 +58,8 @@ display: inline-block;
 
 }
 
+
+
 span       /*for validation messages */
 {
 color:green;
@@ -40,13 +70,3 @@ color:green;
 color:red;
 font-size:14px
 }
-
-#whiteSpace    /*Styling for ebay carousel*/
-{
-	background: white;
-}
-.auction-nudge   /*Styling for ebay carousel*/
-{
-	color: white;
-}
-

@@ -1,38 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<style>
-		#container {
-			float:left;
-			width:100%;
-			padding:1%;
-		}
-		#column1 {
-			list-style-type: circle;
-			float:left;
-			width:8%;
-			padding-top: 1%;
-		}
-		#column2 {
-			float:left;
-			width:92%;
-			padding-top: 1%;		
-		}
-		#buttons {
-			width: 100%;
-			table-layout: fixed;
-			border-collapse: collapse;
-			background-color: red;
-		}
-		#buttons button{
-			width: 100%;
-		}
-	</style>
 	<!----including main styles sheet---->
-	<link rel="stylesheet" type="text/css" href="styles/generalStyles.css">
-	<link rel="stylesheet" type="text/css" href="styles/cardSets.css">
-	
-	<script>
+	<link rel="stylesheet" href = "styles/generalStyles.css">
+	<link rel="stylesheet" href = "styles/cardSets.css">
+
+	<!-- JS script to populate cards upon butto click --> 
+		<script>
 		function showPics(str) {
 		  if (window.XMLHttpRequest) {
 		    // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -50,34 +24,40 @@
 		  xmlhttp.send();
 		}
 	</script>
+
 </head>
-<header style="
-	background-image:url(images/comerica-park-artwork.jpg); 
-	background-size: cover;
-	" >
-	<div class="header">
-		<img src="images/logo.png" id="logo" alt="sporting life logo">
-	</div>		
+<header style="background-image:url(../sportinglife/images/LongWoodPlanksBkgrnd.jpg)"; >
+	<img id="logo" src="../sportinglife/images/logo.png" />
 </header>
-<body>
-	<nav>
+
+<nav>
 		<ul>
 			<li class="active">
 				<a href="products.php" id="products">Products</a>	
 			</li>
 			<li class="active">
-				<a href="card-sets.php" id="cardSets">Card Sets</a>
+				<a href="cardSets/cardFiles/card-sets.php" id="cardSets">Card Sets</a>
 			</li>
 			<li class="active">
-				<a href="about-sporting-life.html" id="abtCreator">About the Creator</a>
+				<a href="about-sporting-life.html" id="abtCreator">About </a>
 			</li>
 			<li class="active">
-				<a href="connect.php" id="connect">Connect with Sporting Life</a>
+				<a href="connect.php" id="connect">Contact Sporting Life</a>
+			</li>
+			<li style="float:right" class="active">
+				<a href="shopping-cart.php" id="cart"><img id="shopping-cart" src="images/shopping-cart.png"/></a>
 			</li>
 		</ul>
-	</nav>
+</nav>
+
+<body>
 	<div id="container">
-		<input type="button" value="Click here for a checklist of all cards and series" onclick="window.location.href='cardChecklist.php'"><br>
+	<!-- card checklist --> 
+	<p id="checklistPar">
+		Sporting Life wants you to keep track of all the cards you have! <br>
+		<button onclick="window.location.href='cardChecklist.php'">View Checklist</button>
+	</p>
+		<a id="cardSeries"><b>Card Series</b></a> <a id="cardSetsLbl"><b>Cards in the Set</b></a>
 		<div id="column1">
 			<?php
 				include 'connection.php';
@@ -90,7 +70,7 @@
 				for($i=0; $i < $numRows; $i++) {
 				 	$row1 = mysql_fetch_assoc($result1);
 					?>
-				    <table class=buttons>
+				    <table class="buttons">
 				  		<tr>
 				  			<input type="button" value="<?php echo $row1['seriesName'];?>" onclick="showPics(<?php echo $row1['seriesID'];?>)"><br>
 				  		</tr>
@@ -101,18 +81,24 @@
 				 mysql_close($conn);
 			?>
 		</div>
+		
 		<div id="column2">			
 				<div id="txtHint"><b>Please select a series from the left</b></div>		
 		</div>
+
+	
 	</div>
-	<footer>
-		Connect with Sporting Life: 
+
+<!-- series --> 
+<footer>
+	<center>
 		<a href="https://twitter.com/SportingLifeArt?ref_src=twsrc%5Etfw&ref_url=http%3A%2F%2F127.0.0.1%3A8020%2Fsportsentities.home%2Fconnect.html">
-			<img src="images/twitterlogo.png" alt="twitter icon" id="TwitLogo"/></a>
-			<a href="https://www.facebook.com/SportingLifeCards/"><img src="images/facebooklogo.png" alt="facebook icon" id="FBLogo"/></a>
-			<a href="https://www.pinterest.com/jandrews3d/sporting-life-art-cards-collectibles/?fb_ref=528962056142023372%3Acba652a7869654e0e616">
-			<img src="images/pintlogo.png" alt ="pinterest icon" id="pinLogo"/>
-		</a>
-	</footer>
+			<img src="images/whiteTwit.png" alt="Sporitng Life Twitter" id="TwitLogo"/></a>
+			<a href="https://www.facebook.com/SportingLifeCards/"><img src="images/whiteFB.png" alt="Sporting Life Facebook" id="FBLogo"/></a>
+					<a href="https://www.pinterest.com/jandrews3d/sporting-life-art-cards-collectibles/?fb_ref=528962056142023372%3Acba652a7869654e0e616">
+ 			<img src="images/whitePint.png" alt ="Sporting Life Pintrest" id="pinLogo"/>
+ 		</a>
+ 	</center>
+</footer>
 </body>
 </html>

@@ -12,6 +12,7 @@
 //session
 session_start(); 
 $id = session_id(); 
+$_SESSION["userid"] = $id; 
 
 //require_once('database.php');
 
@@ -59,6 +60,8 @@ echo "<br>";
 	 if ($userRowCount!=0)
 	 {
 		echo "Successful login";
+		//header("location:../admin.php");
+		echo "<script>location.href='../admin.php';</script>";
 		?>
 			
 	</body>

@@ -2,7 +2,7 @@
 article
 {
 	text-align: center; 
-	padding-top: 15px; 
+	padding-top: 5px; 
 	padding-left: 15px; 
 }
 
@@ -13,9 +13,11 @@ aside
 	padding-left: 10px; 
 	width: 35%;  
 }
-#blogFrame{
+
+#blogFrame
+{
 	width: 60%; 
-	height: 500px; 
+	height: 1000px;  
 }
 
 #connectPar{
@@ -23,7 +25,8 @@ aside
 }
 
 #SMtitle{
-	padding-left: 20px; 	
+	padding-left: 20px; 
+	margin-left: -15px; 	
 }
 
 /*popup iframe*/
@@ -100,11 +103,14 @@ cursor:pointer;
 border-radius:5px
 }
 
+#subForm
+{
+	width: 95%; 
+}
 
-/*footer*/
 #twitTmln, #FBTmln, #FBflip, #Twitflip, #popup, #emailflip
 {
-	width: 300px; 
+	width: 95%; 
 	padding-top: 5px; 
 	padding-bottom: 5px; 
     text-align: center;
@@ -113,9 +119,14 @@ border-radius:5px
     border: solid 1px #c3c3c3;
 }
 
+#twitTmln{
+	width: 100%; 
+	height: 525px; 
+}
+
 #twitTmln, #FBTmln 
 {
     padding: 0px;
-    width: 300px; 
+    width: 95%; 
     display: none;
 }

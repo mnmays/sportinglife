@@ -5,22 +5,46 @@
 
 #logo
 {
-	height: 80px;
+	/*padding-top: 10px; */
+	height: 100px;
+	/*margin-bottom: 50px; */
+	padding-top: 8px; 
+	padding-left: 8px; 
+	padding-bottom: 25px; 
 }
 
-header
+#shopping-cart
 {
-	height: 300px; 
+	height: 50px; 
+	margin-top: -18px; 
+	margin-bottom: 15px; 
 }
 
+header 
+{ 
+  background: no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* navigation bar */
 nav
 { 
-	background-color: white; 
+    border-style: solid;
+    border-top-width: 2px;
+    border-bottom-width: 2px; 
+    border-right-style: none; 
+    border-left-style: none; 
 	background-size: cover;  
 	margin: 0; 
-	border: none; 
 	width: 100%; 
 	overflow: hidden; 
+	/*font-family: "Trebuchet MS", Helvetica, sans-serif; */
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; 
+	font-size: 110%;
+	display: inline-block;
 }
 
 ul 
@@ -29,20 +53,21 @@ ul
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: gray;
+    background-color: #2a4e7e;
     top: 0;
     width: 100%;
 }
 
 li 
 {
-    float: left;
+	float: left; 
+	margin-top: 20px; 
+	margin-bottom: -15px; 
 }
 
 li a 
 {
-    display: block;
-    color: white;
+    color: #E7E1D4;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -51,6 +76,7 @@ li a
 .active:hover
 {
 	opacity: 0.5; 
+	font-style: oblique; 
 }
 
 body
@@ -58,19 +84,37 @@ body
 	 margin-top: 0px;
 	 margin-right: 0px;
 	 margin-bottom: 0px;
-	 margin-left: 0px	
+	 margin-left: 0px; 
+	 background-color: #E5DCCB; 
+}
+
+p
+{
+	margin-left: 40px; 	
+	font-family: Georgia, serif; 
+}
+
+button
+{
+	background-color: #314a73;
+	color: white; 
+	font-size: 100%; 
+	padding-left: 15px; 
+	padding-right: 15px; 
+	padding-top: 7px; 
+	padding-bottom: 7px;  
 }
 
 footer
 {
 	padding: 1em;
     clear: left;
-	background: gray;
+	background: #2a4e7e;
 	color: white;
 }
 
 #TwitLogo, #FBLogo, #pinLogo
 {
-	height:20px; 
+	height: 30px; 
 	width: auto;
 }
