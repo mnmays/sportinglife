@@ -1,9 +1,9 @@
 <?php
-	include 'connectionFile/connection.php';
+	include 'connectionFile/connectionNonPDO.php';
 	
 	$cartID = $_POST['cartID'];
 			
-	$select_image="SELECT uploadedImg FROM products WHERE cartID ='$cartID'";
+	$select_image="SELECT uploadedImg FROM orders WHERE cartID ='$cartID'";
 	$result = mysql_query($select_image);
 	$row = mysql_fetch_array($result);
 	

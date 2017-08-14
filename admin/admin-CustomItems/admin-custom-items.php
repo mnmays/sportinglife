@@ -1,12 +1,65 @@
 <?php
 session_start(); 
-if (!isset($id))
+if (!isset($_SESSION["userid"]))
 {
-	header("location:../admin-login.php");
+	header("location:admin-login.php");
 }
 ?>
-<html>
-	<!--- this file allows the administrator to add, delete, and update the custome items available to the customer on the site --->
+
+<!DOCTYPE html>
+<html lang="en">
+<!--
+	this is the admin homepage
+-->
+<meta charset="UTF-8">
+<title>Admin Home</title>
+	<head>
+		<script src = "admin-login-validation.js"></script>
+		<link rel="styleSheet" href = "../styles/generalAdmin.css">
+		<link rel="styleSheet" href = "../styles/admin_hompage.css">
+	</head>
+  
+
+<body style="background-image:url(../../images/comerica-park-artwork.jpg); 
+	opacity: 0.95" >
+	<header>
+		<img src="../../images/logo.png" alt="Sporting Life Logo" id="logo">
+		<div id="adminLbl">
+			Administrator
+		</div>
+	</header>
+	<nav>
+		<ul>
+			<li class="active">
+				<a href="admin.php" id="card-sets">Home</a>	
+			</li>
+			<li class="active">
+				<a href="admin-CardAndSeries/admin-cards-series.php" id="card-sets">Manage Card Sets and Series</a>	
+			</li>
+			<li class="active">
+				<a href="admin-CustomItems/admin-custom-items.php" id="PersOrders">Manage Available Items</a>
+			</li>
+			<li class="active">
+				<a href=".../admin-CustomOrders/customerOrders.php" id="email">Manage Custom Orders</a>
+			</li>
+			<li class="active">
+				<a href="admin-email.php" id="email">Manage Emails</a>
+			</li>
+			<li class="active">
+				<a href="mysite.php" id="settings">View My Site</a>
+			</li>
+			<li class="active">
+				<a href="admin-settings.php" id="settings">Admin Settings</a>
+			</li>
+			<li class="active">
+				<a href="adminFAQ.html" id="settings">Admin FAQs</a>
+			</li>
+		</ul>
+	</nav>
+	
+	<article style= "background-color: white;">
+		<div id="article" style="overflow-y:scroll;">
+			<!--- this file allows the administrator to add, delete, and update the custome items available to the customer on the site --->
 	<head>				
 		<script type="text/javascript" src="JS/admin-custom-items_JS.js"></script>
 	</head>
@@ -39,4 +92,10 @@ if (!isset($id))
 			<input type="submit" value="Submit">
 		</form>
 	</body>
+		
+		</div> <! -- end article div -->
+	</article>
+	
+</body>
+
 </html>
