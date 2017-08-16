@@ -5,63 +5,47 @@
 	<link rel="stylesheet" type="text/css" href="styles/generalStyles.css">
 	<link rel="stylesheet" type="text/css" href="styles/cardSets.css">
 
-  <style> 
-#container {
-	float: left;
-	width: 100%;
-	padding: 1%;
-}
-
-#column1 {
-	list-style-type: circle;
-	float: left;
-	width: 10%;
-	padding-top: 1%;
-}
-
-#column2 {
-	float: left;
-	width: 90%;
-	padding-top: 1%;		
-}
-
-#buttons {
-	width: 100%;
-	table-layout: fixed;
-	border-collapse: collapse;
-	background-color: red;
-}
-
-#buttons button{
-	width: 100%;
-}
-
-#myDiv {
-    display: none;
-    text-align: center;
-}
-</style>
-
-	<script>
-		function showPics(str) {
-			  if (window.XMLHttpRequest) {
-			    	// code for IE7+, Firefox, Chrome, Opera, Safari
-			    	xmlhttp=new XMLHttpRequest();
-			  } 
-			  else { // code for IE6, IE5
-			    	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-			  }
-			  
-			  xmlhttp.onreadystatechange=function() {
-				  	if (this.readyState==4 && this.status==200) {
-				      	document.getElementById("txtHint").innerHTML=this.responseText;
-				    }
-			  }
-			  
-			  xmlhttp.open("GET","getpics.php?q="+str,true);
-			  xmlhttp.send();
-		}
-	</script>
+	<script src="lazyload.min.js"></script>
+  	<style> 
+			#container {
+			float: left;
+			width: 100%;
+			padding: 1%;
+			}
+			
+			#column1 {
+				list-style-type: circle;
+				float: left;
+				width: 10%;
+				height: 100%;
+				padding-top: 1%;
+				background-color: #a8c9ff;
+			}
+			
+			#column2 {
+				float: left;
+				width: 89%;
+				padding-top: 1%;
+				padding-left: 1%;			
+			}
+			
+			#myDiv {
+			    display: none;
+			    text-align: center;
+			}
+			
+			div.gallery {
+				margin: 5px;
+				border: 1px solid #ccc;
+				float: left;
+				width: 480px;
+			}
+			
+			div.gallery img {
+				width: 100%;
+				height: auto;
+			}
+	</style>
 </head>
 <header style="
 	background-image:url(../../images/comerica-park-artwork.jpg); 
@@ -78,7 +62,7 @@
 				<a href="../../products.php" id="products">Products</a>	
 			</li>
 			<li class="active">
-				<a href="card-sets.php" id="cardSets">Card Sets</a>
+				<a href="card-sets.php?seriesName" id="cardSets">Card Sets</a>
 			</li>
 			<li class="active">
 				<a href="../../about-sporting-life.html" id="abtCreator">About the Creator</a>
@@ -90,36 +74,59 @@
 	</nav>
 	<div id="container">
 		<input type="button" value="Click here for a checklist of all cards and series" onclick="window.location.href='cardChecklist.php'"><br>
-		<div id="column1">
-			<?php
-				include 'connectionFile/connection.php';
+			<div id="column1">
+				<?php
+					include 'connectionFile/connectionNonPDO.php';
+					
+					//get all series and number of series in table
+					$getSeries = "SELECT * FROM series";
+					$resultSeries = mysql_query($getSeries);
+					$numRowsSeries = mysql_num_rows($resultSeries);
+					
+					//Loops through all series
+					for($i = 0; $i < $numRowsSeries; $i++) {
+						$rowSeries = mysql_fetch_assoc($resultSeries);
+						$currSeries = $rowSeries['seriesID'];
+						
+						echo "<a href='card-sets.php?seriesName=$currSeries'>$currSeries</a> </br>";
+					}
+					
+					mysql_close();
+				?>			
+			</div>
+			<div id="column2">
+				<?php
+					include 'connectionFile/connectionNonPDO.php';
 
-				$sql1 = "SELECT * FROM series";
-
-				$result1 = $conn->prepare($sql1);
-				$result1->execute();
-				
-				$sqlCount = "SELECT count(*) FROM series";
-				$resultCount = $conn->prepare($sqlCount);
-				$resultCount->execute();
-				$numRows = $resultCount->fetchColumn();
-	  
-				for($i=0; $i < $numRows; $i++) {
-				 	$row1 = $result1->fetch(PDO::FETCH_ASSOC);
-					?>
-				    <table class=buttons>
-				  		<tr>
-				  			<input type="button" value="<?php echo ''.$row1['seriesID'].'' ?>" onclick="showPics(<?php echo "'".$row1['seriesID']."'"; ?>)"><br>
-				  		</tr>
-				  	</table>					
-				  <?php	  
-				 } 
-			?>
-		</div>
-		<div id="column2">	
-			<div id="txtHint"><b>              Please select a series from the left</b></div>							
-		</div>
+					//get the pics for the new series
+					if($_GET["seriesName"] == NULL) {
+						$getCardDefault="SELECT * FROM series";
+						$resultCardDefault = mysql_query($getCardDefault);
+						$rowCardDefault = mysql_fetch_assoc($resultCardDefault);
+						$seriesName = $rowCardDefault['seriesID'];
+					}else {
+						$seriesName = $_GET["seriesName"];
+					}					
+					
+					$getCards="SELECT cardImageFolder, cardImageName FROM cards WHERE seriesID = '".$seriesName."' ORDER BY cardNumber ASC";
+					$resultCards = mysql_query($getCards);
+					
+					while($rowCards = mysql_fetch_assoc($resultCards)) {
+						$image_folder=$rowCards["cardImageFolder"];
+						$image_name=$rowCards["cardImageName"];
+						
+						echo '<div class="gallery">
+								<img alt="..." data-original="'.$image_folder.''.$image_name.'">
+							</div>';
+					}
+					
+					mysql_close();
+				?>			
+			</div>
 	</div>
+	<script>
+		var myLazyLoad = new LazyLoad();
+	</script>
 	<footer>
 		Connect with Sporting Life: 
 		<a href="https://twitter.com/SportingLifeArt?ref_src=twsrc%5Etfw&ref_url=http%3A%2F%2F127.0.0.1%3A8020%2Fsportsentities.home%2Fconnect.html">
