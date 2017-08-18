@@ -1,4 +1,11 @@
 function addSeriesForm() {
+	var x=document.forms["seriesAddForm"]["AddSeriesID"].value;
+
+    if (x === null || x.trim() === "") {
+        alert("The series requires atleast one character!");
+        return false;
+    }
+    
   	if(confirm("Are you sure you want to ADD the series?") == true) {
   		//alert("You added the series");
   	}

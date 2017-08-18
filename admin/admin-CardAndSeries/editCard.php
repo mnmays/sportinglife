@@ -75,41 +75,6 @@
 		echo "Series " .$seriesID. " does not exist or has no cards contained within and therefore cannot be edited.";
 		exit;
 	}
-	
-	//Checks to see if the series they want to change the card too exists
-	//Additionally checks if the card for the new series already exists
-	if($newSeriesID) {
-		$checkSeries = "SELECT count(*) FROM series WHERE seriesID='$newSeriesID'";
-		$checkSeriesResult = $conn->prepare($checkSeries);
-		$checkSeriesResult->execute();
-		$checkSeriesNumRows = $checkSeriesResult->fetchColumn();
-		if($checkSeriesNumRows == 0) {
-			echo "Series " .$newSeriesID. " does not exist.";
-			exit;
-		}	
-		
-		$checkSeriesCard = "SELECT count(*) FROM cards WHERE seriesID='$newSeriesID' AND cardNumber='$cardNumber'";
-		$checkSeriesCardResult = $conn->prepare($checkSeriesCard);
-		$checkSeriesCardResult->execute();
-		$checkSeriesCardNumRows = $checkSeriesCardResult->fetchColumn();
-		if($checkSeriesCardNumRows > 0) {
-			echo "The card you are changing the series of already has a card for that particular series and therefore cannot be edited.";
-			exit;
-		}			
-	}
-	
-	//Checks for when only the cardNumber is being updated if the current series already contains that card
-	if($newCardNumber) {
-		$checkCard = "SELECT count(*) FROM cards WHERE seriesID='$seriesID' AND cardNumber='$newCardNumber'";
-		$checkCardResult = $conn->prepare($checkCard);
-		$checkCardResult->execute();
-		$checkCardNumRows = $checkCardResult->fetchColumn();
-		if($checkCardNumRows > 0) {
-			echo "That card already exists for that particular series and therefore cannot be edited.";
-			exit;
-		}
-	}
-
 
 	//Checks if the card for a certain series already exists
 	if($seriesID != $newSeriesID || $cardNumber != $newCardNumber) {

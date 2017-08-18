@@ -8,9 +8,9 @@
 	<script src="lazyload.min.js"></script>
   	<style> 
 			#container {
-			float: left;
-			width: 100%;
-			padding: 1%;
+				float: left;
+				width: 100%;
+				padding: 1%;
 			}
 			
 			#column1 {
@@ -19,6 +19,7 @@
 				width: 10%;
 				height: 100%;
 				padding-top: 1%;
+                                
 				background-color: #a8c9ff;
 			}
 			
@@ -26,7 +27,7 @@
 				float: left;
 				width: 89%;
 				padding-top: 1%;
-				padding-left: 1%;			
+		                padding-left: 1%;
 			}
 			
 			#myDiv {
@@ -38,12 +39,17 @@
 				margin: 5px;
 				border: 1px solid #ccc;
 				float: left;
-				width: 480px;
+				width: auto;
+                                height: 360px;
+				min-height: 300px;
+                                max-height: 400px;
+                                min-width: 300px;
+      
 			}
 			
 			div.gallery img {
-				width: 100%;
-				height: auto;
+				width: auto;	
+                                height: 360px;
 			}
 	</style>
 </head>
@@ -126,6 +132,8 @@
 	</div>
 	<script>
 		var myLazyLoad = new LazyLoad();
+		
+		myLazyLoad.update();
 	</script>
 	<footer>
 		Connect with Sporting Life: 

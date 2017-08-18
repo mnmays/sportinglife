@@ -1,9 +1,9 @@
 <?php
-session_start(); 
-if (!isset($_SESSION["userid"]))
-{
-	header("location:admin-login.php");
-}
+//session_start(); 
+//if (!isset($_SESSION["userid"]))
+//{
+	//header("location:../admin-login.php");
+//}
 ?>
 
 <!DOCTYPE html>
@@ -18,8 +18,64 @@ if (!isset($_SESSION["userid"]))
 		<link rel="styleSheet" href = "../styles/generalAdmin.css">
 		<link rel="styleSheet" href = "../styles/admin_hompage.css">
 	</head>
-  
+	<script>
+		function addCustomForm() {
+			var x=document.forms["customAddForm"]["AddCustomItemDesc"].value;
+			var y=document.forms["customAddForm"]["AddCustomItemSize"].value;
+			var z=document.forms["customAddForm"]["AddCustomItemPrice"].value;
+			
+		    if (x === null || x.trim() === "") {
+		        alert("The custom item name cannot be blank!");
+		        return false;
+		    }
+		    
+		   	if (y === null || y.trim() === "") {
+		        alert("The custom item size cannot be blank!");
+		        return false;
+		    }
+		    
+		   	if (z === null || z.trim() === "") {
+		        alert("The custom item price cannot be blank!");
+		        return false;
+		    }
+		    
+		  	if(confirm("Are you sure you want to ADD the custom item?") == true) {
+		  		//alert("You added the series");
+		  	}
+		  	
+		  	else {
+		  		//alert("Canceled! Series not added!");
+		  		return false;
+		  	}
+		}
+		
+		function editCustomForm() {
+			var w=document.forms["customEditForm"]["EditCustomItemChangeDesc"].value;
 
+			if (w === null || w.trim() === "") {
+		        alert("The custom item name cannot be blank!");
+		        return false;
+		    }
+
+			 if(confirm("Are you sure you want to EDIT this custom item?") == true) {
+		  		//alert("You eidted the item");
+		  	}
+		  	else {
+		  		//alert("Canceled! Item not edited!");
+		  		return false;
+		  	}
+		}
+		
+		function deleteCustomForm() {
+		  	if(confirm("Are you sure you want to DELETE this custom item?") == true) {
+		  		//alert("You deleted the item");
+		  	}
+		  	else {
+		  		//alert("Canceled! Item not deleted!");
+		  		return false;
+		  	}
+		}
+	</script>
 <body style="background-image:url(../../images/comerica-park-artwork.jpg); 
 	opacity: 0.95" >
 	<header>
@@ -60,9 +116,6 @@ if (!isset($_SESSION["userid"]))
 	<article style= "background-color: white;">
 		<div id="article" style="overflow-y:scroll;">
 			<!--- this file allows the administrator to add, delete, and update the custome items available to the customer on the site --->
-	<head>				
-		<script type="text/javascript" src="JS/admin-custom-items_JS.js"></script>
-	</head>
 	<body>
 		<h1><u>CUSTOM ITEMS ADMIN OPTIONS</u></h1>
 		<h2><u>ADD CUSTOM ITEM</u></h2>
@@ -91,9 +144,8 @@ if (!isset($_SESSION["userid"]))
 			Enter the <u>name</u> of the custom item you would like to delete: <input type="text" name="DeleteCustomItemDesc" /></br></br>
 			<input type="submit" value="Submit">
 		</form>
-	</body>
-		
-		</div> <! -- end article div -->
+	</body>		
+		</div> <!-- end article div -->
 	</article>
 	
 </body>

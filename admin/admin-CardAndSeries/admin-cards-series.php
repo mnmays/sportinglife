@@ -1,9 +1,9 @@
 <?php
-session_start(); 
-if (!isset($_SESSION["userid"]))
-{
-	header("location:admin-login.php");
-}
+//session_start(); 
+//if (!isset($_SESSION["userid"]))
+//{
+	//header("location:../admin-login.php");
+//}
 ?>
 
 <!DOCTYPE html>
@@ -17,8 +17,113 @@ if (!isset($_SESSION["userid"]))
 		<script src = "admin-login-validation.js"></script>
 		<link rel="styleSheet" href = "../styles/generalAdmin.css">
 		<link rel="styleSheet" href = "styles/admin_hompage.css">
-
 	</head>
+
+<script>
+	function addSeriesForm() {
+		var x=document.forms["seriesAddForm"]["AddSeriesID"].value;
+	
+	    if (x === null || x.trim() === "") {
+	        alert("The series requires atleast one character!");
+	        return false;
+	    }
+	    
+	  	if(confirm("Are you sure you want to ADD the series?") == true) {
+	  		//alert("You added the series");
+	  	}
+	  	else {
+	  		//alert("Canceled! Series not added!");
+	  		return false;
+	  	}
+	}
+	
+	function editSeriesForm() {
+		var x=document.forms["seriesEditForm"]["EditSeriesID"].value;
+		var y=document.forms["seriesEditForm"]["NewSeriesID"].value;
+	
+	    if (x === null || x.trim() === "") {
+	        alert("The series requires atleast one character!");
+	        return false;
+	    }
+	    
+	   	if (y === null || y.trim() === "") {
+	        alert("The series requires atleast one character!");
+	        return false;
+	    }
+	    
+	  	if(confirm("Are you sure you want to EDIT the series?") == true) {
+	  		//alert("You edited the series");
+	  	}
+	  	else {
+	  		//alert("Canceled! Series not edited!"); 
+	  		return false;
+	  	}
+	}
+	
+	function deleteSeriesForm() {
+	  	if(confirm("Are you sure you want to DELETE the series?") == true) {
+	  		//alert("You deleted the series");
+	  	}
+	  	else {
+	  		//alert("Canceled! Series not deleted!");
+	  		return false;
+	  	}
+	}
+	
+	function addCardForm() {
+		var x=document.forms["cardAddForm"]["AddCardNumber"].value;
+		var y=document.forms["cardAddForm"]["AddCardName"].value;
+	
+	    if (x === null || x.trim() === "") {
+	        alert("The card number cannot be empty!");
+	        return false;
+	    }
+	    
+	   	if (y === null || y.trim() === "") {
+	        alert("The card name must contain atleast one character!");
+	        return false;
+	    }
+	    
+	  	if(confirm("Are you sure you want to ADD the card?") == true) {
+	  		//alert("You added the card");
+	  	}
+	  	else {
+	  		//alert("Canceled! Card not added!");
+	  		return false;
+	  	}
+	}
+	
+	function editCardForm() {
+		var x=document.forms["cardEditForm"]["NewSeriesID"].value;
+		var y=document.forms["cardEditForm"]["NewCardNumber"].value;
+	
+	    if (x === null || x.trim() === "") {
+	        alert("The new series number cannot be empty!");
+	        return false;
+	    }
+	    
+	   	if (y === null || y.trim() === "") {
+	        alert("The new card number cannot be empty!");
+	        return false;
+	    }
+	    
+	  	if(confirm("Are you sure you want to EDIT this card?")==true) {
+	  		//alert("You edited the card");
+	  	}else {
+	  		return false;
+	  	}
+	}
+	
+	function deleteCardForm() {
+	  	if(confirm("Are you sure you want to DELETE the card?") == true) {
+	  		//alert("You deleted the card");
+	  	}
+	  	else {
+	  		//alert("Canceled! Card not deleted!");
+	  		return false;
+	  	}
+	}
+</script>
   
 
 <body style="background-image:url(../../images/comerica-park-artwork.jpg); 
@@ -60,10 +165,7 @@ if (!isset($_SESSION["userid"]))
 	
 	<article style= "background-color: white;">
 		<div id="article" style="overflow-y:scroll;">
-			<!--- this file allows the administrator to add, delete, and update the cards and series that are visible on the website --->
-	<head>
-		<script type="text/javascript" src="admin-cards-series_JS.js"></script>
-	</head>
+			<!--- this file allows the administrator to add, delete, and update the cards and series that are visible on the website --->	
 	<body>
 		<h1><u>SERIES ADMIN OPTIONS</u></h1>
 		<h2><u>ADD SERIES</u></h2>
@@ -97,10 +199,10 @@ if (!isset($_SESSION["userid"]))
 		
 		<h2><u>EDIT CARD</u></h2>
 		<form method="post" id="cardEditForm" name="cardEdit" action="editCard.php" onsubmit="return editCardForm()" enctype="multipart/form-data">
-			Enter the <u>series number</u> of the card you would like to edit: <input type="text" name="EditSeriesID" /> </br></br>
-			Enter the <u>card number</u> you would like to edit: <input type="text" name="EditCardNumber" /></br></br>
-			Enter the cards new <u>series number</u>: <input type="text" name="NewSeriesID"	/></br></br>
-			Enter the cards new <u>card number</u>: <input type="text" name="NewCardNumber" /></br></br>			
+			Enter the <u>series number</u> of the card you would like to edit: <input type="text" name="EditSeriesID" required/> </br></br>
+			Enter the <u>card number</u> you would like to edit: <input type="text" name="EditCardNumber" required/></br></br>
+			Enter the cards new <u>series number</u>: <input type="text" name="NewSeriesID"	required/></br></br>
+			Enter the cards new <u>card number</u>: <input type="text" name="NewCardNumber" required/></br></br>			
 			Enter the cards new <u>player name</u>: <input type="text" name="EditCardName" /><br></br>		
 			Upload the cards new <u>image</u>: <input type="file" name="fileToUpload" id="fileToUpload" ></br></br>
 			<input type="submit" value="Submit">
