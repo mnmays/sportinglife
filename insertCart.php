@@ -12,8 +12,9 @@ require_once('database.php');
 	$userID= filter_input(INPUT_POST,'userID');
 	$userID = htmlspecialchars($userID);
 	
-	$image = filter_input(INPUT_POST,'image');
-	$image = htmlspecialchars($image);
+	//$image = filter_input(INPUT_POST,'image');
+	//$image = htmlspecialchars($image);
+$image=addslashes(file_get_contents($_FILES['image']['tmp_name']));
 	
 	$message= filter_input(INPUT_POST,'message');
 	$message=htmlspecialchars($message);
@@ -46,10 +47,10 @@ require_once('database.php');
 	 //echo $desc;
 	 
 	
-		$insertQuery="INSERT INTO shoppingCart (userID,itemID,itemDesc,uploadedImg,specInstr,quantity,price,totalCost) VALUES ('$_SESSION[userID]',:id1,'$desc',:image1,:message1,:quantity1,'$price','$totalCost')";
+		$insertQuery="INSERT INTO shoppingCart (userID,itemID,itemDesc,uploadedImg,specInstr,quantity,price,totalCost) VALUES ('$_SESSION[userID]',:id1,'$desc','$image',:message1,:quantity1,'$price','$totalCost')";
 		$insertStatement = $db-> prepare($insertQuery);
 		$insertStatement->bindValue(':id1', $itemId);
-		$insertStatement->bindValue(':image1', $image);
+		//$insertStatement->bindValue(':image1', $image);
 		$insertStatement->bindValue(':message1', $message);
 		$insertStatement->bindValue(':quantity1', $quantity);
 		$insertStatement->execute();

@@ -43,6 +43,8 @@ font-weight:700
 #myForm div
 {
 font-size:14px
+display: inline-block;
+text-align: center;
 }
 
 #whiteSpace    /*Styling for ebay carousel*/

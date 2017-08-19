@@ -94,7 +94,7 @@ $id=session_id();
 <div id="popupContact">
 <!-- Contact Us Form -->
 
-<form action="insertCart.php" id="myForm" method="post"  name="form">   <!--upon submitting the form, insert the order details into the cart table in DB-->
+<form action="insertCart.php" id="myForm" method="post"  name="form" enctype="multipart/form-data">   <!--upon submitting the form, insert the order details into the cart table in DB-->
 	<img id="close" src="images/close.png" onclick ="div_hide()">
 <h3>Enter order details below</h3>
 			<table>

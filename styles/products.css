@@ -63,6 +63,8 @@ display: inline-block;
 span       /*for validation messages */
 {
 color:green;
+ position: absolute;
+ right:7px;
 }
 
 #myForm div

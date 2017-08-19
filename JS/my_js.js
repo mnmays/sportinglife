@@ -146,8 +146,8 @@ function checkForm()  //client side validation
 		alert("Success!");
 			var xmlhttp;
 			xmlhttp = new XMLHttpRequest();
-			xmlhttp.open("GET", "shopping-cart.php?cookie="+cookie,true);
-			//xmlhttp.open("GET", "shopping-cart.php",true);
+			//xmlhttp.open("GET", "shopping-cart.php?cookie="+cookie,true);
+			xmlhttp.open("GET", "shopping-cart.php",true);
 			xmlhttp.send();
 		}
 	}

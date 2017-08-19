@@ -92,6 +92,7 @@ $itemList=$viewStmt->fetchAll();
 $viewStmt->closeCursor(); ?>
 <table>
 	<tr>
+		<th>Image</th>
 		<th>Item Name</th>
 		<th>Quantity</th>
 		<th>Price</th>
@@ -104,7 +105,7 @@ $totalShip=0;
 foreach($itemList as $item) {
 			
 		$cartID=$item['cartID'];
-		echo '<div class="item"><tr><th> ' . $item['itemDesc'] ."</th><th> ".$item['quantity'].'</th><th> '. $item['price'] . "</th><th> ".$item['totalCost'].'</th><td><button class="button" onclick="div_show2( '. $item['cartID'] .')">Edit Qty</button></td><td><a class="button" href=removeItem.php?varnam='. $item['cartID'] .'>Remove Item</a></td>'; 
+		echo '<div class="item"><tr><th><img style="width: 10%;" src="data:image/jpeg;base64, '.base64_encode($item['uploadedImg']) . ' "></th><th> ' . $item['itemDesc'] ."</th><th> ".$item['quantity'].'</th><th> '. $item['price'] . "</th><th> ".$item['totalCost'].'</th><td><button class="button" onclick="div_show2( '. $item['cartID'] .')">Edit Qty</button></td><td><a class="button" href=removeItem.php?varnam='. $item['cartID'] .'>Remove Item</a></td>'; 
 		
 		$totalCart = $totalCart + $item['totalCost'];
 		$totalQty = $totalQty + $item['quantity'];

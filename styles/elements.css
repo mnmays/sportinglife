@@ -119,7 +119,7 @@ border-radius:5px
 }
 span {     /*for validation messages */
 color:red;
-font-weight:700
+font-weight:700;
 }
 /*
 button {       
