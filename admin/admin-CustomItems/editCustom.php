@@ -3,7 +3,6 @@
 	
 	$customItemDesc = $_POST['EditCustomItemDesc']; 												//Needed to edit the specified item
 	$newCustomItemDesc = $_POST['EditCustomItemChangeDesc'];										//Holds the new name of the custom item
-	$customItemSize = $_POST['EditCustomItemSize'];													//Holds the new size of the custom item	
 	$customItemPrice = $_POST['EditCustomItemPrice'];												//Holds the new price of the custom item
 	$customItemImage = addslashes(file_get_contents($_FILES['EditCustomItemImage']['tmp_name']));	//Holds the new image for the custom item
 	
@@ -23,17 +22,6 @@
 	if($result1->rowCount() > 0) {
 		echo "That custom item already exists. ";
 		exit;
-	}
-
-	//Updates the custom item size
-	if($customItemSize) {
-		$sql2 = "UPDATE customitems SET itemSize='$customItemSize' WHERE itemDesc='$customItemDesc'";
-		$result2 = $conn->prepare($sql2);
-		if($result2->execute()) {
-			echo "Custom Item Size changed to " .$customItemSize. "</br>";
-		}else {
-			echo "Custom Item Size failed to edit</br>";
-		}
 	}
 	
 	//Updates the custom item price

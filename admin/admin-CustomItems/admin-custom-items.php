@@ -1,9 +1,9 @@
 <?php
-//session_start(); 
-//if (!isset($_SESSION["userid"]))
-//{
-	//header("location:../admin-login.php");
-//}
+session_start(); 
+if (!isset($_SESSION["userid"]))
+{
+	header("location:../admin-login.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -21,18 +21,12 @@
 	<script>
 		function addCustomForm() {
 			var x=document.forms["customAddForm"]["AddCustomItemDesc"].value;
-			var y=document.forms["customAddForm"]["AddCustomItemSize"].value;
 			var z=document.forms["customAddForm"]["AddCustomItemPrice"].value;
 			
 		    if (x === null || x.trim() === "") {
 		        alert("The custom item name cannot be blank!");
 		        return false;
-		    }
-		    
-		   	if (y === null || y.trim() === "") {
-		        alert("The custom item size cannot be blank!");
-		        return false;
-		    }
+		    }		 
 		    
 		   	if (z === null || z.trim() === "") {
 		        alert("The custom item price cannot be blank!");
@@ -122,7 +116,6 @@
 		<form method="post" id="customAddForm" name="customAdd" action="addCustom.php" onsubmit="return addCustomForm()" enctype="multipart/form-data">
 			<!--Needed to add the name of the item to have a way for him to be able to easily remove the item as well-->
 			Enter the <u>name</u> of the custom item: <input type="text" name="AddCustomItemDesc" required/></br></br>
-			Enter the <u>size</u> of the custom item: <input type="text" name="AddCustomItemSize" required/></br></br>
 			Enter the <u>price</u> of the custom item: <input type="text" name="AddCustomItemPrice" required/></br></br>
 			Upload the <u>image</u> of the custom item: <input type="file" name="AddCustomItemImage" required/></br></br>			
 			<input type="submit" value="Submit">	
@@ -133,7 +126,6 @@
 			<!--Needed to add the name of the item to have a way for him to be able to easily remove the item as well-->
 			Enter the <u>name</u> of the custom item you would like to edit(this field is required): <input type="text" name="EditCustomItemDesc" required/></br></br>
 			Enter the <u>name</u> you would like to change the custom item to: <input type="text" name="EditCustomItemChangeDesc" /></br></br>
-			Enter the <u>size</u> of the custom item you would like to edit: <input type="text" name="EditCustomItemSize" /></br></br>
 			Enter the <u>price</u> of the custom item you would like to edit: <input type="text" name="EditCustomItemPrice" /></br></br>
 			Upload the <u>image</u> of the custom item you would like to edit: <input type="file" name="EditCustomItemImage"></br></br>			
 			<input type="submit" value="Submit">	

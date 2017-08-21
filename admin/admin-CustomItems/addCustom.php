@@ -1,7 +1,6 @@
 <?php 
 	include 'connectionFile/connection.php';
-	
-	$customItemSize = $_POST['AddCustomItemSize'];
+
 	$customItemDesc = $_POST['AddCustomItemDesc'];
 	$customItemPrice = $_POST['AddCustomItemPrice'];
 	$customItemImage = addslashes(file_get_contents($_FILES['AddCustomItemImage']['tmp_name']));
@@ -14,7 +13,7 @@
 		exit;
 	}
 			
-	$sql1 = "INSERT INTO customitems (itemImage, itemSize, itemDesc, itemPrice) VALUES ('$customItemImage', '$customItemSize', '$customItemDesc', '$customItemPrice')";
+	$sql1 = "INSERT INTO customitems (itemImage, itemDesc, itemPrice) VALUES ('$customItemImage', '$customItemDesc', '$customItemPrice')";
 	$result1 = $conn->prepare($sql1);
 	if($result1->execute()) {
 		echo "Custom item: " .$customItemName. " was inserted";

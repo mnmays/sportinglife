@@ -1,9 +1,9 @@
 <?php
-//session_start(); 
-//if (!isset($_SESSION["userid"]))
-//{
-	//header("location:../admin-login.php");
-//}
+session_start(); 
+if (!isset($_SESSION["userid"]))
+{
+	header("location:../admin-login.php");
+}
 ?>
 
 <!DOCTYPE html>
