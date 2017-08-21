@@ -10,7 +10,7 @@ $id=session_id();
 <html>
 <head>
 <title>Sporting Life Products</title>
-<link href="styles/elements.css" rel="stylesheet">
+<link rel = "stylesheet" href = "styles/elements.css">
 <link rel = "stylesheet" href = "styles/products.css">
 <link rel="stylesheet" href = "styles/generalStyles.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -95,9 +95,9 @@ $id=session_id();
 <!-- Contact Us Form -->
 
 <form action="insertCart.php" id="myForm" method="post"  name="form" enctype="multipart/form-data">   <!--upon submitting the form, insert the order details into the cart table in DB-->
-	<img id="close" src="images/close.png" onclick ="div_hide()">
+	<img id="close" src="images/styledClose.png" onclick ="div_hide()">
 <h3>Enter order details below</h3>
-			<table>
+<table>
 			<tr>
 			<td><input id="id1" name="id" type="hidden"></td>
 			<td><div id='id'></div></td>
@@ -123,7 +123,7 @@ $id=session_id();
 			</tr>
 			</table>
 
-			<input onclick="return checkForm()" type='submit' value='Add to Cart'>
+			<input id="submitBtn" onclick="return checkForm()" type='submit' value='Add to Cart'>
 </form>
 </div>
 <!-- Popup Div Ends Here -->

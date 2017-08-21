@@ -33,10 +33,10 @@ overflow:auto
 }
 img#close {    /*the "x" on the forms upper right corner */
 position:absolute;
-height:20px;
-width:20px;
-right:-14px;
-top:-14px;
+height:auto;
+width:30px;
+right:15px;
+top:10px;
 cursor:pointer
 }
 div#popupContact {  /*Styling for pop up forms */
@@ -44,7 +44,7 @@ position:absolute;
 left:50%;
 top:17%;
 margin-left:-202px;
-font-family:'Raleway',sans-serif
+font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; 
 }
 form {   /*Styling for forms */
 max-width:500px;
@@ -52,8 +52,8 @@ min-width:350px;
 padding:10px 50px;
 border:2px solid gray;
 border-radius:10px;
-font-family:raleway;
-background-color:#fff
+font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; 
+background-color:#E7E1D4
 }
 p {
 margin-top:30px
@@ -77,7 +77,7 @@ margin-top:30px;
 border:1px solid #ccc;
 padding-left:40px;
 font-size:16px;
-font-family:raleway
+font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; 
 }
 #name {
 background-image:url(../images/name.jpg);
@@ -101,7 +101,7 @@ margin-top:30px;
 border:1px solid #ccc;
 padding-left:40px;
 font-size:16px;
-font-family:raleway;
+font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; 
 margin-bottom:30px
 }
 #submit {
@@ -117,19 +117,10 @@ font-size:20px;
 cursor:pointer;
 border-radius:5px
 }
-span {     /*for validation messages */
+
+span 
+{     /*for validation messages */
 color:red;
 font-weight:700;
 }
-/*
-button {       
-width:125px;
-height:45px;
-border-radius:3px;
-background-color:#cd853f;
-color:#fff;
-font-family:'Raleway',sans-serif;
-font-size:18px;
-cursor:pointer
-}
-*/
+

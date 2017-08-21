@@ -86,7 +86,10 @@
 <!----Twitter drop down---->
 	<div id="Twitflip">Twitter</div>
 	<div id="twitTmln">
-			<a class="twitter-timeline" href="https://twitter.com/SportingLifeArt">Tweets by SportingLifeArt</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+		<!--	
+			<a class="twitter-timeline" href="https://twitter.com/SportingLifeArt">Tweets by SportingLifeArt</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8" height="525"></script>
+		-->
+		<a class="twitter-timeline" data-lang="en" data-height="525" data-theme="light" href="https://twitter.com/SportingLifeArt">Tweets by SportingLifeArt</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 	</div>
 </p>
 <p>	
@@ -103,7 +106,7 @@
 <!--automated email pop up-->
 <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us16.list-manage.com","uuid":"8dc7b50f207d24c0ecad1254a","lid":"7017efd374"}) })</script>
 	
-			<iframe id="blogFrame" src="http://meganmays.blogspot.com">
+			<iframe id="blogFrame" src="http://sportinglifecards.blogspot.com/">
   			<p>Your browser does not support iframes.</p>
 			</iframe>
 <!--end automated pop up --> 

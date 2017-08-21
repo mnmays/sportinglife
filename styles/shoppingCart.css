@@ -30,18 +30,34 @@ display: inline-block;
 
 .button
 {
-    display: block;
-    width: 115px;
-    height: 25px;
-    background: #4E9CAF;
-    padding: 10px;
+	width: 300px; 
     text-align: center;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-	
+    font-size: 20px; 
+    color: white; 
+    background-color: #314a73;
+    border: solid 1px #c3c3c3;
+    cursor: pointer; 
+    padding-left: 15px; 
+    padding-right: 15px; 
+    padding-top: 5px; 
+    padding-bottom: 5px; 
+    text-decoration: none; 
 }
 
+th
+{
+	color: #2a4e7e; 
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; 
+	font-size: 115%; 
+	margin-left: 40px;
+	padding-right: 10px; 
+}
+
+article
+{
+	margin-left: 40px; 
+	margin-right:40px; 
+}
 
 span       /*for validation messages */
 {
@@ -61,4 +77,13 @@ font-size:14px
 .auction-nudge   /*Styling for ebay carousel*/
 {
 	color: white;
+}
+
+footer
+{
+	position: fixed; 
+	   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
 }

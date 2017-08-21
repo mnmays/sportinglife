@@ -13,47 +13,28 @@ if (!isset($_SESSION["userID"]))
 
 <!DOCTYPE html>
 <html>
+	
 <head>
-<title>Popup contact form</title>
+<title>Sporting Life Cards Shopping Cart</title>
 <link href="styles/elements.css" rel="stylesheet">
 <link rel = "stylesheet" href = "styles/shoppingCart.css">
 <link rel="styleSheet" href = "styles/generalStyles.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script src="JS/my_js.js"></script>
-<style>
-.button 
-{
-  background-color: #314a73;
-  color: white;
-  padding: 2px 6px 2px 6px;
-  border-top: 1px solid #CCCCCC;
-  border-right: 1px solid #333333;
-  border-bottom: 1px solid #333333;
-  border-left: 1px solid #CCCCCC;
-}
-
-#buttons
-{
-padding-bottom: 20px; 
-}
-</style>
 </head>
-<header style="
-	background-image:url(images/comerica-park-artwork.jpg); 
-	background-size: cover;
-	" >
-	<img src="images/logo.png" alt="Sporting Life Logo" id="logo">
-   	 <link rel = "stylesheet" href = "styles/products.css">
-	<link rel="styleSheet" href = "styles/generalStyles.css">
-    </header>
+
+<header style="background-image:url(images/LongWoodPlanksBkgrnd.jpg)"; >
+	<img id="logo" src="images/logo.png" />
+</header>
+
 <!-- Body Starts Here -->
 <body id="body">
 	<?php
 	
 	?>
-	
+    
 <nav>
 		<ul>
 			<li class="active">
@@ -63,19 +44,18 @@ padding-bottom: 20px;
 				<a href="cardSets/cardFiles/card-sets.php" id="cardSets">Card Sets</a>
 			</li>
 			<li class="active">
-				<a href="about-sporting-life.html" id="abtCreator">About the Creator</a>
+				<a href="about-sporting-life.html" id="abtCreator">About </a>
 			</li>
 			<li class="active">
-				<a href="connect.php" id="connect">Connect with Sporting Life</a>
+				<a href="connect.php" id="connect">Contact Sporting Life</a>
 			</li>
-			<li class="active">
-				<a href="shopping-cart.php" id="cart">Shopping Cart</a>
+			<li style="float:right" class="active">
+				<a href="shopping-cart.php" id="cart"><img id="shopping-cart" src="images/shopping-cart.png"/></a>
 			</li>
 		</ul>
 </nav>
-
-
-<script src="JS/my_js.js"></script>
+<article>
+	
 
 <?php	
 
@@ -183,22 +163,18 @@ foreach($itemList as $item) {
 </div>
 <!-- Popup Div Ends Here -->
 </div>
+</article>
 
-
-</body>
 <footer>
-   	 <div id="SMlinks">
-   		 Connect with Sporting Life:
-   	 <a href="https://twitter.com/SportingLifeArt?ref_src=twsrc%5Etfw&ref_url=http%3A%2F%2F127.0.0.1%3A8020%2Fsportsentities.home%2Fconnect.html">
-   	 	<img src="images/twitterlogo.png" alt="twitter icon" id="TwitLogo"/>
-		 </a>
-		 <a href="https://www.facebook.com/SportingLifeCards/">
-		 	<img src="images/facebooklogo.png" alt="facebook icon" id="FBLogo"/>
-   	 </a>
-		 <a href="https://www.pinterest.com/jandrews3d/sporting-life-art-cards-collectibles/?fb_ref=528962056142023372%3Acba652a7869654e0e616">
-		 	<img src="images/pintlogo.png" alt ="pinterest icon" id="pinLogo"/>    		 
-		 </a>
-   	 </div>
-    </footer>
+	<center>
+		<a href="https://twitter.com/SportingLifeArt?ref_src=twsrc%5Etfw&ref_url=http%3A%2F%2F127.0.0.1%3A8020%2Fsportsentities.home%2Fconnect.html">
+			<img src="images/whiteTwit.png" alt="Sporitng Life Twitter" id="TwitLogo"/></a>
+			<a href="https://www.facebook.com/SportingLifeCards/"><img src="images/whiteFB.png" alt="Sporting Life Facebook" id="FBLogo"/></a>
+					<a href="https://www.pinterest.com/jandrews3d/sporting-life-art-cards-collectibles/?fb_ref=528962056142023372%3Acba652a7869654e0e616">
+ 			<img src="images/whitePint.png" alt ="Sporting Life Pintrest" id="pinLogo"/>
+ 		</a>
+ 	</center>
+</footer>
+</body>
 <!-- Body Ends Here -->
 </html>

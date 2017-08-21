@@ -58,6 +58,16 @@ display: inline-block;
 
 }
 
+button 
+{       
+	background-color: #314a73;
+	color: white; 
+	font-size: 100%; 
+	padding-left: 15px; 
+	padding-right: 15px; 
+	padding-top: 7px; 
+	padding-bottom: 7px;
+}
 
 
 span       /*for validation messages */

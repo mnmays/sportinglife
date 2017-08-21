@@ -37,7 +37,7 @@ display: inline-block;
 
 span {      /*for validation messages */
 color:red;
-font-weight:700
+font-weight:700; 
 }
 
 #myForm div

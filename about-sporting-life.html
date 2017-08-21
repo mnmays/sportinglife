@@ -5,50 +5,92 @@
 	includes images & text. 
 -->
 <head>
-	<link rel="stylesheet" type="text/css" href="styles/generalStyles.css">
-	<link rel="stylesheet" type="text/css" href="styles/abtSportingLife.css">
-<header style="
-	background-image:url(images/comerica-park-artwork.jpg); 
-	background-size: cover;
-	" >
-	<img src="images/logo.png" id="logo" alt="sporting life logo">
+	<title>Sporting Life - About</title>
+	<link rel="stylesheet" href="styles/abtSportingLife.css">
+	<link rel="stylesheet" href="styles/generalStyles.css">
+</head>
+<header style="background-image:url(images/LongWoodPlanksBkgrnd.jpg)"; >
+		<img id="logo" src="images/logo.png" />
 </header>
+<body>
 <nav>
 		<ul>
 			<li class="active">
 				<a href="products.php" id="products">Products</a>	
 			</li>
 			<li class="active">
-				<a href="card-sets.php" id="cardSets">Card Sets</a>
+				<a href="cardSets/cardFiles/card-sets.php" id="cardSets">Card Sets</a>
 			</li>
 			<li class="active">
-				<a href="about-sporting-life.html" id="abtCreator">About the Creator</a>
+				<a href="about-sporting-life.html" id="abtCreator">About </a>
 			</li>
 			<li class="active">
-				<a href="connect.php" id="connect">Connect with Sporting Life</a>
+				<a href="connect.php" id="connect">Contact Sporting Life</a>
+			</li>
+			<li style="float:right" class="active">
+				<a href="shopping-cart.php" id="cart"><img id="shopping-cart" src="images/shopping-cart.png"/></a>
 			</li>
 		</ul>
 </nav>
 <section>
-	<center>
+	<div align="center">
 		<p>
-			<button href="about-sporting-life.html#abtSL">About Sporting Life</button>
-			<button href="about-sporting-life.html#abtTC">About The Creator</button>
+			<a id="abtSLlabel" href="#abtSL">About Sporting Life</a>
+			<a id="abtCreatorLabel" href="#abtTC">About The Creator</a>
 		</p>
-	</center>
+	</div>
 	
-	<h3 id="abtSL">About Sporting Life</h3>
+	<!-- image gallery --> 
+	<a id="galleryLbl">Sporting Life Photos</a><br>
+			
+	<div id="imageGal">
+	<a class="images" rel="gallery" href="images/gallery/Charles&Jer.jpg"><img src="images/gallery/Charles&Jer.jpg" /></a>
+	<a class="images" rel="gallery" href="images/gallery/FamilyCardShows.jpg"><img src="images/gallery/FamilyCardShows.jpg" /></a>
+	<a class="images" rel="gallery" href="images/gallery/Gordie_SharpElbow.jpg"><img src="images/gallery/Gordie_SharpElbow.jpg" /></a>
+	<a class="images" rel="gallery" href="images/gallery/IwantYOU!to collectSportingLifeCards.jpg"><img src="images/gallery/IwantYOU!to collectSportingLifeCards.jpg" /></a>
+	<a class="images" rel="gallery" href="images/gallery/MontanaProof1.jpg"><img src="images/gallery/MontanaProof1.jpg" /></a>
+	<a class="images" rel="gallery" href="images/gallery/MontanaProof2.jpg"><img src="images/gallery/MontanaProof2.jpg" /></a>
+	<a class="images" rel="gallery" href="images/gallery/MontanaProof3.jpg"><img src="images/gallery/MontanaProof3.jpg" /></a>
+	<a class="images" rel="gallery" href="images/gallery/SCDartical1.jpg"><img src="images/gallery/SCDartical1.jpg" /></a>
+	<a class="images" rel="gallery" href="images/gallery/SportkingGang.wTXT.jpg"><img src="images/gallery/SportkingGang.wTXT.jpg" /></a>
+	<a class="images" rel="gallery" href="images/gallery/SCDartical2.jpg"><img src="images/gallery/SCDartical2.jpg" /></a>
+	<a class="images" rel="gallery" href="images/gallery/JerJim&Zak.jpg"><img src="images/gallery/JerJim&Zak.jpg" /></a>
+	<a class="images" rel="gallery" href="images/gallery/UncagedJA.jpg"><img src="images/gallery/UncagedJA.jpg" /></a>
+	</div> <!-- end image gallery div --> 
+	<!-- end image gallery --> 
+	
+	<h3 id="abtSL">About Sporting Life Cards</h3>
+	<p id="abtSLCPar">
+	
+	</p>
 	
 	<h3 id="abtTC">About The Creator</h3>
+	<p id="abtCreatorPar">
+		<img src="images/JAportraitSKB2015sm.jpg" id="creatorPic">		
+		A graduate of the Western Michigan University Art Department, Jerrold Andrews' interest in the creative process led to advanced levels
+		of painting, photography, multi-media, and art history before completing his Bachelors of Science degree in Graphic Design in 1983. 
+		Upon completion of an internship at CS&amp;A Advertising in Normal, Illinois, Andrews remained on staff for a year before excepting
+		a position at Ford Motor Company's Creative Art Unit where he was a Senior Group Leader in an art direction capacity. 
+		<br>
+		<br>
+		Mr. Andrew's relationship with the hobby community stems back to his childhood as a collector and retailer of trading cards 
+		and memorabilia. In 1993, Andrews procured the right to the coveted Sport Kings trademark, the first multi-sport gum trading
+		card product used by Goudey Gum company in the early 1930's. Soon there after, he founded Sport Entities, Inc. (SEI), providing both products
+		and services to the collectibles industry. SEI has provided product support and consultation for companies including Press Pass, 
+		Spectrum, and Classic. Andrews' most recent endeavor involves the creation of digital portraits using the classic Sport Kings 
+		format for both fine art and commerical applications. 
+	
+	</p>
 </section>
 <footer>
-			Connect with Sporting Life: 
+	<div align="center">
 		<a href="https://twitter.com/SportingLifeArt?ref_src=twsrc%5Etfw&ref_url=http%3A%2F%2F127.0.0.1%3A8020%2Fsportsentities.home%2Fconnect.html">
-			<img src="images/twitterlogo.png" alt="twitter icon" id="TwitLogo"/></a>
-			<a href="https://www.facebook.com/SportingLifeCards/"><img src="images/facebooklogo.png" alt="facebook icon" id="FBLogo"/></a>
+			<img src="images/whiteTwit.png" alt="Sporitng Life Twitter" id="TwitLogo"/></a>
+			<a href="https://www.facebook.com/SportingLifeCards/"><img src="images/whiteFB.png" alt="Sporting Life Facebook" id="FBLogo"/></a>
 					<a href="https://www.pinterest.com/jandrews3d/sporting-life-art-cards-collectibles/?fb_ref=528962056142023372%3Acba652a7869654e0e616">
- 			<img src="images/pintlogo.png" alt ="pinterest icon" id="pinLogo"/>
+ 			<img src="images/whitePint.png" alt ="Sporting Life Pintrest" id="pinLogo"/>
  		</a>
+ 	</div>
 </footer>
 </body>
 </html>
